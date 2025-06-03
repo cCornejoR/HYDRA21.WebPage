@@ -1,48 +1,232 @@
 ---
-// Footer.astro
+// Footer.astro - Professional Minimalist Design
 ---
 
-<footer class="relative z-10 bg-black/90 backdrop-blur-lg border-t border-blue-500/20 mt-auto">
-  <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
-    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-      <!-- Logo and Company Info -->
-      <div class="flex items-center space-x-3">
-        <img
-          src="/pipe_logo.svg"
-          alt="HYDRA²¹ Logo"
-          class="h-6 w-auto sm:h-7"
-        />
-        <div class="flex flex-col">
-          <span class="font-heading font-bold text-white text-sm sm:text-base tracking-tight">
-            <span class="gradient-text-blue-cyan">HYDRA</span><sup class="text-xs gradient-text-blue-cyan">²¹</sup>
-          </span>
+<footer class="relative z-10 bg-black/95 backdrop-blur-xl mt-auto border-t border-white/5">
+  <!-- Subtle top accent line -->
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 md:w-40 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"></div>
+  
+  <!-- Main Footer Content -->
+  <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 md:py-10 lg:py-12">
+    
+    <!-- Top Section: Company Info and Quick Links - Enhanced responsive -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+      
+      <!-- Brand Section - Enhanced responsive -->
+      <div class="flex flex-col items-center sm:items-start space-y-3 sm:space-y-4 col-span-1 sm:col-span-2 lg:col-span-1">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+          <img
+            src="/pipe_logo.svg"
+            alt="HYDRA²¹ Logo"
+            class="h-6 w-auto sm:h-7 md:h-8 lg:h-9 xl:h-10 opacity-90"
+          />
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-white text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight">
+              <span class="gradient-text-blue-cyan">HYDRA</span><sup class="text-xs sm:text-sm gradient-text-blue-cyan">²¹</sup>
+            </span>
+            <span class="text-xs text-gray-400 font-medium tracking-wider uppercase">Engineering Software</span>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-left max-w-xs leading-relaxed">
+          Soluciones avanzadas en ingeniería hidráulica con tecnología de vanguardia.
+        </p>
+      </div>
+
+      <!-- Quick Links - Enhanced responsive -->
+      <div class="flex flex-col items-center sm:items-start space-y-3 sm:space-y-4">
+        <h4 class="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider">Enlaces Rápidos</h4>
+        <nav class="flex flex-col space-y-1 sm:space-y-2">
+          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Productos</a>
+          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Documentación</a>
+          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Soporte</a>
+          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Contacto</a>
+        </nav>
+      </div>
+
+      <!-- Contact Info - Enhanced responsive -->
+      <div class="flex flex-col items-center sm:items-start space-y-3 sm:space-y-4">
+        <h4 class="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider">Contacto</h4>
+        <div class="flex flex-col space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
+          <div class="flex items-center justify-center sm:justify-start space-x-2">
+            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <span>info@hydra21.com</span>
+          </div>
+          <div class="flex items-center justify-center sm:justify-start space-x-2">
+            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Madrid, España</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider - Enhanced responsive -->
+    <div class="h-px bg-gradient-to-r from-transparent via-white/8 sm:via-white/10 to-transparent mb-4 sm:mb-6"></div>
+
+    <!-- Bottom Section: Social Links and Copyright - Enhanced responsive -->
+    <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+      
+      <!-- Social Media Links - Enhanced responsive -->
+      <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 md:space-x-6">
+        <span class="text-xs text-gray-500 uppercase tracking-wider font-medium order-2 sm:order-1">Síguenos:</span>
+        <div class="flex items-center space-x-3 sm:space-x-4 order-1 sm:order-2">
+          <a href="#" 
+             class="group relative p-2 sm:p-3 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110" 
+             aria-label="GitHub">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
+              GitHub
+            </div>
+          </a>
+          <a href="#" 
+             class="group relative p-2 sm:p-3 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110" 
+             aria-label="X (Twitter)">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
+              X (Twitter)
+            </div>
+          </a>
+          <a href="#" 
+             class="group relative p-2 sm:p-3 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110" 
+             aria-label="LinkedIn">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
+              LinkedIn
+            </div>
+          </a>
+          <a href="#" 
+             class="group relative p-2 sm:p-3 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110" 
+             aria-label="YouTube">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-red-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block">
+              YouTube
+            </div>
+          </a>
         </div>
       </div>
 
-      <!-- Copyright, Links and Social Icons -->
-      <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
-        <!-- Social Icons -->
-        <div class="flex items-center space-x-4">
-          <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 p-1 touch-manipulation" aria-label="GitHub">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors duration-200 p-1 touch-manipulation" aria-label="X (Twitter)">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 p-1 touch-manipulation" aria-label="LinkedIn">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
-        </div>
-        <span class="font-body text-xs sm:text-sm text-blue-300">
-          © 2025 Todos los derechos reservados.
+      <!-- Copyright and Legal - Enhanced responsive -->
+      <div class="flex flex-col items-center space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-4 md:space-x-6 text-center sm:text-right">
+        <span class="text-xs text-gray-500 order-2 sm:order-1">
+          © 2025 <span class="gradient-text-blue-cyan font-semibold">HYDRA²¹</span>. Todos los derechos reservados.
         </span>
+        <div class="flex items-center space-x-3 sm:space-x-4 text-xs text-gray-500 order-1 sm:order-2">
+          <a href="#" class="hover:text-cyan-400 transition-colors duration-300">Privacidad</a>
+          <span class="text-gray-600">•</span>
+          <a href="#" class="hover:text-cyan-400 transition-colors duration-300">Términos</a>
+          <span class="text-gray-600 hidden sm:inline">•</span>
+          <a href="#" class="hover:text-cyan-400 transition-colors duration-300 hidden sm:inline">Cookies</a>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Subtle bottom gradient -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent"></div>
 </footer>
+
+<style>
+  /* Footer responsive improvements */
+  @media (max-width: 640px) {
+    /* Hide tooltips on mobile for better UX */
+    .group:hover .absolute {
+      display: none;
+    }
+    
+    /* Improve social button touch targets */
+    .group {
+      min-width: 44px;
+      min-height: 44px;
+    }
+    
+    /* Adjust grid spacing for mobile */
+    footer .grid {
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    /* Tablet optimizations */
+    footer .container {
+      max-width: 100%;
+    }
+  }
+  
+  /* Enhance brand gradient text */
+  .gradient-text-blue-cyan {
+    background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+  }
+  
+  /* Smooth hover transitions for all links */
+  footer a {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  footer a:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Social media icons hover glow effect */
+  .group:hover svg {
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  
+  /* Enhanced tooltip styles */
+  .group .absolute {
+    transform: translateX(-50%) translateY(-120%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Responsive text scaling */
+  @media (max-width: 480px) {
+    footer h4 {
+      font-size: 0.75rem;
+    }
+    
+    footer p,
+    footer span:not(.gradient-text-blue-cyan),
+    footer a:not(.group) {
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Enhanced bottom gradient */
+  footer::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(6, 182, 212, 0.3) 25%,
+      rgba(59, 130, 246, 0.4) 50%,
+      rgba(6, 182, 212, 0.3) 75%,
+      transparent 100%
+    );
+    filter: blur(1px);
+  }
+</style>

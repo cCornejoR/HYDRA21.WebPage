@@ -2,7 +2,9 @@
 // Header.astro
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-transparent lg:py-4 lg:px-4 lg:mx-4 lg:mt-4 lg:rounded-xl shadow-none border border-transparent backdrop-blur-none">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out bg-transparent lg:py-4 lg:px-4 lg:mx-4 lg:mt-4 lg:rounded-xl shadow-none border border-transparent backdrop-blur-none">
+  <!-- Scroll progress indicator -->
+  <div id="scroll-progress" class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300 ease-out" style="width: 0%"></div>
   <nav class="w-full px-4 lg:container lg:mx-auto lg:px-8">
     <div class="flex justify-between items-center h-16 lg:h-14">
       <!-- Logo -->
@@ -78,44 +80,70 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Tu funcionalidad sticky original ✨ + responsive scroll behavior
     const header = document.getElementById('site-header');
+    const scrollProgress = document.getElementById('scroll-progress');
     let lastScrollY = window.scrollY;
     let ticking = false;
+    let isHeaderHidden = false;
 
     if (header) {
       const updateHeader = () => {
         const currentScrollY = window.scrollY;
-        const isDesktop = window.innerWidth >= 1024; // lg breakpoint
-        
-        // Sticky functionality (background change) - funciona diferente en mobile vs desktop
-        if (currentScrollY > 50) {
+        const isDesktop = window.innerWidth >= 1024;
+        const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = Math.min((currentScrollY / documentHeight) * 100, 100);
+
+        // Update scroll progress bar
+        if (scrollProgress) {
+          scrollProgress.style.width = `${scrollPercentage}%`;
+        }
+
+        // Enhanced sticky behavior with smooth transitions
+        if (currentScrollY > 20) {
           if (isDesktop) {
-            // Desktop: mantiene tu efecto flotante
+            // Desktop: floating card effect with subtle movement
             header.classList.remove('bg-transparent', 'lg:py-4', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
-            header.classList.add('bg-black/90', 'lg:py-2', 'shadow-lg', 'border-gray-800', 'backdrop-blur-lg');
+            header.classList.add('bg-black/90', 'lg:py-2', 'shadow-2xl', 'border-gray-700', 'backdrop-blur-xl');
+            
+            // Subtle parallax effect for desktop
+            const parallaxOffset = Math.min(currentScrollY * 0.1, 8);
+            header.style.transform = `translateY(${parallaxOffset}px)`;
           } else {
-            // Mobile: se pega completamente arriba
+            // Mobile: clean sticky header
             header.classList.remove('bg-transparent', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
-            header.classList.add('bg-black/95', 'shadow-lg', 'border-gray-800', 'backdrop-blur-lg');
+            header.classList.add('bg-black/95', 'shadow-xl', 'border-gray-700', 'backdrop-blur-xl');
           }
         } else {
+          // Reset to transparent state
           if (isDesktop) {
-            header.classList.remove('bg-black/90', 'lg:py-2', 'shadow-lg', 'border-gray-800', 'backdrop-blur-lg');
+            header.classList.remove('bg-black/90', 'lg:py-2', 'shadow-2xl', 'border-gray-700', 'backdrop-blur-xl');
             header.classList.add('bg-transparent', 'lg:py-4', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
+            header.style.transform = 'translateY(0)';
           } else {
-            header.classList.remove('bg-black/95', 'shadow-lg', 'border-gray-800', 'backdrop-blur-lg');
+            header.classList.remove('bg-black/95', 'shadow-xl', 'border-gray-700', 'backdrop-blur-xl');
             header.classList.add('bg-transparent', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
           }
         }
 
-        // Auto-hide/show functionality - funciona en ambos
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          // Scrolling down - hide header
-          header.style.transform = 'translateY(-100%)';
-        } else {
-          // Scrolling up - show header
+        // Improved auto-hide behavior
+        if (currentScrollY > 150 && scrollDirection === 'down' && !isHeaderHidden) {
+          // Hide header with smooth animation
+          header.style.transform = isDesktop ? 'translateY(-120%)' : 'translateY(-100%)';
+          header.style.opacity = '0.95';
+          isHeaderHidden = true;
+        } else if ((scrollDirection === 'up' || currentScrollY < 50) && isHeaderHidden) {
+          // Show header with bounce effect
+          header.style.transform = isDesktop ? `translateY(${Math.min(currentScrollY * 0.1, 8)}px)` : 'translateY(0)';
+          header.style.opacity = '1';
+          isHeaderHidden = false;
+        }
+
+        // Special behavior at top of page
+        if (currentScrollY === 0) {
           header.style.transform = 'translateY(0)';
+          header.style.opacity = '1';
+          isHeaderHidden = false;
         }
 
         lastScrollY = currentScrollY;
@@ -129,15 +157,29 @@
         }
       };
 
-      window.addEventListener('scroll', requestTick, { passive: true });
+      // Throttled scroll listener for better performance
+      let scrollTimeout: ReturnType<typeof setTimeout>;
+      window.addEventListener('scroll', () => {
+        requestTick();
+        
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+        
+        // Set new timeout to handle scroll end
+        scrollTimeout = setTimeout(() => {
+          if (window.scrollY === 0) {
+            updateHeader();
+          }
+        }, 150);
+      }, { passive: true });
       
-      // Handle window resize to recalculate header state
+      // Handle window resize
       window.addEventListener('resize', () => {
-        if (!ticking) {
-          requestAnimationFrame(updateHeader);
-          ticking = true;
-        }
+        requestTick();
       });
+
+      // Initialize header state
+      updateHeader();
     }
 
     // Funcionalidad del menú móvil
@@ -208,19 +250,43 @@
 </script>
 
 <style>
-  /* Header responsive transitions */
+  /* Enhanced header transitions with improved performance */
   header {
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease, 
-                border-color 0.3s ease, backdrop-filter 0.3s ease, 
-                box-shadow 0.3s ease, padding 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, background-color, backdrop-filter;
   }
 
-  /* Mobile specific styles */
+  /* Scroll progress bar styling */
+  #scroll-progress {
+    background: linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+  }
+
+  /* Mobile specific optimizations */
   @media (max-width: 1023px) {
     header {
       margin: 0 !important;
       border-radius: 0 !important;
       padding: 0 !important;
+      transform: translateY(0) !important; /* Override desktop parallax on mobile */
+    }
+  }
+
+  /* Desktop enhancements */
+  @media (min-width: 1024px) {
+    header {
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    header:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
     }
   }
 
@@ -229,17 +295,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 100%;
+    animation: gradientShift 4s ease-in-out infinite;
   }
 
-  /* Mobile menu animations */
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Enhanced mobile menu animations */
   #mobile-menu {
-    animation: slideDown 0.3s ease-out;
+    animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(20px);
   }
 
   @keyframes slideDown {
     from {
       opacity: 0;
-      transform: translateY(-10px);
+      transform: translateY(-20px);
     }
     to {
       opacity: 1;
@@ -250,7 +324,7 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -258,8 +332,49 @@
     }
   }
 
-  /* Enhanced hover effects for mobile menu */
+  /* Enhanced interactive elements */
+  nav a {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Button hover effects */
+  button {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Improved mobile menu interactions */
   #mobile-menu a:hover {
-    text-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
+    transform: translateX(8px);
+  }
+
+  /* Performance optimizations */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
