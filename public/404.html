@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página no encontrada - HYDRA²¹</title>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(to bottom right, #0f172a, #1e3a8a, #0f172a);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+      .btn {
+        background-color: #3b82f6;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+      .btn:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+      }
+    </style>
+    <script>
+      // Redirige después de 5 segundos
+      setTimeout(function() {
+        window.location.href = '/';
+      }, 5000);
+    </script>
+  </head>
+  <body>
+    <h1>404 - Página no encontrada</h1>
+    <p>Lo sentimos, la página que estás buscando no existe o ha sido movida.</p>
+    <p>Serás redirigido a la página de inicio en 5 segundos...</p>
+    <a href="/" class="btn">Ir a la página de inicio</a>
+  </body>
+</html>
