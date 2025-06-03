@@ -16,9 +16,7 @@ export default defineConfig({
   output: "static",
 
   integrations: [
-    tailwind({
-      applyBaseStyles: false, // We'll handle base styles ourselves
-    }),
+    tailwind(),
     react(),
   ],
 

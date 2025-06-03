@@ -1,0 +1,125 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/pipe_logo.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="h-full font-body antialiased theme-bg theme-text transition-colors duration-300 min-w-[300px]">
+    <div class="min-h-screen relative min-w-[300px]">
+      <!-- Enhanced Background with diagonal grid pattern -->
+      <div class="absolute inset-0 diagonal-grid opacity-60"></div>
+
+      <!-- Subtle background decorative elements with theme awareness -->
+      <div class="absolute top-10 left-10 sm:top-20 sm:left-20 w-48 h-48 sm:w-72 sm:h-72 bg-blue-600/8 dark:bg-blue-600/6 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-sky-500/8 dark:bg-sky-500/6 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -2s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] bg-blue-400/6 dark:bg-blue-400/4 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-indigo-500/6 dark:bg-indigo-500/4 rounded-full blur-2xl animate-float-slow"></div>
+
+      <main class="relative z-10">
+        <slot />
+      </main>
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script is:inline>
+      // Theme toggle functionality
+      function initTheme() {
+        // Check for saved theme preference or default to 'dark'
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        document.documentElement.classList.remove('light', 'dark');
+        document.documentElement.classList.add(theme);
+        
+        // Save the theme preference
+        localStorage.setItem('theme', theme);
+      }
+
+      function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Remove both classes and add the new one
+        html.classList.remove('light', 'dark');
+        html.classList.add(newTheme);
+        
+        // Save preference
+        localStorage.setItem('theme', newTheme);
+        
+        // Trigger a custom event for other components to listen to
+        window.dispatchEvent(new CustomEvent('themeChanged', { 
+          detail: { theme: newTheme } 
+        }));
+      }
+
+      // Initialize theme immediately to prevent flash
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        document.documentElement.classList.remove('light', 'dark');
+        document.documentElement.classList.add(theme);
+      })();
+
+      // Initialize on load
+      document.addEventListener('DOMContentLoaded', initTheme);
+
+      // Make toggleTheme available globally
+      window.toggleTheme = toggleTheme;
+    </script>
+  </body>
+</html>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Enhanced mobile optimizations */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  /* Minimum width enforcement */
+  body, html {
+    min-width: 300px !important;
+  }
+
+  /* Smooth theme transitions */
+  html {
+    transition: background-color 0.3s ease;
+  }
+
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Ensure proper theme application */
+  html {
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+  }
+</style>

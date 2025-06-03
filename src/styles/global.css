@@ -1,0 +1,472 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced 45-degree diagonal grid pattern */
+.diagonal-grid {
+  background-image: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(-45deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.light .diagonal-grid {
+  background-image: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(-45deg, rgba(59, 130, 246, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+@layer base {
+  /* CSS Custom Properties for Theme System */
+  :root {
+    /* Light mode design tokens */
+    --color-background: #ffffff;
+    --color-foreground: #1e293b;
+    --color-surface: #f8fafc;
+    --color-border: #e2e8f0;
+    --color-muted: #64748b;
+    --color-accent: #2563eb;
+    --color-accent-secondary: #0284c7;
+
+    /* Semantic colors with better contrast for light mode */
+    --color-text-primary: #1e293b;
+    --color-text-secondary: #334155;
+    --color-text-muted: #475569;
+    --color-text-blue: #1d4ed8;
+    --color-text-blue-secondary: #1e40af;
+    --color-text-cyan: #0369a1;
+  }
+
+  .dark {
+    /* Dark mode design tokens */
+    --color-background: #1c1c1c;
+    --color-foreground: #f8fafc;
+    --color-surface: #2a2a2a;
+    --color-border: #374151;
+    --color-muted: #94a3b8;
+    --color-accent: #3b82f6;
+    --color-accent-secondary: #0ea5e9;
+
+    /* Semantic colors for dark mode */
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #e2e8f0;
+    --color-text-muted: #94a3b8;
+    --color-text-blue: #60a5fa;
+    --color-text-blue-secondary: #3b82f6;
+    --color-text-cyan: #22d3ee;
+  }
+
+  * {
+    border-color: rgba(59, 130, 246, 0.1);
+  }
+
+  /* Enhanced theme-aware body styles */
+  html {
+    min-width: 300px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "GeistSans", "Inter", system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-width: 300px;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Improved mobile touch targets */
+  @media (max-width: 768px) {
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Smooth scrolling for all devices */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Improved Blue Gradients */
+  .gradient-bg-blue-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  }
+
+  .gradient-bg-blue-secondary {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  }
+
+  .gradient-bg-blue-deep {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  }
+
+  .gradient-text-blue-primary {
+    background: linear-gradient(to right, #2563eb, #1e40af);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-blue-secondary {
+    background: linear-gradient(to right, #0284c7, #0369a1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-blue-cyan {
+    background: linear-gradient(to right, #2563eb, #0284c7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Updated gradients with improved blue palette */
+  .gradient-bg-orange-sky {
+    background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+  }
+
+  .gradient-bg-sky-orange {
+    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  }
+
+  .gradient-text-orange-sky {
+    background: linear-gradient(to right, #2563eb, #0284c7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-sky-orange {
+    background: linear-gradient(to right, #0284c7, #2563eb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Enhanced glass effect with proper theme background colors */
+  .glass-effect {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .dark .glass-effect {
+    background-color: rgba(28, 28, 28, 0.85);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-effect-light {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.08);
+  }
+
+  /* Improved grid pattern with 45-degree angle */
+  .diagonal-grid {
+    background-image: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(-45deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  html.light .diagonal-grid {
+    background-image: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.12) 1px,
+        transparent 1px
+      ),
+      linear-gradient(-45deg, rgba(59, 130, 246, 0.12) 1px, transparent 1px);
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Reduced glow effects - more subtle */
+  .shadow-glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .shadow-glow-cyan {
+    box-shadow: 0 0 20px rgba(8, 145, 178, 0.15);
+  }
+
+  .shadow-glow-indigo {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+  }
+
+  /* Updated button gradients with improved blues */
+  .btn-gradient-cyan-blue {
+    background: linear-gradient(135deg, #0284c7 0%, #1e40af 100%);
+    box-shadow: 0 4px 15px rgba(8, 145, 178, 0.2);
+  }
+
+  .btn-gradient-cyan-blue-hover {
+    background: linear-gradient(135deg, #0369a1 0%, #1e3a8a 100%);
+    box-shadow: 0 6px 20px rgba(8, 145, 178, 0.25);
+  }
+
+  .btn-gradient-blue-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+  }
+
+  .btn-gradient-blue-primary-hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
+  }
+
+  .card-gradient-cyan-blue {
+    background: linear-gradient(
+      135deg,
+      rgba(8, 145, 178, 0.1) 0%,
+      rgba(30, 64, 175, 0.1) 100%
+    );
+  }
+
+  .card-border-cyan-blue {
+    border-color: rgba(8, 145, 178, 0.25);
+  }
+
+  .card-border-cyan-blue-hover {
+    border-color: rgba(8, 145, 178, 0.4);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .btn-gradient-cyan-blue,
+    .btn-gradient-blue-primary {
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.15);
+    }
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+/* Enhanced theme-aware utility classes */
+.theme-bg {
+  background-color: var(--color-background);
+}
+
+.theme-surface {
+  background-color: var(--color-surface);
+}
+
+.theme-text {
+  color: var(--color-text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--color-text-muted);
+}
+
+.theme-border {
+  border-color: var(--color-border);
+}
+
+.theme-accent {
+  color: var(--color-accent);
+}
+
+.theme-accent-bg {
+  background-color: var(--color-accent);
+}
+
+/* Enhanced theme-aware text colors for better contrast */
+.theme-text-blue {
+  color: var(--color-text-blue);
+}
+
+.theme-text-blue-secondary {
+  color: var(--color-text-blue-secondary);
+}
+
+.theme-text-cyan {
+  color: var(--color-text-cyan);
+}
+
+/* Enhanced Geist font utilities */
+.font-geist {
+  font-family: "GeistSans", "Inter", system-ui, -apple-system, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+.font-geist-mono {
+  font-family: "GeistMono", "Consolas", "Monaco", monospace;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Override Tailwind font families with Geist */
+.font-heading {
+  font-family: "GeistSans", "Inter", system-ui, -apple-system, sans-serif !important;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+.font-body {
+  font-family: "GeistSans", "Inter", system-ui, -apple-system, sans-serif !important;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Responsive text utilities */
+.text-responsive-sm {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+
+.text-responsive-base {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+.text-responsive-lg {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+}
+
+@media (min-width: 640px) {
+  .text-responsive-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .text-responsive-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .text-responsive-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+}
+
+/* Enhanced mobile-first responsive utilities */
+@media (max-width: 374px) {
+  .grid-cols-1.xs\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .max-w-xs.xs\:max-w-sm {
+    max-width: 100%;
+  }
+
+  /* Improve text readability on very small screens */
+  .theme-text-blue,
+  .theme-text-blue-secondary {
+    font-weight: 600;
+  }
+}
+
+/* Enhanced contrast for light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text-blue: #1e40af;
+    --color-text-blue-secondary: #1d4ed8;
+    --color-text-cyan: #0369a1;
+  }
+}
+
+/* Enhanced diagonal grid with theme awareness */
+.diagonal-grid {
+  background-image: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(-45deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .diagonal-grid {
+  background-image: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(-45deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+  .diagonal-grid {
+    background-size: 18px 18px;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
