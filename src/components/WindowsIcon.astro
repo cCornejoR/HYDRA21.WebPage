@@ -1,0 +1,27 @@
+---
+/**
+ * Windows Icon Component - Logo de Windows para botones de descarga
+ * Componente optimizado para las descargas de las cards
+ */
+
+export interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', size = 'md' } = Astro.props;
+---
+
+<svg
+  class={`icon ${className}`}
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <!-- Windows logo - 4 squares representing Windows -->
+  <rect x="3" y="3" width="7" height="7" fill="currentColor" />
+  <rect x="14" y="3" width="7" height="7" fill="currentColor" />
+  <rect x="3" y="14" width="7" height="7" fill="currentColor" />
+  <rect x="14" y="14" width="7" height="7" fill="currentColor" />
+</svg>

@@ -4,15 +4,20 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:fast": "astro dev --host --open",
+    "dev:turbo": "astro dev --host --open --experimental-view-transitions",
     "build": "astro build",
+    "build:analyze": "astro build --experimental-ssr",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "npm run build && gh-pages -d dist",
     "deploy:gh": "npm run build && gh-pages -d dist",
     "build:gh-pages": "astro build",
     "clean": "rm -rf dist .astro",
+    "clean:all": "rm -rf dist .astro node_modules package-lock.json && npm install",
     "analyze:images": "node scripts/analyze-images.js",
-    "dev:fast": "astro dev --host"
+    "perf:analyze": "astro build && npx lighthouse http://localhost:4321 --output=html --output-path=./lighthouse-report.html",
+    "optimize": "npm run clean && npm run build"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

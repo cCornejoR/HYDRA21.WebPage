@@ -1,0 +1,272 @@
+---
+// Componente de navegación súper rápida con prefetch inteligente
+export interface Props {
+  links: Array<{
+    href: string;
+    title: string;
+    prefetch?: 'load' | 'idle' | 'viewport' | 'hover';
+  }>;
+  className?: string;
+}
+
+const { links, className = "" } = Astro.props;
+---
+
+<nav class={`fast-navigation ${className}`}>
+  {links.map((link) => (
+    <a 
+      href={link.href}
+      data-astro-prefetch={link.prefetch || 'hover'}
+      class="fast-nav-link"
+      transition:name={`nav-${link.href}`}
+    >
+      {link.title}
+    </a>
+  ))}
+</nav>
+
+<script>
+  // Sistema de navegación súper optimizada
+  class FastNavigation {
+    constructor() {
+      this.prefetchedUrls = new Set();
+      this.prefetchQueue = [];
+      this.init();
+    }
+
+    init() {
+      // Optimizar todos los enlaces de navegación
+      this.optimizeNavigationLinks();
+      
+      // Precargar recursos críticos de manera inteligente
+      this.intelligentPrefetch();
+      
+      // Optimizar transiciones con View Transitions API
+      this.optimizeViewTransitions();
+    }
+
+    optimizeNavigationLinks() {
+      const navLinks = document.querySelectorAll('.fast-nav-link');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Prefetch on hover con delay mínimo
+        link.addEventListener('mouseenter', () => {
+          this.prefetchUrl(href, 'high');
+        });
+        
+        // Prefetch on focus para accesibilidad
+        link.addEventListener('focus', () => {
+          this.prefetchUrl(href, 'high');
+        });
+        
+        // Navegación instantánea con touch
+        link.addEventListener('touchstart', () => {
+          this.prefetchUrl(href, 'highest');
+        }, { passive: true });
+      });
+    }
+
+    intelligentPrefetch() {
+      // Prefetch de páginas críticas según estrategia
+      const criticalPages = ['/about', '/descargas'];
+      
+      // Usar Intersection Observer para prefetch viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const link = entry.target;
+            const href = link.getAttribute('href');
+            this.prefetchUrl(href, 'medium');
+          }
+        });
+      }, {
+        rootMargin: '50px' // Prefetch 50px antes de entrar en viewport
+      });
+
+      // Observar todos los enlaces visibles
+      document.querySelectorAll('a[href^="/"]').forEach(link => {
+        observer.observe(link);
+      });
+
+      // Prefetch crítico con requestIdleCallback
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          criticalPages.forEach(url => {
+            this.prefetchUrl(url, 'low');
+          });
+        });
+      } else {
+        // Fallback para navegadores sin requestIdleCallback
+        setTimeout(() => {
+          criticalPages.forEach(url => {
+            this.prefetchUrl(url, 'low');
+          });
+        }, 100);
+      }
+    }
+
+    prefetchUrl(url, priority = 'medium') {
+      if (!url || this.prefetchedUrls.has(url) || url.startsWith('http')) {
+        return;
+      }
+
+      // Marcar como prefetched para evitar duplicados
+      this.prefetchedUrls.add(url);
+
+      // Crear link prefetch
+      const linkElement = document.createElement('link');
+      linkElement.rel = 'prefetch';
+      linkElement.href = url;
+      
+      // Establecer prioridad según importancia
+      switch (priority) {
+        case 'highest':
+          linkElement.setAttribute('importance', 'high');
+          linkElement.setAttribute('fetchpriority', 'high');
+          break;
+        case 'high':
+          linkElement.setAttribute('importance', 'high');
+          break;
+        case 'low':
+          linkElement.setAttribute('importance', 'low');
+          linkElement.setAttribute('fetchpriority', 'low');
+          break;
+      }
+
+      document.head.appendChild(linkElement);
+    }
+
+    optimizeViewTransitions() {
+      // Configurar View Transitions personalizadas
+      document.addEventListener('astro:before-preparation', (event) => {
+        // Preparar transición optimizada
+        this.prepareOptimizedTransition(event.to.pathname);
+      });
+
+      document.addEventListener('astro:before-swap', (event) => {
+        // Optimizar swap de contenido
+        this.optimizeContentSwap(event.newDocument);
+      });
+    }
+
+    prepareOptimizedTransition(toPath) {
+      // Pre-optimizar elementos críticos antes de la transición
+      const currentMain = document.querySelector('main');
+      if (currentMain) {
+        // Aplicar optimizaciones de memoria
+        this.optimizeMemoryUsage(currentMain);
+      }
+    }
+
+    optimizeContentSwap(newDocument) {
+      // Optimizar el nuevo documento antes del swap
+      const newMain = newDocument.querySelector('main');
+      if (newMain) {
+        // Pre-procesar imágenes lazy loading
+        this.preProcessImages(newMain);
+        
+        // Optimizar scripts críticos
+        this.optimizeCriticalScripts(newDocument);
+      }
+    }
+
+    optimizeMemoryUsage(element) {
+      // Limpiar listeners no necesarios
+      const videos = element.querySelectorAll('video');
+      videos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+      });
+
+      // Optimizar canvas si existen
+      const canvases = element.querySelectorAll('canvas');
+      canvases.forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+    }
+
+    preProcessImages(container) {
+      const images = container.querySelectorAll('img[loading="lazy"]');
+      images.forEach(img => {
+        // Pre-cargar imágenes críticas above-the-fold
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          img.loading = 'eager';
+        }
+      });
+    }
+
+    optimizeCriticalScripts(document) {
+      // Re-inicializar solo scripts críticos
+      const scripts = document.querySelectorAll('script[data-critical="true"]');
+      scripts.forEach(script => {
+        if (script.src) {
+          // Script externo crítico
+          this.loadCriticalScript(script.src);
+        }
+      });
+    }
+
+    loadCriticalScript(src) {
+      if (document.querySelector(`script[src="${src}"]`)) {
+        return; // Ya existe
+      }
+
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.setAttribute('data-critical', 'true');
+      document.head.appendChild(script);
+    }
+  }
+
+  // Inicializar navegación rápida
+  let fastNav;
+
+  function initFastNavigation() {
+    if (fastNav) return;
+    fastNav = new FastNavigation();
+  }
+
+  // Inicializar en carga de página
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFastNavigation);
+  } else {
+    initFastNavigation();
+  }
+
+  // Re-inicializar después de navegación
+  document.addEventListener('astro:page-load', initFastNavigation);
+</script>
+
+<style>
+  .fast-navigation {
+    /* Optimizar layout para transiciones rápidas */
+    contain: layout style;
+    will-change: transform;
+  }
+
+  .fast-nav-link {
+    /* Optimizar elementos de navegación */
+    transform: translateZ(0); /* Forzar GPU layer */
+    will-change: transform, opacity;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fast-nav-link:hover {
+    transform: translateZ(0) scale(1.02);
+  }
+
+  /* Optimizaciones para dispositivos de baja potencia */
+  @media (prefers-reduced-motion: reduce) {
+    .fast-nav-link {
+      transition: none;
+      will-change: auto;
+    }
+  }
+</style> 

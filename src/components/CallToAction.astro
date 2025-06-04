@@ -34,21 +34,22 @@
           No esperes más para experimentar el poder de HYDRA²¹. Únete a miles de ingenieros que ya han transformado su flujo de trabajo con nuestras herramientas de vanguardia.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" transition:name="cta-buttons">
+        <div class="btn-group" transition:name="cta-buttons">
           <a
             href="/descargas"
             class="btn-primary"
           >
-            <div class="circle"></div>
-            <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+              <rect x="69.824" y="58.512" width="372.352" height="253.792"/>
+              <rect x="85.824" y="74.512" fill="#999999" width="340.352" height="221.792"/>
+              <polygon fill="#D6D6D6" points="442.176,312.304 69.824,312.304 0,437.488 512,437.488 "/>
+              <rect x="100.848" y="341.28" fill="#AFAFAF" width="314.192" height="16"/>
+              <rect y="437.488" width="512" height="16"/>
+              <rect x="220.656" y="376.512" fill="#AFAFAF" width="74.56" height="16"/>
+              <polygon fill="#FFFFFF" points="256,259.856 215.408,205.312 228.256,195.744 256,233.04 283.744,195.744 296.592,205.312"/>
+              <rect x="248" y="110.992" fill="#FFFFFF" width="16" height="135.472"/>
             </svg>
-            <span class="text">Descargar Ahora</span>
-            <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
+            <span>Descargar Ahora</span>
           </a>
 
           <a
@@ -249,142 +250,9 @@ section::after {
 }
 
 /* ——————————————————————————————————————————————
-   BOTONES PERSONALIZADOS - BTN-PRIMARY Y BTN-SECONDARY
+   GLOBAL BUTTON SYSTEM
+   Note: Button styles are now managed globally in src/styles/buttons.css
 ————————————————————————————————————————————— */
-
-/* Botón Primario - Configuración Animada */
-.btn-primary {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid;
-  border-color: transparent;
-  font-size: 16px;
-  background-color: #1e3a8a;
-  border-radius: 100px;
-  font-weight: 600;
-  color: #e0f2fe;
-  box-shadow: 0 0 0 2px #0f172a;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-primary svg {
-  position: absolute;
-  width: 24px;
-  fill: #e0f2fe;
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-primary .arr-1 {
-  right: 16px;
-}
-
-.btn-primary .arr-2 {
-  left: -25%;
-}
-
-.btn-primary .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: #3b82f6;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-primary .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-primary:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: #ffffff;
-  border-radius: 12px;
-}
-
-.btn-primary:hover .arr-1 {
-  right: -25%;
-}
-
-.btn-primary:hover .arr-2 {
-  left: 16px;
-}
-
-.btn-primary:hover .text {
-  transform: translateX(12px);
-}
-
-.btn-primary:hover svg {
-  fill: #ffffff;
-}
-
-.btn-primary:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px #60a5fa;
-}
-
-.btn-primary:hover .circle {
-  width: 220px;
-  height: 220px;
-  opacity: 1;
-}
-
-/* Botón Secundario - Configuración Moderna */
-.btn-secondary {
-  cursor: pointer;
-  padding: 1em;
-  font-size: 1em;
-  min-width: 7em;
-  
-  color: #e0f2fe;
-  background: #0f172a;
-  background-size: cover;
-  background-blend-mode: overlay;
-  border-radius: 0.5em;
-  outline: 0.1em solid #1e3a8a;
-  border: 0;
-  box-shadow: 0 0 1em 1em rgba(15, 23, 42, 0.2);
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.btn-secondary:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
-  background: linear-gradient(45deg, #0f172a, #1e293b);
-  background: radial-gradient(
-    circle at bottom,
-    rgba(59, 130, 246, 0.6) 10%,
-    #0f172a 70%
-  );
-  outline: 0;
-}
-
-.btn-secondary .icon {
-  fill: #e0f2fe;
-  width: 1em;
-  aspect-ratio: 1;
-  top: 0;
-  left: 0;
-  margin: auto;
-  transform: translate(-35%, 10%);
-}
 
 
 </style> 

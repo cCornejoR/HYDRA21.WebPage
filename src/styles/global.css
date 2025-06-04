@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
 
+/* Import global button system */
+@import "./buttons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -84,7 +87,6 @@
     color: var(--color-foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
     min-width: 300px;
     overflow-x: hidden;
     min-height: 100vh;
@@ -119,162 +121,50 @@
      ENHANCED VIEW TRANSITIONS GLOBAL STYLES
   ======================================== */
 
-  /* Loading progress bar */
+  /* Simple loading progress bar */
   .page-loading-bar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(59, 130, 246, 0.8),
-      rgba(6, 182, 212, 0.8),
-      transparent
-    );
+    height: 2px;
+    background: #3b82f6;
     transform: translateX(-100%);
-    animation: loading-progress 1.5s ease-in-out infinite;
+    animation: simple-loading-progress 1s ease infinite;
     z-index: 9999;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.3s ease;
   }
 
   .page-loading-bar.active {
     opacity: 1;
   }
 
-  @keyframes loading-progress {
+  @keyframes simple-loading-progress {
     0% {
       transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(0%);
     }
     100% {
       transform: translateX(100%);
     }
   }
 
-  /* Premium Page Transition Overlay with Particle Effects */
+  /* Simple Page Transition Overlay */
   .page-transition-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-        circle at 20% 30%,
-        rgba(59, 130, 246, 0.15) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(6, 182, 212, 0.15) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 40% 80%,
-        rgba(139, 92, 246, 0.15) 0%,
-        transparent 50%
-      ),
-      linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.92) 0%,
-        rgba(0, 0, 0, 0.96) 50%,
-        rgba(0, 0, 0, 0.92) 100%
-      );
-    backdrop-filter: blur(20px) saturate(1.2);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 9998;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    overflow: hidden;
   }
 
   .page-transition-overlay.active {
     opacity: 1;
     pointer-events: all;
-  }
-
-  /* Floating Particles Effect */
-  .page-transition-overlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(
-        2px 2px at 20px 30px,
-        rgba(255, 255, 255, 0.3),
-        transparent
-      ),
-      radial-gradient(
-        2px 2px at 40px 70px,
-        rgba(59, 130, 246, 0.4),
-        transparent
-      ),
-      radial-gradient(1px 1px at 90px 40px, rgba(6, 182, 212, 0.3), transparent),
-      radial-gradient(
-        1px 1px at 130px 80px,
-        rgba(139, 92, 246, 0.4),
-        transparent
-      ),
-      radial-gradient(
-        2px 2px at 160px 30px,
-        rgba(255, 255, 255, 0.2),
-        transparent
-      );
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: floating-particles 20s linear infinite;
-    opacity: 0.6;
-  }
-
-  .page-transition-overlay::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin: -50px 0 0 -50px;
-    border: 2px solid rgba(59, 130, 246, 0.3);
-    border-radius: 50%;
-    border-top-color: rgba(59, 130, 246, 0.8);
-    animation: elegant-spinner 2s linear infinite;
-  }
-
-  @keyframes floating-particles {
-    0% {
-      transform: translateY(0px) rotate(0deg);
-      opacity: 0.6;
-    }
-    50% {
-      transform: translateY(-100px) rotate(180deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-200px) rotate(360deg);
-      opacity: 0.6;
-    }
-  }
-
-  @keyframes elegant-spinner {
-    0% {
-      transform: rotate(0deg) scale(1);
-      border-width: 2px;
-    }
-    50% {
-      transform: rotate(180deg) scale(1.1);
-      border-width: 3px;
-    }
-    100% {
-      transform: rotate(360deg) scale(1);
-      border-width: 2px;
-    }
   }
 
   /* Enhanced transition states */
@@ -291,30 +181,27 @@
     view-transition-name: root;
   }
 
-  /* Custom view transition animations */
+  /* Simple view transition animations */
   ::view-transition-old(root) {
-    animation: fade-out 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: simple-fade-out 0.2s ease;
   }
 
   ::view-transition-new(root) {
-    animation: fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+    animation: simple-fade-in 0.2s ease;
   }
 
-  @keyframes fade-out {
+  @keyframes simple-fade-out {
     to {
       opacity: 0;
-      transform: scale(0.98);
     }
   }
 
-  @keyframes fade-in {
+  @keyframes simple-fade-in {
     from {
       opacity: 0;
-      transform: scale(1.02);
     }
     to {
       opacity: 1;
-      transform: scale(1);
     }
   }
 }
@@ -651,10 +538,10 @@
 .dark .diagonal-grid {
   background-image: linear-gradient(
       45deg,
-      rgba(59, 130, 246, 0.06) 1px,
+      rgba(59, 130, 246, 0.02) 1px,
       transparent 1px
     ),
-    linear-gradient(-45deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+    linear-gradient(-45deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
 }
 
 /* Responsive grid adjustments */
@@ -672,4 +559,238 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/* ========================================
+   OPTIMIZACIONES ULTRA-RÁPIDAS PARA ASTRO
+======================================== */
+
+/* Optimizaciones específicas de View Transitions - Mínimas */
+::view-transition-group(*) {
+  animation-duration: 0.1s;
+  animation-timing-function: ease;
+}
+
+::view-transition-old(*) {
+  animation-duration: 0.1s;
+  animation-timing-function: ease;
+}
+
+::view-transition-new(*) {
+  animation-duration: 0.1s;
+  animation-timing-function: ease;
+}
+
+/* Transiciones específicas para elementos principales */
+::view-transition-group(main-content) {
+  animation-duration: 0.15s;
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.1s;
+}
+
+/* Optimizaciones de memoria y rendimiento */
+.page-optimized {
+  /* Contenimiento para mejor rendimiento */
+  contain: layout style paint;
+
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+
+  /* Optimizar repaint */
+  backface-visibility: hidden;
+}
+
+/* Transiciones instantáneas para navegación */
+.instant-navigation {
+  contain: strict;
+  content-visibility: auto;
+  will-change: transform, opacity;
+}
+
+/* Optimizaciones para imágenes en transiciones */
+img {
+  /* Evitar layout shifts durante transiciones */
+  contain: layout;
+
+  /* GPU acceleration para imágenes */
+  transform: translateZ(0);
+
+  /* Optimizar decode */
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Optimizaciones para dispositivos de baja potencia */
+@media (max-width: 768px) {
+  /* Simplificar transiciones en móvil */
+  ::view-transition-group(*) {
+    animation-duration: 0.2s;
+  }
+
+  /* Reducir efectos GPU-intensivos */
+  .page-transition-overlay {
+    backdrop-filter: blur(10px) !important;
+  }
+
+  /* Optimizar decorative elements */
+  .absolute.top-6,
+  .absolute.bottom-6,
+  .absolute.top-1\\/2 {
+    will-change: auto !important;
+    transform: none !important;
+  }
+}
+
+/* Optimizaciones específicas para conexiones lentas */
+@media (prefers-reduced-data: reduce) {
+  /* Deshabilitar efectos costosos */
+  .page-transition-overlay,
+  .diagonal-grid {
+    display: none !important;
+  }
+
+  /* Simplificar animaciones */
+  * {
+    animation-duration: 0.1s !important;
+    transition-duration: 0.1s !important;
+  }
+}
+
+/* Critical CSS inlining optimization */
+.critical-above-fold {
+  /* Elementos críticos above-the-fold */
+  contain: layout style;
+  font-display: swap;
+}
+
+/* Lazy loading optimizations */
+.lazy-content {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}
+
+/* Intersection Observer optimizations */
+.viewport-optimized {
+  /* Optimizar elementos observados */
+  contain: layout;
+  will-change: auto;
+}
+
+.viewport-optimized.in-viewport {
+  will-change: transform, opacity;
+}
+
+/* Prefetch indicators (invisible) */
+.prefetch-indicator {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cache-friendly transitions */
+.cache-optimized {
+  /* Elementos que se benefician de caché */
+  contain: strict;
+  isolation: isolate;
+}
+
+/* Enhanced scroll optimizations */
+.scroll-optimized {
+  /* Optimizar scroll durante transiciones */
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+}
+
+/* Ultra-fast button transitions */
+.btn-ultra-fast {
+  /* Botones con transiciones instantáneas */
+  transform: translateZ(0);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-ultra-fast:hover {
+  transform: translateZ(0) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.btn-ultra-fast:active {
+  transform: translateZ(0) translateY(0);
+  transition-duration: 0.05s;
+}
+
+/* Memory optimization for large pages */
+.memory-optimized {
+  /* Elementos que consumen mucha memoria */
+  contain: size layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Network-aware optimizations */
+@media (prefers-reduced-motion: no-preference) {
+  /* Animaciones completas solo si el usuario las prefiere */
+  .enhanced-animation {
+    animation-duration: var(--animation-duration, 0.3s);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* WebP/AVIF image optimization hint */
+.optimized-image {
+  /* Hints para navegadores sobre optimización de imágenes */
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Service Worker cache hints */
+.sw-cacheable {
+  /* Elementos que deben ser cacheados por el SW */
+  contain: layout style;
+}
+
+/* Performance monitoring */
+.perf-critical {
+  /* Elementos críticos para rendimiento */
+  contain: strict;
+  will-change: auto;
+}
+
+/* Dark mode transition optimization */
+@media (prefers-color-scheme: dark) {
+  /* Optimizaciones específicas para modo oscuro */
+  .theme-transition {
+    transition: background-color 0.15s ease, color 0.15s ease,
+      border-color 0.15s ease;
+  }
+}
+
+/* High refresh rate display optimizations */
+@media (min-resolution: 120dpi) and (min-refresh-rate: 90hz) {
+  /* Para pantallas de alta frecuencia */
+  .high-refresh-optimized {
+    animation-duration: 0.2s;
+    transition-duration: 0.15s;
+  }
+}
+
+/* CPU/GPU load balancing */
+.gpu-accelerated {
+  /* Elementos que se benefician de GPU */
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.cpu-optimized {
+  /* Elementos que se mantienen en CPU */
+  will-change: auto;
+  transform: none;
 }

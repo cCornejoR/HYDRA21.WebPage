@@ -1,0 +1,267 @@
+/* ——————————————————————————————————————————————
+   GLOBAL BUTTON SYSTEM - HYDRA²¹ WEBSITE
+   Professional, Responsive, and Adaptive Button Components
+   UNIFIED SECONDARY BUTTON DESIGN SYSTEM
+————————————————————————————————————————————— */
+
+/* ——————————————————————————————————————————————
+   STANDARD BUTTON - Unified Design System
+   (Previously Secondary Button - Now the Only Button Style)
+————————————————————————————————————————————— */
+/* Standard button base class and aliases for backward compatibility */
+.btn-standard,
+.btn-secondary,
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  /* Adaptive padding for optimal touch targets */
+  padding: 14px 20px;
+  min-width: 140px;
+
+  /* Typography */
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Visual styling */
+  color: #e0f2fe;
+  background: #0f172a;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 0 0.5em 0.25em rgba(59, 130, 246, 0.1);
+
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Button icon styling */
+.btn-standard .icon,
+.btn-secondary .icon,
+.btn-primary .icon,
+.btn-standard svg,
+.btn-secondary svg,
+.btn-primary svg {
+  width: 20px;
+  height: 20px;
+  fill: #e0f2fe;
+  stroke: #e0f2fe;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+/* Button hover states */
+.btn-standard:hover,
+.btn-secondary:hover,
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
+  background: radial-gradient(
+    circle at bottom,
+    rgba(59, 130, 246, 0.6) 10%,
+    #0f172a 70%
+  );
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+.btn-standard:hover .icon,
+.btn-secondary:hover .icon,
+.btn-primary:hover .icon,
+.btn-standard:hover svg,
+.btn-secondary:hover svg,
+.btn-primary:hover svg {
+  fill: #ffffff;
+  stroke: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Button active state */
+.btn-standard:active,
+.btn-secondary:active,
+.btn-primary:active {
+  transform: translateY(0px) scale(1.02);
+}
+
+/* Button focus state for accessibility */
+.btn-standard:focus,
+.btn-secondary:focus,
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.5);
+}
+
+/* ——————————————————————————————————————————————
+   RESPONSIVE DESIGN - Mobile First Approach
+————————————————————————————————————————————— */
+
+/* Small screens (≤640px) */
+@media (max-width: 640px) {
+  .btn-standard,
+  .btn-secondary,
+  .btn-primary {
+    padding: 12px 16px;
+    min-width: 120px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .btn-standard .icon,
+  .btn-secondary .icon,
+  .btn-primary .icon,
+  .btn-standard svg,
+  .btn-secondary svg,
+  .btn-primary svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Very small screens (≤400px) */
+@media (max-width: 400px) {
+  .btn-standard,
+  .btn-secondary,
+  .btn-primary {
+    padding: 10px 14px;
+    min-width: 100px;
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .btn-standard .icon,
+  .btn-secondary .icon,
+  .btn-primary .icon,
+  .btn-standard svg,
+  .btn-secondary svg,
+  .btn-primary svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Large screens (≥1024px) */
+@media (min-width: 1024px) {
+  .btn-standard,
+  .btn-secondary,
+  .btn-primary {
+    padding: 16px 24px;
+    min-width: 160px;
+    font-size: 16px;
+  }
+}
+
+/* ——————————————————————————————————————————————
+   ACCESSIBILITY IMPROVEMENTS
+————————————————————————————————————————————— */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .btn-standard,
+  .btn-secondary,
+  .btn-primary,
+  .btn-standard svg,
+  .btn-secondary svg,
+  .btn-primary svg,
+  .btn-standard .icon,
+  .btn-secondary .icon,
+  .btn-primary .icon {
+    transition: none;
+    animation: none;
+  }
+
+  .btn-standard:hover,
+  .btn-secondary:hover,
+  .btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-standard,
+  .btn-secondary,
+  .btn-primary {
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+  }
+}
+
+/* ——————————————————————————————————————————————
+   BUTTON CONTAINER UTILITIES
+————————————————————————————————————————————— */
+
+/* Button group container */
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .btn-group {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+/* Hero button group alignment - Left aligned on desktop */
+.hero-section .btn-group {
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-section .btn-group {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+/* Additional specificity for hero button alignment */
+.hero-section .space-y-4 .btn-group,
+.hero-section .space-y-6 .btn-group,
+.hero-section .space-y-8 .btn-group {
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-section .space-y-4 .btn-group,
+  .hero-section .space-y-6 .btn-group,
+  .hero-section .space-y-8 .btn-group {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+/* Button group responsive spacing */
+@media (max-width: 640px) {
+  .btn-group {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn-group {
+    gap: 10px;
+  }
+
+  .btn-group .btn-standard,
+  .btn-group .btn-secondary,
+  .btn-group .btn-primary {
+    width: 100%;
+    max-width: 280px;
+  }
+}

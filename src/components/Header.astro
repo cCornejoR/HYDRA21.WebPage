@@ -31,11 +31,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </button>
-        <a href="/descargas" class="hidden min-[500px]:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-3 py-1.5 rounded-md font-medium text-sm transition transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
-          <span>Descargar</span>
+        <a href="/descargas" class="hidden min-[500px]:flex header-download-button">
+          <span class="button__text">Descargar</span>
+          <div class="button__icon">
+            <svg class="button__svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
         </a>
         <!-- Mobile Hamburger -->
         <label id="mobile-menu-button" class="lg:hidden flex flex-col gap-2 w-8 cursor-pointer" aria-label="Abrir menú" transition:name="mobile-menu-button">
@@ -92,16 +94,12 @@
         const currentScrollY = window.scrollY;
         const isDesktop = window.innerWidth >= 1024;
 
-        // Enhanced sticky behavior with smooth transitions
+        // Simple sticky behavior
         if (currentScrollY > 20) {
           if (isDesktop) {
-            // Desktop: floating card effect with subtle movement
+            // Desktop: floating card effect
             header.classList.remove('bg-transparent', 'lg:py-4', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
             header.classList.add('bg-black/90', 'lg:py-2', 'shadow-2xl', 'border-gray-700', 'backdrop-blur-xl');
-            
-            // Subtle parallax effect for desktop
-            const parallaxOffset = Math.min(currentScrollY * 0.1, 8);
-            header.style.transform = `translateY(${parallaxOffset}px)`;
           } else {
             // Mobile: clean sticky header
             header.classList.remove('bg-transparent', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
@@ -112,26 +110,10 @@
           if (isDesktop) {
             header.classList.remove('bg-black/90', 'lg:py-2', 'shadow-2xl', 'border-gray-700', 'backdrop-blur-xl');
             header.classList.add('bg-transparent', 'lg:py-4', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
-            header.style.transform = 'translateY(0)';
           } else {
             header.classList.remove('bg-black/95', 'shadow-xl', 'border-gray-700', 'backdrop-blur-xl');
             header.classList.add('bg-transparent', 'shadow-none', 'border-transparent', 'backdrop-blur-none');
           }
-        }
-
-        // Sticky behavior without auto-hide (user preference)
-        // Always keep header visible with proper styling
-        header.style.opacity = '1';
-        isHeaderHidden = false;
-
-        // Apply appropriate transform based on device
-        if (isDesktop && currentScrollY > 20) {
-          // Subtle parallax effect for desktop only
-          const parallaxOffset = Math.min(currentScrollY * 0.1, 8);
-          header.style.transform = `translateY(${parallaxOffset}px)`;
-        } else {
-          // Keep mobile header fixed without transform
-          header.style.transform = 'translateY(0)';
         }
 
         lastScrollY = currentScrollY;
@@ -145,20 +127,9 @@
         }
       };
 
-      // Throttled scroll listener for better performance
-      let scrollTimeout: ReturnType<typeof setTimeout>;
+      // Simple scroll listener for better performance
       window.addEventListener('scroll', () => {
         requestTick();
-        
-        // Clear existing timeout
-        clearTimeout(scrollTimeout);
-        
-        // Set new timeout to handle scroll end
-        scrollTimeout = setTimeout(() => {
-          if (window.scrollY === 0) {
-            updateHeader();
-          }
-        }, 150);
       }, { passive: true });
       
       // Handle window resize
@@ -237,10 +208,9 @@
 </script>
 
 <style>
-  /* Enhanced header transitions with improved performance */
+  /* Simplified header transitions */
   header {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform, background-color, backdrop-filter;
+    transition: background-color 0.2s ease, backdrop-filter 0.2s ease;
   }
 
   /* Mobile specific optimizations */
@@ -249,19 +219,6 @@
       margin: 0 !important;
       border-radius: 0 !important;
       padding: 0 !important;
-      transform: translateY(0) !important; /* Override desktop parallax on mobile */
-    }
-  }
-
-  /* Desktop enhancements */
-  @media (min-width: 1024px) {
-    header {
-      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    header:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
     }
   }
 
@@ -280,69 +237,19 @@
     50% { background-position: 100% 50%; }
   }
 
-  /* Enhanced mobile menu animations */
+  /* Simple mobile menu */
   #mobile-menu {
-    animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
   }
 
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Enhanced interactive elements */
+  /* Simple interactive elements */
   nav a {
-    position: relative;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease;
   }
 
-  nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #06b6d4);
-    transition: width 0.3s ease;
-  }
-
-  nav a:hover::after {
-    width: 100%;
-  }
-
-  /* Button hover effects */
+  /* Simple button hover effects */
   button {
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-  }
-
-  /* Improved mobile menu interactions */
-  #mobile-menu a:hover {
-    text-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
-    transform: translateX(8px);
+    transition: color 0.2s ease;
   }
 
   /* Performance optimizations */
@@ -351,6 +258,105 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ——————————————————————————————————————————————
+     COOL HEADER DOWNLOAD BUTTON - BLUE THEME
+  ————————————————————————————————————————————— */
+  .header-download-button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #1e3a8a;
+    background-color: #2563eb;
+    overflow: hidden;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .header-download-button, 
+  .header-download-button .button__icon, 
+  .header-download-button .button__text {
+    transition: all 0.3s ease;
+  }
+
+  .header-download-button .button__text {
+    transform: translateX(22px);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .header-download-button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-download-button .button__svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+  }
+
+  .header-download-button:hover {
+    background: #1e3a8a;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+  }
+
+  .header-download-button:hover .button__text {
+    color: transparent;
+  }
+
+  .header-download-button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+
+  .header-download-button:active .button__icon {
+    background-color: #1e40af;
+  }
+
+  .header-download-button:active {
+    border: 1px solid #1e40af;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .header-download-button {
+      width: 130px;
+      height: 36px;
+    }
+
+    .header-download-button .button__text {
+      font-size: 13px;
+      transform: translateX(18px);
+    }
+
+    .header-download-button .button__icon {
+      width: 34px;
+      transform: translateX(94px);
+    }
+
+    .header-download-button:hover .button__icon {
+      width: 128px;
+    }
+
+    .header-download-button .button__svg {
+      width: 18px;
+      height: 18px;
     }
   }
 </style>

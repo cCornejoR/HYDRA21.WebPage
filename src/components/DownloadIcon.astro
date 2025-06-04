@@ -1,0 +1,78 @@
+---
+/**
+ * Download Icon Component - Optimized SVG for download buttons
+ * Uses the download-svgrepo-com.svg as per user preferences
+ */
+
+export interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'w-4 h-4',
+  md: 'w-5 h-5',
+  lg: 'w-6 h-6'
+};
+
+const iconClass = `${sizeClasses[size]} ${className}`;
+---
+
+<svg 
+  class={iconClass}
+  viewBox="0 0 512 512" 
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <rect x="69.824" y="58.512" width="372.352" height="253.792"/>
+  <rect x="85.824" y="74.512" fill="#999999" width="340.352" height="221.792"/>
+  <polygon fill="#D6D6D6" points="442.176,312.304 69.824,312.304 0,437.488 512,437.488"/>
+  <rect x="100.848" y="341.28" fill="#AFAFAF" width="314.192" height="16"/>
+  <rect y="437.488" width="512" height="16"/>
+  <rect x="220.656" y="376.512" fill="#AFAFAF" width="74.56" height="16"/>
+  <g opacity="0.4">
+    <polygon fill="#FFFFFF" points="503.072,421.488 8.928,421.488 0,437.488 512,437.488"/>
+  </g>
+  <g>
+    <polygon fill="#FFFFFF" points="256,259.856 215.408,205.312 228.256,195.744 256,233.04 283.744,195.744 296.592,205.312"/>
+    <rect x="248" y="110.992" fill="#FFFFFF" width="16" height="135.472"/>
+  </g>
+</svg>
+
+<style>
+  svg {
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  
+  /* Ensure proper color inheritance */
+  svg rect,
+  svg polygon {
+    fill: currentColor;
+  }
+  
+  /* Override specific fills for the download icon design */
+  svg rect[fill="#999999"] {
+    fill: rgba(153, 153, 153, 0.8);
+  }
+  
+  svg polygon[fill="#D6D6D6"] {
+    fill: rgba(214, 214, 214, 0.9);
+  }
+  
+  svg rect[fill="#AFAFAF"] {
+    fill: rgba(175, 175, 175, 0.8);
+  }
+  
+  svg g[opacity="0.4"] polygon {
+    fill: rgba(255, 255, 255, 0.4);
+  }
+  
+  svg g:last-child rect,
+  svg g:last-child polygon {
+    fill: currentColor;
+  }
+</style>

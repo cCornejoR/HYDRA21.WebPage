@@ -27,23 +27,23 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     <link rel="preload" href="/assets/images/torus_2.png" as="image" />
     <link rel="preload" href="/assets/images/icosahedron_2.png" as="image" />
   </head>
-  <body class="h-full font-body antialiased theme-bg theme-text transition-colors duration-300 min-w-[300px]" style="min-height: 100vh; min-height: 100svh;">
+  <body class="h-full font-body antialiased theme-bg theme-text min-w-[300px]" style="min-height: 100vh; min-height: 100svh;">
     <div class="min-h-screen relative min-w-[300px]" style="min-height: 100vh; min-height: 100svh;">
-      <!-- Enhanced Background with diagonal grid pattern -->
-      <div class="absolute inset-0 diagonal-grid opacity-60"></div>
+      <!-- Optimized Background - Static grid pattern -->
+      <div class="absolute inset-0 diagonal-grid opacity-30"></div>
 
-      <!-- Responsive background decorative elements following Hero patterns -->
+      <!-- Simplified decorative elements - No animations -->
       <!-- Top-left decorative element -->
-      <div class="absolute top-6 left-6 sm:top-10 sm:left-10 md:top-20 md:left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-blue-600/8 dark:bg-blue-600/6 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute top-6 left-6 sm:top-10 sm:left-10 md:top-20 md:left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-blue-600/4 dark:bg-blue-600/3 rounded-full blur-2xl"></div>
 
       <!-- Bottom-right decorative element -->
-      <div class="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 md:bottom-20 md:right-20 w-40 h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] bg-sky-500/8 dark:bg-sky-500/6 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -2s;"></div>
+      <div class="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 md:bottom-20 md:right-20 w-40 h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] bg-sky-500/4 dark:bg-sky-500/3 rounded-full blur-2xl"></div>
 
       <!-- Central decorative element -->
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] bg-blue-400/6 dark:bg-blue-400/4 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] bg-blue-400/3 dark:bg-blue-400/2 rounded-full blur-2xl"></div>
 
       <!-- Top-right accent element -->
-      <div class="absolute top-1/4 right-1/4 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-indigo-500/6 dark:bg-indigo-500/4 rounded-full blur-2xl animate-float-slow"></div>
+      <div class="absolute top-1/4 right-1/4 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-indigo-500/3 dark:bg-indigo-500/2 rounded-full blur-xl"></div>
 
       <main class="relative z-10" transition:name="main-content">
         <slot />
@@ -200,12 +200,10 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
         }
 
         addPageMorphingEffect() {
+          // Simplified page transition without complex transforms
           const currentPage = document.body;
           if (currentPage) {
-            currentPage.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            currentPage.style.transform = 'scale(0.96) rotateX(3deg) rotateY(-2deg)';
-            currentPage.style.filter = 'blur(5px) brightness(0.7) saturate(1.3)';
-            currentPage.style.opacity = '0.6';
+            currentPage.style.opacity = '0.8';
           }
         }
 
@@ -311,6 +309,48 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
       }
 
       document.addEventListener('astro:page-load', initEnhancedTransitions);
+    </script>
+
+    <!-- Auto Performance Optimization Script -->
+    <script is:inline>
+      // Auto-initialize performance optimizations
+      document.addEventListener('DOMContentLoaded', () => {
+        // Auto-detect low-power devices and apply optimizations
+        const isLowPowerDevice = navigator.hardwareConcurrency < 4 || 
+                                 /Mobile|Android|iPhone|iPad/i.test(navigator.userAgent) ||
+                                 window.innerWidth < 768;
+
+        const isSlowConnection = navigator.connection && (
+          navigator.connection.effectiveType === 'slow-2g' ||
+          navigator.connection.effectiveType === '2g' ||
+          navigator.connection.effectiveType === '3g'
+        );
+
+        if (isLowPowerDevice || isSlowConnection) {
+          // Apply instant performance optimizations
+          const optimizationStyle = document.createElement('style');
+          optimizationStyle.textContent = `
+            /* Instant performance optimizations */
+            .diagonal-grid { display: none !important; }
+            .animate-pulse-slow, .animate-float-slow, .animate-float-gentle { animation: none !important; }
+            .viewport-observer { opacity: 1 !important; transform: none !important; transition: none !important; }
+            [class*="blur-"] { filter: none !important; }
+            [class*="backdrop-blur"] { backdrop-filter: none !important; }
+            [class*="transition-"] { transition: none !important; }
+            * { will-change: auto !important; }
+            ::view-transition-old(*), ::view-transition-new(*) { animation-duration: 0.05s !important; }
+          `;
+          document.head.appendChild(optimizationStyle);
+          console.log('🚀 Optimizaciones de rendimiento aplicadas automáticamente');
+        }
+
+        // Fast image loading optimization
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+          img.loading = 'lazy';
+          img.decoding = 'async';
+        });
+      });
     </script>
   </body>
 </html>
@@ -439,25 +479,16 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
   }
 
   /* ========================================
-     PREMIUM ELEGANT VIEW TRANSITIONS
+     SIMPLE VIEW TRANSITIONS
   ======================================== */
 
-  /* Elegant morphing transitions */
-  @keyframes elegant-fade-in {
+  /* Simple fade transitions */
+  @keyframes simple-fade-in {
     0% {
       opacity: 0;
-      transform: translateY(20px) scale(0.98);
-      filter: blur(8px) brightness(0.8);
-    }
-    50% {
-      opacity: 0.7;
-      transform: translateY(10px) scale(0.99);
-      filter: blur(4px) brightness(0.9);
     }
     100% {
       opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0) brightness(1);
     }
   }
 
@@ -525,353 +556,64 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     }
   }
 
-  @keyframes luxury-scale-in {
+  @keyframes simple-scale-in {
     0% {
       opacity: 0;
-      transform: scale(0.8) rotateZ(-5deg);
-      filter: blur(15px) hue-rotate(30deg);
-      box-shadow: 0 0 0 rgba(59, 130, 246, 0);
-    }
-    25% {
-      opacity: 0.3;
-      transform: scale(0.9) rotateZ(-2deg);
-      filter: blur(10px) hue-rotate(15deg);
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
-    }
-    50% {
-      opacity: 0.6;
-      transform: scale(0.95) rotateZ(-1deg);
-      filter: blur(5px) hue-rotate(8deg);
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-    }
-    75% {
-      opacity: 0.9;
-      transform: scale(1.02) rotateZ(0.5deg);
-      filter: blur(2px) hue-rotate(3deg);
-      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+      transform: scale(0.95);
     }
     100% {
       opacity: 1;
-      transform: scale(1) rotateZ(0deg);
-      filter: blur(0) hue-rotate(0deg);
-      box-shadow: 0 30px 60px rgba(59, 130, 246, 0.4);
+      transform: scale(1);
     }
   }
 
-  @keyframes luxury-scale-out {
+  @keyframes simple-scale-out {
     0% {
       opacity: 1;
-      transform: scale(1) rotateZ(0deg);
-      filter: blur(0) hue-rotate(0deg);
-      box-shadow: 0 30px 60px rgba(59, 130, 246, 0.4);
-    }
-    25% {
-      opacity: 0.9;
-      transform: scale(1.02) rotateZ(0.5deg);
-      filter: blur(2px) hue-rotate(-3deg);
-      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
-    }
-    50% {
-      opacity: 0.6;
-      transform: scale(1.05) rotateZ(1deg);
-      filter: blur(5px) hue-rotate(-8deg);
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-    }
-    75% {
-      opacity: 0.3;
-      transform: scale(1.1) rotateZ(2deg);
-      filter: blur(10px) hue-rotate(-15deg);
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+      transform: scale(1);
     }
     100% {
       opacity: 0;
-      transform: scale(1.2) rotateZ(5deg);
-      filter: blur(15px) hue-rotate(-30deg);
-      box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+      transform: scale(1.05);
     }
   }
 
-  /* SPECTACULAR PAGE TRANSITION ANIMATIONS */
+  /* SIMPLE PAGE TRANSITION ANIMATIONS */
   ::view-transition-old(root) {
-    animation: spectacular-exit 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 1;
+    animation: simple-scale-out 0.3s ease;
   }
 
   ::view-transition-new(root) {
-    animation: spectacular-entrance 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
-    z-index: 2;
+    animation: simple-scale-in 0.3s ease;
   }
 
-  /* DRAMATIC MAIN CONTENT TRANSITIONS */
-  ::view-transition-old(main-content) {
-    animation: dramatic-slide-out 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform-origin: center center;
-  }
-
-  ::view-transition-new(main-content) {
-    animation: dramatic-slide-in 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
-    transform-origin: center center;
-  }
-
-  /* CINEMATIC HEADER TRANSITIONS */
-  ::view-transition-old(site-header) {
-    animation: cinematic-fade-out 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  ::view-transition-new(site-header) {
-    animation: cinematic-fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
-  }
-
-  /* ELEGANT FOOTER TRANSITIONS */
-  ::view-transition-old(site-footer) {
-    animation: elegant-scale-out 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  ::view-transition-new(site-footer) {
-    animation: elegant-scale-in 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
-  }
-
-  /* Premium Loading Bar with Particle Effects */
-  [data-astro-transition] {
-    position: relative;
-  }
-
+  /* Simple Loading Bar */
   [data-astro-transition]::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(59, 130, 246, 0.3) 20%,
-      rgba(6, 182, 212, 0.8) 40%,
-      rgba(139, 92, 246, 1) 50%,
-      rgba(6, 182, 212, 0.8) 60%,
-      rgba(59, 130, 246, 0.3) 80%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    animation: premium-loading-bar 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    height: 2px;
+    background: #3b82f6;
+    transform: translateX(-100%);
+    animation: simple-loading 0.8s ease infinite;
     z-index: 9999;
     pointer-events: none;
-    box-shadow:
-      0 0 20px rgba(59, 130, 246, 0.5),
-      0 0 40px rgba(6, 182, 212, 0.3),
-      0 0 60px rgba(139, 92, 246, 0.2);
   }
 
-  [data-astro-transition]::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.8),
-      transparent
-    );
-    animation: shimmer-effect 2s ease-in-out infinite;
-    z-index: 10000;
-    pointer-events: none;
-  }
-
-  @keyframes premium-loading-bar {
+  @keyframes simple-loading {
     0% {
       transform: translateX(-100%);
-      background-position: 0% 50%;
-    }
-    50% {
-      transform: translateX(0%);
-      background-position: 100% 50%;
     }
     100% {
       transform: translateX(100%);
-      background-position: 200% 50%;
     }
   }
 
-  @keyframes shimmer-effect {
-    0%, 100% {
-      opacity: 0;
-      transform: translateX(-100%) scaleX(0);
-    }
-    50% {
-      opacity: 1;
-      transform: translateX(0%) scaleX(1);
-    }
-  }
 
-  /* ========================================
-     SPECTACULAR PAGE TRANSITION KEYFRAMES
-  ======================================== */
 
-  @keyframes spectacular-exit {
-    0% {
-      opacity: 1;
-      transform: scale(1) rotateY(0deg) rotateX(0deg);
-      filter: blur(0px) brightness(1) contrast(1);
-    }
-    25% {
-      opacity: 0.8;
-      transform: scale(1.02) rotateY(-2deg) rotateX(1deg);
-      filter: blur(2px) brightness(1.1) contrast(1.1);
-    }
-    50% {
-      opacity: 0.5;
-      transform: scale(1.05) rotateY(-5deg) rotateX(3deg);
-      filter: blur(8px) brightness(1.3) contrast(1.2);
-    }
-    75% {
-      opacity: 0.2;
-      transform: scale(1.1) rotateY(-10deg) rotateX(5deg);
-      filter: blur(15px) brightness(1.5) contrast(1.3);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(1.2) rotateY(-15deg) rotateX(8deg);
-      filter: blur(25px) brightness(2) contrast(1.5);
-    }
-  }
 
-  @keyframes spectacular-entrance {
-    0% {
-      opacity: 0;
-      transform: scale(0.8) rotateY(15deg) rotateX(-8deg);
-      filter: blur(25px) brightness(0.5) contrast(0.5);
-    }
-    25% {
-      opacity: 0.2;
-      transform: scale(0.9) rotateY(10deg) rotateX(-5deg);
-      filter: blur(15px) brightness(0.7) contrast(0.7);
-    }
-    50% {
-      opacity: 0.5;
-      transform: scale(0.95) rotateY(5deg) rotateX(-3deg);
-      filter: blur(8px) brightness(0.8) contrast(0.8);
-    }
-    75% {
-      opacity: 0.8;
-      transform: scale(0.98) rotateY(2deg) rotateX(-1deg);
-      filter: blur(2px) brightness(0.9) contrast(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1) rotateY(0deg) rotateX(0deg);
-      filter: blur(0px) brightness(1) contrast(1);
-    }
-  }
-
-  @keyframes dramatic-slide-out {
-    0% {
-      opacity: 1;
-      transform: translateX(0) scale(1) rotateZ(0deg);
-      filter: blur(0px) saturate(1) hue-rotate(0deg);
-    }
-    30% {
-      opacity: 0.7;
-      transform: translateX(-20px) scale(1.02) rotateZ(-1deg);
-      filter: blur(3px) saturate(1.2) hue-rotate(10deg);
-    }
-    60% {
-      opacity: 0.4;
-      transform: translateX(-50px) scale(1.05) rotateZ(-3deg);
-      filter: blur(8px) saturate(1.5) hue-rotate(20deg);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-100px) scale(1.1) rotateZ(-5deg);
-      filter: blur(20px) saturate(2) hue-rotate(30deg);
-    }
-  }
-
-  @keyframes dramatic-slide-in {
-    0% {
-      opacity: 0;
-      transform: translateX(100px) scale(0.9) rotateZ(5deg);
-      filter: blur(20px) saturate(0.5) hue-rotate(-30deg);
-    }
-    40% {
-      opacity: 0.4;
-      transform: translateX(50px) scale(0.95) rotateZ(3deg);
-      filter: blur(8px) saturate(0.7) hue-rotate(-20deg);
-    }
-    70% {
-      opacity: 0.7;
-      transform: translateX(20px) scale(0.98) rotateZ(1deg);
-      filter: blur(3px) saturate(0.8) hue-rotate(-10deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0) scale(1) rotateZ(0deg);
-      filter: blur(0px) saturate(1) hue-rotate(0deg);
-    }
-  }
-
-  @keyframes cinematic-fade-out {
-    0% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0px) brightness(1);
-    }
-    50% {
-      opacity: 0.5;
-      transform: translateY(-10px) scale(1.03);
-      filter: blur(5px) brightness(1.2);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-20px) scale(1.06);
-      filter: blur(12px) brightness(1.5);
-    }
-  }
-
-  @keyframes cinematic-fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(20px) scale(0.94);
-      filter: blur(12px) brightness(0.5);
-    }
-    50% {
-      opacity: 0.5;
-      transform: translateY(10px) scale(0.97);
-      filter: blur(5px) brightness(0.8);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0px) brightness(1);
-    }
-  }
-
-  @keyframes elegant-scale-out {
-    0% {
-      opacity: 1;
-      transform: scale(1) rotateX(0deg);
-      filter: blur(0px) contrast(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.8) rotateX(15deg);
-      filter: blur(15px) contrast(1.5);
-    }
-  }
-
-  @keyframes elegant-scale-in {
-    0% {
-      opacity: 0;
-      transform: scale(1.2) rotateX(-15deg);
-      filter: blur(15px) contrast(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1) rotateX(0deg);
-      filter: blur(0px) contrast(1);
-    }
-  }
 
   /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
@@ -886,58 +628,15 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     }
   }
 
-  /* Custom animations following Hero patterns */
-  @keyframes animate-pulse-slow {
-    0%, 100% {
-      opacity: 0.6;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
-  }
+  /* Optimized static elements - removed heavy animations */
 
-  @keyframes animate-float-slow {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-10px) rotate(90deg);
-    }
-    50% {
-      transform: translateY(-5px) rotate(180deg);
-    }
-    75% {
-      transform: translateY(-15px) rotate(270deg);
-    }
-  }
-
-  .animate-pulse-slow {
-    animation: animate-pulse-slow 8s ease-in-out infinite;
-  }
-
-  .animate-float-slow {
-    animation: animate-float-slow 20s ease-in-out infinite;
-  }
-
-  /* Enhanced diagonal grid pattern following Hero style */
+  /* Optimized static grid pattern */
   .diagonal-grid {
     background-image:
-      linear-gradient(45deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-      linear-gradient(-45deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+      linear-gradient(45deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(6, 182, 212, 0.015) 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
-    animation: grid-move 30s linear infinite;
-  }
-
-  @keyframes grid-move {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(20px, 20px);
-    }
   }
 
   /* Mobile viewport fixes */

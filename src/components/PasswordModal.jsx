@@ -286,14 +286,14 @@ export default function PasswordModal() {
               type="button"
               onClick={handleClose}
               disabled={isLoading}
-              className="flex-1 px-4 py-3 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-xl transition-colors disabled:opacity-50"
+              className="btn-secondary flex-1 disabled:opacity-50"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={isLoading || !password.trim()}
-              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center"
+              className="btn-secondary flex-1 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {isLoading ? (
                 <>

@@ -1,5 +1,6 @@
 ---
 // Brand New Modern Hero Section for HYDRA²¹
+import ViewportAnimator from './ViewportAnimator.astro';
 ---
 
 <!-- ————————————————————————————————————————
@@ -32,6 +33,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center lg:justify-items-stretch">
       
       <!-- 3.1) IZQUIERDA: Badge + Título + Subtítulo + Estadísticas + Botones -->
+      <ViewportAnimator animation="slide-up" delay={0} duration={800}>
       <div class="space-y-4 md:space-y-6 lg:space-y-8 w-full lg:w-auto text-center lg:text-left">
         
         <!-- Badge: #SOFTWARE HIDRÁULICO -->
@@ -79,21 +81,22 @@
         </div>
 
         <!-- Botones CTA (apilados <768px, lado a lado ≥768px) -->
-        <div class="pt-4 md:pt-6 flex flex-col md:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
+        <div class="pt-4 md:pt-6 btn-group">
           <a
             href="/descargas"
             class="btn-primary"
           >
-            <div class="circle"></div>
-            <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+              <rect x="69.824" y="58.512" width="372.352" height="253.792"/>
+              <rect x="85.824" y="74.512" fill="#999999" width="340.352" height="221.792"/>
+              <polygon fill="#D6D6D6" points="442.176,312.304 69.824,312.304 0,437.488 512,437.488 "/>
+              <rect x="100.848" y="341.28" fill="#AFAFAF" width="314.192" height="16"/>
+              <rect y="437.488" width="512" height="16"/>
+              <rect x="220.656" y="376.512" fill="#AFAFAF" width="74.56" height="16"/>
+              <polygon fill="#FFFFFF" points="256,259.856 215.408,205.312 228.256,195.744 256,233.04 283.744,195.744 296.592,205.312"/>
+              <rect x="248" y="110.992" fill="#FFFFFF" width="16" height="135.472"/>
             </svg>
-            <span class="text">Descargar HYDRA²¹</span>
-            <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
+            <span>Descargar HYDRA²¹</span>
           </a>
           <a
             href="#caracteristicas"
@@ -108,8 +111,10 @@
         </div>
 
       </div>
+      </ViewportAnimator>
 
       <!-- 3.2) DERECHA: Bloque de cubos compacto (solo ≥768px) -->
+      <ViewportAnimator animation="fade-in" delay={200} duration={300}>
       <div class="hidden md:flex w-full lg:w-auto relative justify-center lg:justify-end items-center">
         <div class="shapes-cluster-compact relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] flex items-center justify-center">
 
@@ -159,6 +164,7 @@
 
         </div>
       </div>
+      </ViewportAnimator>
 
     </div>
   </div>
@@ -171,6 +177,19 @@
 ————————————————————————————————————————————— */
 .hero-section {
   background: #000000;
+}
+
+/* Hero button group alignment override */
+.hero-section .btn-group {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@media (min-width: 1024px) {
+  .hero-section .btn-group {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
 }
 
 /* Hero background image - Enhanced responsive */
@@ -641,6 +660,8 @@
 ————————————————————————————————————————————— */
 
 /* Botón Primario (Descargar HYDRA²¹) - Configuración Animada */
+/* DISABLED: Using global button system from src/styles/buttons.css */
+/*
 .btn-primary {
   position: relative;
   display: flex;
@@ -729,50 +750,7 @@
   opacity: 1;
 }
 
-/* Botón Secundario (EXPLORAR CARACTERÍSTICAS) - Configuración Moderna */
-.btn-secondary {
-  cursor: pointer;
-  padding: 1em;
-  font-size: 1em;
-  min-width: 7em;
-  
-  color: #e0f2fe;
-  background: #0f172a;
-  background-size: cover;
-  background-blend-mode: overlay;
-  border-radius: 0.5em;
-  outline: 0.1em solid #1e3a8a;
-  border: 0;
-  box-shadow: 0 0 1em 1em rgba(15, 23, 42, 0.2);
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.btn-secondary:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
-  background: linear-gradient(45deg, #0f172a, #1e293b);
-  background: radial-gradient(
-    circle at bottom,
-    rgba(59, 130, 246, 0.6) 10%,
-    #0f172a 70%
-  );
-  outline: 0;
-}
-
-.btn-secondary .icon {
-  fill: #e0f2fe;
-  width: 1em;
-  aspect-ratio: 1;
-  top: 0;
-  left: 0;
-  margin: auto;
-  transform: translate(-35%, 10%);
-}
+/* Local button styles removed - using global button system from src/styles/buttons.css */
 
 /* ——————————————————————————————————————————————
    8) AJUSTES FINOS PARA PANTALLAS < 400px
