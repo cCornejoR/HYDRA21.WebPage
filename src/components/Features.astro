@@ -188,18 +188,18 @@
 
   /* Features background image - Matching hero style */
   .features-background {
-    background-image: url('/assets/images/fondo_2.jpeg');
+    background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.5;
     background-attachment: scroll;
   }
 
   /* Mobile specific background optimizations */
   @media (max-width: 767px) {
     .features-background {
-      opacity: 0.6;
+      opacity: 0.5;
       background-size: cover;
       background-position: center center;
       background-attachment: scroll;
@@ -209,7 +209,7 @@
   @media (min-width: 768px) {
     .features-background {
       background-attachment: fixed;
-      opacity: 0.4;
+      opacity: 0.5;
     }
   }
 
@@ -320,44 +320,7 @@
     }
   }
 
-  /* Additional blur layer for smoother transitions */
-  .features-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.7) 30%,
-      rgba(0, 0, 0, 0.4) 60%,
-      transparent 100%
-    );
-    backdrop-filter: blur(2px);
-    z-index: 24;
-    pointer-events: none;
-  }
-
-  .features-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.7) 30%,
-      rgba(0, 0, 0, 0.4) 60%,
-      transparent 100%
-    );
-    backdrop-filter: blur(2px);
-    z-index: 24;
-    pointer-events: none;
-  }
+  /* Removed duplicate blur layers - Documentation handles the transition */
 
   /* Enhanced glassmorphism effects */
   .feature-card::before {
@@ -463,7 +426,7 @@
   /* Enhanced mobile optimizations */
   @media (max-width: 480px) {
     .features-background {
-      opacity: 0.8 !important;
+      opacity: 0.5 !important;
       filter: brightness(1.2) contrast(1.2) saturate(1.1) !important;
     }
 

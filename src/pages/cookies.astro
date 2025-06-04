@@ -16,50 +16,48 @@ const description = "Política de cookies y tecnologías de seguimiento de HYDRA
     <div class="absolute inset-0 bg-black cookies-background">
       <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
     </div>
-    
-    <!-- Top blur transition -->
-    <div class="absolute top-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20"></div>
-    
+
+    <!-- Top blur transition with header spacing -->
+    <div class="absolute top-0 left-0 right-0 h-24 sm:h-28 md:h-36 lg:h-44 xl:h-48 bg-gradient-to-b from-black via-black/80 to-transparent z-20"></div>
+
     <!-- Bottom blur transition -->
     <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
-    
+
     <!-- Geometric grid pattern -->
     <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
       <div class="absolute inset-0 grid-pattern"></div>
     </div>
 
-    <!-- Main content container -->
-    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+    <!-- Main content container with proper header spacing -->
+    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 pt-20 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 pb-8 xs:pb-10 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24">
       
       <!-- Hero Content -->
       <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
         
         <!-- Left side - Content -->
         <div class="flex-1 text-center lg:text-left">
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-orange-500/30 rounded-full px-3 xs:px-4 py-2 xs:py-3 text-xs sm:text-sm mb-6 sm:mb-8">
-            <span class="text-orange-400">🍪</span>
-            <span class="text-orange-400 font-medium">#POLÍTICA DE COOKIES</span>
+          <!-- Badge with better responsive spacing -->
+          <div class="inline-flex items-center gap-2 sm:gap-3 bg-gray-900/90 backdrop-blur-sm border border-orange-500/30 rounded-full px-4 sm:px-5 md:px-6 py-2 sm:py-3 md:py-4 text-xs sm:text-sm md:text-base mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+            <span class="text-orange-400 text-sm sm:text-base md:text-lg">🍪</span>
+            <span class="text-orange-400 font-medium tracking-wide">#POLÍTICA DE COOKIES</span>
           </div>
           
-          <!-- Main Title -->
-          <h1 class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-tight mb-6 sm:mb-8">
+          <!-- Main Title with improved responsive sizing -->
+          <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white leading-tight mb-8 sm:mb-10 md:mb-12 lg:mb-16">
             Política de
             <span class="block text-orange-400">Cookies</span>
           </h1>
-          
-          <!-- Description -->
-          <p class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 leading-relaxed mb-8 sm:mb-10 max-w-3xl mx-auto lg:mx-0">
+
+          <!-- Description with better responsive text sizing -->
+          <p class="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-300 leading-relaxed mb-10 sm:mb-12 md:mb-14 lg:mb-16 max-w-3xl mx-auto lg:mx-0">
             Transparencia total sobre<br class="hidden sm:block"/>
             el uso de cookies en nuestro sitio.
           </p>
           
           <!-- CTA Button -->
           <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-            <a href="#contenido" class="btn-secondary">
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
+            <a href="#contenido" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white font-semibold rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25 text-sm sm:text-base">
+              <span class="mr-2 text-base sm:text-lg">🍪</span>
               Ver Cookies
             </a>
           </div>
@@ -226,28 +224,28 @@ const description = "Política de cookies y tecnologías de seguimiento de HYDRA
 <style>
   /* Cookies background image */
   .cookies-background {
-    background-image: url('/assets/images/fondo_2.jpeg');
+    background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.5;
     background-attachment: scroll;
   }
-  
+
   /* Mobile specific background optimizations */
   @media (max-width: 767px) {
     .cookies-background {
-      opacity: 0.6;
+      opacity: 0.5;
       background-size: cover;
       background-position: center center;
       background-attachment: scroll;
     }
   }
-  
+
   @media (min-width: 768px) {
     .cookies-background {
       background-attachment: fixed;
-      opacity: 0.4;
+      opacity: 0.5;
     }
   }
 

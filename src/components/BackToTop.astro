@@ -1,0 +1,153 @@
+---
+// BackToTop.astro - Componente para botón de regresar al inicio
+---
+
+<button 
+  id="back-to-top-btn" 
+  class="back-to-top-button"
+  aria-label="Regresar al inicio"
+  title="Regresar al inicio"
+>
+  <svg class="back-to-top-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+  </svg>
+</button>
+
+<script>
+  function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+    
+    if (!backToTopBtn) return;
+
+    // Función para mostrar/ocultar el botón basado en el scroll
+    function toggleBackToTopButton() {
+      if (!backToTopBtn) return;
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    }
+
+    // Función para scroll suave al inicio
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', toggleBackToTopButton, { passive: true });
+    backToTopBtn.addEventListener('click', scrollToTop);
+
+    // Inicializar el estado del botón
+    toggleBackToTopButton();
+  }
+
+  // Inicializar cuando se carga el DOM y después de cada transición de página
+  document.addEventListener('DOMContentLoaded', initializeBackToTop);
+  document.addEventListener('astro:page-load', initializeBackToTop);
+</script>
+
+<style>
+  .back-to-top-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 40;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .back-to-top-button.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .back-to-top-button:hover {
+    background: linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .back-to-top-button:active {
+    transform: translateY(0) scale(0.95);
+  }
+
+  .back-to-top-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .back-to-top-button:hover .back-to-top-icon {
+    transform: translateY(-1px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .back-to-top-button {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .back-to-top-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  /* Animación suave para dispositivos que soportan reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top-button {
+      transition: opacity 0.2s ease;
+    }
+    
+    .back-to-top-button:hover {
+      transform: none;
+    }
+  }
+
+  /* Asegurar que el botón esté sobre otros elementos flotantes */
+  .back-to-top-button {
+    z-index: 9999;
+  }
+
+  /* Efectos adicionales */
+  .back-to-top-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .back-to-top-button:hover::before {
+    opacity: 0.2;
+  }
+</style> 

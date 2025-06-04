@@ -13,7 +13,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   <Header />
   
   <!-- Downloads Hero Section -->
-  <section class="relative min-h-screen flex items-center overflow-hidden bg-black" style="min-height: 100vh; min-height: 100svh;">
+  <section class="downloads-section relative min-h-screen flex items-center overflow-hidden bg-black" style="min-height: 100vh; min-height: 100svh;">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-black downloads-background">
       <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
@@ -35,41 +35,47 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center lg:justify-items-stretch">
 
         <!-- Left side - Content - Following Hero spacing patterns -->
-        <div class="space-y-4 md:space-y-6 lg:space-y-8 w-full lg:w-auto text-center lg:text-left">
+        <div class="space-y-4 md:space-y-6 lg:space-y-8 w-full lg:w-auto text-center lg:text-left px-4 lg:px-8">
 
           <!-- Badge: #DESCARGA HYDRA²¹ -->
           <div class="inline-flex items-center gap-1 sm:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 py-1 text-xs sm:text-sm">
-            <span class="text-blue-400 text-xs sm:text-sm">📥</span>
+            <!-- Download SVG -->
+            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+            </svg>
             <span class="text-blue-400 font-medium text-xs sm:text-xs">#DESCARGA HYDRA²¹</span>
           </div>
 
           <!-- Main Heading - Following Hero responsive patterns -->
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight" transition:name="downloads-hero-title">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight" transition:name="downloads-hero-title">
             Descarga<br/>
             <span class="block text-blue-400" transition:name="logo-text">HYDRA²¹</span>
           </h1>
 
           <!-- Subtitle - Following Hero responsive patterns -->
-          <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p class="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Software de ingeniería hidráulica<br class="hidden sm:block"/>
             de última generación.
           </p>
 
-          <!-- Windows Only Notice -->
-          <div class="inline-flex items-center gap-2 bg-orange-600/20 backdrop-blur-sm border border-orange-500/40 rounded-2xl px-3 py-2 text-xs sm:text-sm">
-            <!-- Windows Logo SVG -->
-            <svg class="w-4 h-4 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
-            </svg>
-            <span class="text-orange-400 font-semibold">SOLO WINDOWS</span>
-            <span class="bg-orange-500/20 text-orange-300 text-xs px-2 py-1 rounded-full">TEMPORAL</span>
-          </div>
+          <!-- Badges Container -->
+          <div class="flex flex-col gap-3 items-center lg:items-start lg:justify-start">
+            <!-- Windows Only Notice -->
+            <div class="inline-flex items-center gap-2 bg-orange-600/20 backdrop-blur-sm border border-orange-500/40 rounded-2xl px-3 py-2 text-xs sm:text-sm">
+              <!-- Windows Logo SVG -->
+              <svg class="w-4 h-4 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+              </svg>
+              <span class="text-orange-400 font-semibold">SOLO WINDOWS</span>
+              <span class="bg-orange-500/20 text-orange-300 text-xs px-2 py-1 rounded-full">TEMPORAL</span>
+            </div>
 
-          <!-- Version Badge -->
-          <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/40 rounded-2xl px-3 py-2 text-xs sm:text-sm">
-            <span class="text-blue-400 font-semibold">VERSIÓN:</span>
-            <span class="text-white font-bold">v2025.1 ALPHA</span>
-            <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">NUEVO</span>
+            <!-- Version Badge -->
+            <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/40 rounded-2xl px-3 py-2 text-xs sm:text-sm">
+              <span class="text-blue-400 font-semibold">VERSIÓN:</span>
+              <span class="text-white font-bold">v2025.1 ALPHA</span>
+              <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">NUEVO</span>
+            </div>
           </div>
 
           <!-- Botones CTA (apilados <768px, lado a lado ≥768px) - Following Hero button patterns -->
@@ -101,12 +107,36 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
         <!-- Right side - Download Image (solo ≥768px) - Following Hero responsive patterns -->
         <div class="hidden md:flex w-full lg:w-auto relative justify-center lg:justify-end items-center">
           <div class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] flex items-center justify-center">
+
+            <!-- Download Animation Overlay -->
+            <div class="absolute inset-0 pointer-events-none z-10">
+              <!-- Progress Indicator -->
+              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 max-w-xs">
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-full h-2 overflow-hidden">
+                  <div class="download-progress bg-gradient-to-r from-blue-500 to-cyan-400 h-full rounded-full"></div>
+                </div>
+                <div class="text-center mt-2">
+                  <span class="text-xs text-blue-400/80 font-medium download-percentage">0%</span>
+                </div>
+              </div>
+
+              <!-- Particle Effects -->
+              <div class="download-particles absolute inset-0">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+                <div class="particle particle-6"></div>
+              </div>
+            </div>
+
             <!-- Main download image -->
-            <div class="relative">
+            <div class="relative z-5">
               <img
                 src="/assets/images/download.png"
                 alt="Descarga HYDRA²¹"
-                class="w-full h-auto animate-float-gentle filter drop-shadow-2xl"
+                class="w-full h-auto animate-float-gentle filter drop-shadow-2xl translate-x-6"
                 transition:name="downloads-hero-image"
                 loading="eager"
                 decoding="async"
@@ -123,12 +153,12 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   </section>
 
   <!-- Software Versions Section -->
-  <section id="download-section" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+  <section id="download-section" class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         
         <!-- Section Header - Following Hero responsive patterns -->
-        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+        <div class="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8" transition:name="versions-title">
             Versiones y Addons
           </h2>
@@ -138,11 +168,11 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
         </div>
 
         <!-- Version Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           
           <!-- Current Version Card -->
           <div class="group relative">
-            <div class="relative h-full border-2 border-[rgba(14,165,233,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(14,165,233,0.2)] via-[rgba(59,130,246,0.15)] to-[rgba(14,165,233,0.1)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(14,165,233,0.7)] hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(14,165,233,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(14,165,233,0.2)] via-[rgba(59,130,246,0.15)] to-[rgba(14,165,233,0.1)] backdrop-blur-xl p-4 sm:p-6 md:p-8 transition-all duration-500 hover:border-[rgba(14,165,233,0.7)] hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105">
 
               <!-- Background Image (Hidden by default, shown on hover) -->
               <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
@@ -205,7 +235,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer"
                   client:load
                 >
-                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+                  <div class="btn-modern-download-primary">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -222,7 +252,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer w-full"
                   client:load
                 >
-                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+                  <div class="btn-modern-download-primary w-full">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -236,7 +266,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
           
           <!-- PaperExtension Card -->
           <div class="group relative">
-            <div class="relative h-full border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-4 sm:p-6 md:p-8 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20 hover:scale-105">
 
               <!-- Background Image (Hidden by default, shown on hover) -->
               <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
@@ -297,7 +327,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer"
                   client:load
                 >
-                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                  <div class="btn-modern-download-purple">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -314,7 +344,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer w-full"
                   client:load
                 >
-                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                  <div class="btn-modern-download-purple w-full">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -328,7 +358,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 
           <!-- PDF Compressor Addon Card -->
           <div class="group relative">
-            <div class="relative h-full border-2 border-[rgba(34,197,94,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.2)] via-[rgba(16,185,129,0.15)] to-[rgba(34,197,94,0.1)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(34,197,94,0.7)] hover:shadow-2xl hover:shadow-green-500/25 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(34,197,94,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.2)] via-[rgba(16,185,129,0.15)] to-[rgba(34,197,94,0.1)] backdrop-blur-xl p-4 sm:p-6 md:p-8 transition-all duration-500 hover:border-[rgba(34,197,94,0.7)] hover:shadow-2xl hover:shadow-green-500/25 hover:scale-105">
 
               <!-- Background Image (Hidden by default, shown on hover) -->
               <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
@@ -389,7 +419,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer"
                   client:load
                 >
-                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25">
+                  <div class="btn-modern-download-green">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -406,7 +436,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer w-full"
                   client:load
                 >
-                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25">
+                  <div class="btn-modern-download-green w-full">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -420,7 +450,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 
           <!-- Clipper Manager Addon Card -->
           <div class="group relative md:col-span-2 xl:col-span-1">
-            <div class="relative h-full border-2 border-[rgba(168,85,247,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(168,85,247,0.2)] via-[rgba(139,92,246,0.15)] to-[rgba(168,85,247,0.1)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(168,85,247,0.7)] hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(168,85,247,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(168,85,247,0.2)] via-[rgba(139,92,246,0.15)] to-[rgba(168,85,247,0.1)] backdrop-blur-xl p-4 sm:p-6 md:p-8 transition-all duration-500 hover:border-[rgba(168,85,247,0.7)] hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105">
 
               <!-- Background Image (Hidden by default, shown on hover) -->
               <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
@@ -481,7 +511,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer"
                   client:load
                 >
-                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                  <div class="btn-modern-download-violet">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -498,7 +528,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                   className="cursor-pointer w-full"
                   client:load
                 >
-                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                  <div class="btn-modern-download-violet w-full">
                     <!-- Windows Logo SVG -->
                     <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
@@ -516,12 +546,12 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   </section>
 
   <!-- System Requirements Section -->
-  <section id="system-requirements" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+  <section id="system-requirements" class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
         <!-- Section Header - Following Hero responsive patterns -->
-        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+        <div class="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8">
             Requisitos del Sistema
           </h2>
@@ -539,7 +569,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
         </div>
 
         <!-- Requirements Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 
           <!-- Minimum Requirements -->
           <div class="group relative">
@@ -561,35 +591,51 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                 <!-- Requirements List -->
                 <div class="space-y-4">
                   <div class="flex items-start gap-3">
-                    <span class="text-orange-400 mt-1">🖥️</span>
+                    <!-- Computer SVG -->
+                    <svg class="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/>
+                    </svg>
                     <div>
                       <p class="text-white font-semibold">Sistema Operativo</p>
                       <p class="text-gray-300 text-sm">Windows 10 (64-bit) o superior</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
-                    <span class="text-orange-400 mt-1">🧠</span>
+                    <!-- CPU SVG -->
+                    <svg class="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 7h6v2H9V7zm0 4h6v2H9v-2z"/>
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                    </svg>
                     <div>
                       <p class="text-white font-semibold">Procesador</p>
                       <p class="text-gray-300 text-sm">Intel i5 o AMD Ryzen 5 (4 núcleos)</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
-                    <span class="text-orange-400 mt-1">💾</span>
+                    <!-- Memory SVG -->
+                    <svg class="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm0-9V11l-4 4-4-4V7.5h8z"/>
+                    </svg>
                     <div>
                       <p class="text-white font-semibold">Memoria RAM</p>
                       <p class="text-gray-300 text-sm">8 GB DDR4</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
-                    <span class="text-orange-400 mt-1">💿</span>
+                    <!-- Storage SVG -->
+                    <svg class="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
                     <div>
                       <p class="text-white font-semibold">Almacenamiento</p>
                       <p class="text-gray-300 text-sm">2 GB espacio libre (SSD recomendado)</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
-                    <span class="text-orange-400 mt-1">🎮</span>
+                    <!-- Graphics SVG -->
+                    <svg class="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM10 12l2.5 3L16 11l4 5H4l6-4z"/>
+                    </svg>
                     <div>
                       <p class="text-white font-semibold">Tarjeta Gráfica</p>
                       <p class="text-gray-300 text-sm">DirectX 11 compatible</p>
@@ -620,7 +666,10 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                 <!-- Requirements List -->
                 <div class="space-y-4">
                   <div class="flex items-start gap-3">
-                    <span class="text-green-400 mt-1">🖥️</span>
+                    <!-- Computer SVG -->
+                    <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/>
+                    </svg>
                     <div>
                       <p class="text-white font-semibold">Sistema Operativo</p>
                       <p class="text-gray-300 text-sm">Windows 11 (64-bit)</p>
@@ -665,12 +714,12 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   </section>
 
   <!-- Roadmap Section -->
-  <section class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+  <section class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
         <!-- Section Header - Following Hero responsive patterns -->
-        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+        <div class="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8">
             Hoja de Ruta
           </h2>
@@ -907,12 +956,12 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   </section>
 
   <!-- Documentation & Support Section -->
-  <section class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+  <section class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
         <!-- Section Header - Following Hero responsive patterns -->
-        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+        <div class="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8">
             Documentación y Soporte
           </h2>
@@ -922,11 +971,11 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
         </div>
 
         <!-- Documentation Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
           <!-- Getting Started -->
           <div class="group relative">
-            <div class="relative h-full border-2 border-[rgba(34,197,94,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.15)] via-[rgba(16,185,129,0.1)] to-[rgba(34,197,94,0.05)] backdrop-blur-xl p-6 sm:p-8 text-center transition-all duration-500 hover:border-[rgba(34,197,94,0.6)] hover:shadow-2xl hover:shadow-green-500/20 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(34,197,94,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.15)] via-[rgba(16,185,129,0.1)] to-[rgba(34,197,94,0.05)] backdrop-blur-xl p-4 sm:p-6 text-center transition-all duration-500 hover:border-[rgba(34,197,94,0.6)] hover:shadow-2xl hover:shadow-green-500/20 hover:scale-105">
 
               <!-- Glassmorphism overlay -->
               <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
@@ -956,7 +1005,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 
           <!-- API Documentation -->
           <div class="group relative">
-            <div class="relative h-full border-2 border-[rgba(59,130,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(59,130,246,0.15)] via-[rgba(14,165,233,0.1)] to-[rgba(59,130,246,0.05)] backdrop-blur-xl p-6 sm:p-8 text-center transition-all duration-500 hover:border-[rgba(59,130,246,0.6)] hover:shadow-2xl hover:shadow-blue-500/20 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(59,130,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(59,130,246,0.15)] via-[rgba(14,165,233,0.1)] to-[rgba(59,130,246,0.05)] backdrop-blur-xl p-4 sm:p-6 text-center transition-all duration-500 hover:border-[rgba(59,130,246,0.6)] hover:shadow-2xl hover:shadow-blue-500/20 hover:scale-105">
 
               <!-- Glassmorphism overlay -->
               <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
@@ -986,7 +1035,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 
           <!-- Video Tutorials -->
           <div class="group relative">
-            <div class="relative h-full border-2 border-[rgba(239,68,68,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(239,68,68,0.15)] via-[rgba(220,38,38,0.1)] to-[rgba(239,68,68,0.05)] backdrop-blur-xl p-6 sm:p-8 text-center transition-all duration-500 hover:border-[rgba(239,68,68,0.6)] hover:shadow-2xl hover:shadow-red-500/20 hover:scale-105">
+            <div class="relative h-full border-2 border-[rgba(239,68,68,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(239,68,68,0.15)] via-[rgba(220,38,38,0.1)] to-[rgba(239,68,68,0.05)] backdrop-blur-xl p-4 sm:p-6 text-center transition-all duration-500 hover:border-[rgba(239,68,68,0.6)] hover:shadow-2xl hover:shadow-red-500/20 hover:scale-105">
 
               <!-- Glassmorphism overlay -->
               <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
@@ -1017,9 +1066,9 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
         </div>
 
         <!-- Support Section -->
-        <div class="mt-16 sm:mt-20 md:mt-24">
+        <div class="mt-8 sm:mt-12 md:mt-16">
           <div class="group relative">
-            <div class="relative border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-8 sm:p-10 md:p-12 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20">
+            <div class="relative border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20">
 
               <!-- Glassmorphism overlay -->
               <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
@@ -1033,7 +1082,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
                 </div>
 
                 <!-- Support Options -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
                   <!-- Email Support -->
                   <div class="text-center p-4 bg-purple-600/10 rounded-xl border border-purple-500/20">
@@ -1099,20 +1148,38 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 </Layout>
 
 <style>
+  /* Downloads section styling */
+  .downloads-section {
+    background: #000000;
+  }
+
+  /* Downloads button group alignment override - Following Hero patterns */
+  .downloads-section .btn-group {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media (min-width: 1024px) {
+    .downloads-section .btn-group {
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+    }
+  }
+
   /* Downloads background image */
   .downloads-background {
-    background-image: url('/assets/images/fondo_2.jpeg');
+    background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.5;
     background-attachment: scroll;
   }
 
   /* Mobile specific background optimizations */
   @media (max-width: 767px) {
     .downloads-background {
-      opacity: 0.6;
+      opacity: 0.5;
       background-size: cover;
       background-position: center center;
       background-attachment: scroll;
@@ -1122,7 +1189,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   @media (min-width: 768px) {
     .downloads-background {
       background-attachment: fixed;
-      opacity: 0.4;
+      opacity: 0.5;
     }
   }
 
@@ -1203,33 +1270,172 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     /* Mobile: Single column layout */
     .grid {
       grid-template-columns: 1fr !important;
-      gap: 1.5rem !important;
+      gap: 1rem !important;
     }
 
-    /* Reduce padding on mobile following Hero patterns */
-    .p-8 {
-      padding: 1.5rem !important;
+    /* Compact padding on mobile */
+    .p-6, .p-8, .sm\:p-8, .md\:p-10 {
+      padding: 1rem !important;
     }
 
     .p-12, .sm\:p-10, .md\:p-12, .lg\:p-16 {
-      padding: 1.5rem !important;
+      padding: 1rem !important;
     }
 
-    /* Reduce section spacing on mobile following Hero patterns */
+    /* Compact section spacing on mobile */
     .py-20, .sm\:py-24, .md\:py-28, .lg\:py-32 {
-      padding-top: 3rem !important;
-      padding-bottom: 3rem !important;
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
     }
 
-    /* Reduce margin between sections following Hero patterns */
+    /* Compact margin between sections */
     .mb-16, .sm\:mb-20, .md\:mb-24 {
-      margin-bottom: 2rem !important;
+      margin-bottom: 1.5rem !important;
     }
 
     .mb-6, .sm\:mb-8 {
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Compact card spacing */
+    .space-y-6 {
+      gap: 1rem !important;
+    }
+
+    .space-y-3 {
+      gap: 0.5rem !important;
+    }
+
+    .space-y-4 {
+      gap: 0.75rem !important;
+    }
+
+    /* Compact text sizes */
+    .text-2xl, .sm\:text-3xl {
+      font-size: 1.25rem !important;
+      line-height: 1.75rem !important;
+    }
+
+    .text-3xl, .sm\:text-4xl, .md\:text-5xl, .lg\:text-6xl {
+      font-size: 1.5rem !important;
+      line-height: 2rem !important;
+    }
+
+    .text-lg, .sm\:text-xl, .md\:text-2xl {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+
+    /* Compact icon sizes */
+    .w-16.h-16 {
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+    }
+
+    .w-12.h-12 {
+      width: 2rem !important;
+      height: 2rem !important;
+    }
+
+    /* Compact button padding */
+    .px-6.py-3 {
+      padding: 0.5rem 1rem !important;
+    }
+
+    .px-4.py-2, .px-3.py-1 {
+      padding: 0.25rem 0.5rem !important;
+    }
+
+    /* Compact border radius */
+    .rounded-3xl {
+      border-radius: 1rem !important;
+    }
+
+    .rounded-xl {
+      border-radius: 0.5rem !important;
+    }
+  }
+
+  /* Extra compact optimizations for very small screens ≤480px */
+  @media (max-width: 480px) {
+    /* Ultra compact section spacing */
+    .py-20, .sm\:py-24, .md\:py-28, .lg\:py-32 {
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+
+    /* Ultra compact padding */
+    .p-6, .p-8, .sm\:p-8, .md\:p-10, .p-12, .sm\:p-10, .md\:p-12, .lg\:p-16 {
+      padding: 0.75rem !important;
+    }
+
+    /* Ultra compact margins */
+    .mb-16, .sm\:mb-20, .md\:mb-24 {
       margin-bottom: 1rem !important;
     }
 
+    .mb-6, .sm\:mb-8 {
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* Ultra compact grid gaps */
+    .gap-8, .lg\:gap-12 {
+      gap: 0.75rem !important;
+    }
+
+    /* Ultra compact text sizes */
+    .text-3xl, .sm\:text-4xl, .md\:text-5xl, .lg\:text-6xl {
+      font-size: 1.25rem !important;
+      line-height: 1.75rem !important;
+    }
+
+    .text-2xl, .sm\:text-3xl {
+      font-size: 1.125rem !important;
+      line-height: 1.5rem !important;
+    }
+
+    .text-xl, .sm\:text-2xl {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+
+    /* Ultra compact feature lists */
+    .space-y-6 {
+      gap: 0.75rem !important;
+    }
+
+    .space-y-3, .space-y-4 {
+      gap: 0.375rem !important;
+    }
+
+    /* Ultra compact icons */
+    .w-16.h-16 {
+      width: 2rem !important;
+      height: 2rem !important;
+    }
+
+    .w-12.h-12 {
+      width: 1.75rem !important;
+      height: 1.75rem !important;
+    }
+
+    /* Hide some decorative elements on very small screens */
+    .absolute.-top-3.-right-3,
+    .absolute.-top-4.left-1\/2 {
+      display: none !important;
+    }
+
+    /* Simplify hover effects on touch devices */
+    .hover\:scale-105 {
+      transform: none !important;
+    }
+
+    .transition-all {
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 640px) {
     /* Adjust hero section for mobile following Hero patterns */
     .min-h-screen {
       min-height: 100vh;
@@ -1239,16 +1445,37 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     }
 
     /* Button group responsive following Hero patterns */
-    .btn-group {
+    .btn-group,
+    .flex.flex-col.md\\:flex-row {
       flex-direction: column !important;
       gap: 12px !important;
       align-items: center !important;
       justify-content: center !important;
     }
 
-    .btn-group .btn-secondary {
+    .btn-group .btn-secondary,
+    .btn-modern-primary,
+    .btn-modern-secondary {
       width: 100% !important;
       max-width: 280px !important;
+      text-align: center !important;
+    }
+
+    /* Ensure hero content is centered on mobile */
+    section.relative.min-h-screen .space-y-4 {
+      text-align: center !important;
+      align-items: center !important;
+    }
+
+    /* Center all inline elements */
+    section.relative.min-h-screen .inline-flex {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    /* Badge container mobile */
+    .flex.flex-col.gap-3 {
+      align-items: center !important;
     }
   }
 
@@ -1260,7 +1487,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       background-position: center center;
       background-size: cover;
       filter: brightness(1.2) contrast(1.2) saturate(1.1);
-      opacity: 0.7;
+      opacity: 0.5;
     }
 
     /* Hero section takes full viewport following Hero patterns */
@@ -1447,11 +1674,19 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     }
 
     /* Button group alignment following Hero patterns */
-    .btn-group {
+    .btn-group,
+    .flex.flex-col.md\\:flex-row {
       flex-direction: row !important;
       gap: 24px !important;
-      align-items: flex-start !important;
-      justify-content: flex-start !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    /* Better button sizing for tablets */
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      width: auto !important;
+      min-width: 180px !important;
     }
   }
 
@@ -1544,7 +1779,6 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       min-height: 100svh !important;
       height: auto;
     }
-  }
 
     /* Hero-specific mobile adjustments */
     section.relative.min-h-screen {
@@ -1605,12 +1839,6 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     }
   }
 
-
-
-
-
-
-
   /* Timeline specific styles - Essential only */
   .space-y-16 > * + * {
     margin-top: 4rem;
@@ -1648,7 +1876,779 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     justify-content: center;
   }
 
+  /* Enhanced centering for hero content */
+  section.relative.min-h-screen .space-y-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
+  /* Desktop layout adjustments */
+  @media (min-width: 1024px) {
+    section.relative.min-h-screen .space-y-4 {
+      align-items: flex-start;
+      text-align: left;
+    }
 
+    /* Center badges and buttons on mobile, left-align on desktop */
+    section.relative.min-h-screen .inline-flex {
+      margin-left: 0;
+      margin-right: auto;
+    }
 
+    /* Buttons alignment for desktop */
+    section.relative.min-h-screen .flex.flex-col.md\\:flex-row {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    /* Better button sizing for desktop */
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      width: auto !important;
+      min-width: 200px !important;
+    }
+
+    /* Badge container alignment */
+    .flex.flex-col.gap-3 {
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+    }
+  }
+
+  /* Mobile centering */
+  @media (max-width: 1023px) {
+    /* Center badges and buttons */
+    section.relative.min-h-screen .inline-flex {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Ensure buttons are centered */
+    section.relative.min-h-screen .flex.flex-col.md\\:flex-row {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  /* ——————————————————————————————————————————————
+     MODERN BUTTON SYSTEM - DOWNLOADS PAGE
+     Note: Modern buttons matching the Hero component design
+  ————————————————————————————————————————————— */
+
+  /* Modern Primary Button - Main CTA */
+  .btn-modern-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    /* Adaptive padding for optimal touch targets */
+    padding: 16px 32px;
+    min-width: 180px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Modern visual styling */
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 12px;
+    box-shadow:
+      0 4px 15px rgba(59, 130, 246, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Modern Secondary Button - Secondary CTA */
+  .btn-modern-secondary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    /* Adaptive padding for optimal touch targets */
+    padding: 16px 32px;
+    min-width: 180px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Modern visual styling */
+    color: #e0f2fe;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    box-shadow:
+      0 4px 15px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Download Button Variants */
+  .btn-modern-download-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Blue gradient styling */
+    color: #ffffff;
+    background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 20px rgba(59, 130, 246, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .btn-modern-download-purple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Purple gradient styling */
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed 0%, #4338ca 100%);
+    border: 2px solid rgba(124, 58, 237, 0.4);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 20px rgba(124, 58, 237, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .btn-modern-download-green {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Green gradient styling */
+    color: #ffffff;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    border: 2px solid rgba(5, 150, 105, 0.4);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 20px rgba(5, 150, 105, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .btn-modern-download-violet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Violet gradient styling */
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    border: 2px solid rgba(139, 92, 246, 0.4);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 20px rgba(139, 92, 246, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Button icon styling */
+  .btn-modern-primary .icon,
+  .btn-modern-secondary .icon,
+  .btn-modern-primary svg,
+  .btn-modern-secondary svg,
+  .btn-modern-download-primary svg,
+  .btn-modern-download-purple svg,
+  .btn-modern-download-green svg,
+  .btn-modern-download-violet svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    stroke: currentColor;
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Primary Button Hover States */
+  .btn-modern-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    color: #ffffff;
+  }
+
+  .btn-modern-primary:hover .icon,
+  .btn-modern-primary:hover svg {
+    transform: scale(1.1);
+  }
+
+  /* Secondary Button Hover States */
+  .btn-modern-secondary:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    color: #ffffff;
+  }
+
+  .btn-modern-secondary:hover .icon,
+  .btn-modern-secondary:hover svg {
+    transform: scale(1.1);
+  }
+
+  /* Download Button Hover States */
+  .btn-modern-download-primary:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #1d4ed8 0%, #0e7490 100%);
+    box-shadow:
+      0 8px 30px rgba(59, 130, 246, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  }
+
+  .btn-modern-download-purple:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #6d28d9 0%, #3730a3 100%);
+    box-shadow:
+      0 8px 30px rgba(124, 58, 237, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  }
+
+  .btn-modern-download-green:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    box-shadow:
+      0 8px 30px rgba(5, 150, 105, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  }
+
+  .btn-modern-download-violet:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+    box-shadow:
+      0 8px 30px rgba(139, 92, 246, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  }
+
+  .btn-modern-download-primary:hover svg,
+  .btn-modern-download-purple:hover svg,
+  .btn-modern-download-green:hover svg,
+  .btn-modern-download-violet:hover svg {
+    transform: scale(1.1);
+  }
+
+  /* Button Active States */
+  .btn-modern-primary:active,
+  .btn-modern-secondary:active,
+  .btn-modern-download-primary:active,
+  .btn-modern-download-purple:active,
+  .btn-modern-download-green:active,
+  .btn-modern-download-violet:active {
+    transform: translateY(0px) scale(1);
+    transition-duration: 0.1s;
+  }
+
+  /* Button Focus States for Accessibility */
+  .btn-modern-primary:focus,
+  .btn-modern-secondary:focus,
+  .btn-modern-download-primary:focus,
+  .btn-modern-download-purple:focus,
+  .btn-modern-download-green:focus,
+  .btn-modern-download-violet:focus {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(59, 130, 246, 0.5),
+      0 4px 15px rgba(59, 130, 246, 0.25);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .btn-modern-primary,
+    .btn-modern-secondary,
+    .btn-modern-download-primary,
+    .btn-modern-download-purple,
+    .btn-modern-download-green,
+    .btn-modern-download-violet {
+      padding: 14px 24px;
+      min-width: 160px;
+      font-size: 15px;
+      gap: 6px;
+    }
+
+    .btn-modern-primary .icon,
+    .btn-modern-secondary .icon,
+    .btn-modern-primary svg,
+    .btn-modern-secondary svg,
+    .btn-modern-download-primary svg,
+    .btn-modern-download-purple svg,
+    .btn-modern-download-green svg,
+    .btn-modern-download-violet svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .btn-modern-primary,
+    .btn-modern-secondary,
+    .btn-modern-download-primary,
+    .btn-modern-download-purple,
+    .btn-modern-download-green,
+    .btn-modern-download-violet {
+      padding: 12px 20px;
+      min-width: 140px;
+      font-size: 14px;
+      gap: 4px;
+    }
+
+    .btn-modern-primary .icon,
+    .btn-modern-secondary .icon,
+    .btn-modern-primary svg,
+    .btn-modern-secondary svg,
+    .btn-modern-download-primary svg,
+    .btn-modern-download-purple svg,
+    .btn-modern-download-green svg,
+    .btn-modern-download-violet svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      padding: 18px 36px;
+      min-width: 200px;
+      font-size: 17px;
+    }
+
+    .btn-modern-download-primary,
+    .btn-modern-download-purple,
+    .btn-modern-download-green,
+    .btn-modern-download-violet {
+      padding: 18px 36px;
+      font-size: 17px;
+    }
+  }
+
+  /* Accessibility - Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-modern-primary,
+    .btn-modern-secondary,
+    .btn-modern-download-primary,
+    .btn-modern-download-purple,
+    .btn-modern-download-green,
+    .btn-modern-download-violet,
+    .btn-modern-primary svg,
+    .btn-modern-secondary svg,
+    .btn-modern-download-primary svg,
+    .btn-modern-download-purple svg,
+    .btn-modern-download-green svg,
+    .btn-modern-download-violet svg,
+    .btn-modern-primary .icon,
+    .btn-modern-secondary .icon {
+      transition: none;
+      animation: none;
+    }
+
+    .btn-modern-primary:hover,
+    .btn-modern-secondary:hover,
+    .btn-modern-download-primary:hover,
+    .btn-modern-download-purple:hover,
+    .btn-modern-download-green:hover,
+    .btn-modern-download-violet:hover {
+      transform: none;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-modern-primary,
+    .btn-modern-secondary,
+    .btn-modern-download-primary,
+    .btn-modern-download-purple,
+    .btn-modern-download-green,
+    .btn-modern-download-violet {
+      border: 2px solid #ffffff;
+      background-color: transparent;
+      color: #ffffff;
+    }
+  }
+
+  /* ===== DOWNLOAD ANIMATION SYSTEM ===== */
+
+  /* Keyframe Animations */
+  @keyframes downloadProgress {
+    0% {
+      width: 0%;
+    }
+    25% {
+      width: 25%;
+    }
+    50% {
+      width: 50%;
+    }
+    75% {
+      width: 75%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120px) translateX(20px);
+      opacity: 0;
+    }
+  }
+
+  /* Progress Bar Animation */
+  .download-progress {
+    animation: downloadProgress 8s ease-in-out infinite;
+    transform-origin: left center;
+  }
+
+  /* Particle System */
+  .download-particles {
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, #3b82f6, #06b6d4);
+    border-radius: 50%;
+    animation: particleFloat 4s ease-out infinite;
+  }
+
+  .particle-1 {
+    left: 20%;
+    top: 80%;
+    animation-delay: 0s;
+  }
+
+  .particle-2 {
+    left: 40%;
+    top: 85%;
+    animation-delay: 0.8s;
+  }
+
+  .particle-3 {
+    left: 60%;
+    top: 75%;
+    animation-delay: 1.6s;
+  }
+
+  .particle-4 {
+    left: 80%;
+    top: 90%;
+    animation-delay: 2.4s;
+  }
+
+  .particle-5 {
+    left: 30%;
+    top: 70%;
+    animation-delay: 3.2s;
+  }
+
+  .particle-6 {
+    left: 70%;
+    top: 80%;
+    animation-delay: 4s;
+  }
+
+  /* Responsive Adjustments for Particles */
+  @media (max-width: 768px) {
+    .particle {
+      width: 2px;
+      height: 2px;
+    }
+  }
+
+  /* Accessibility - Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .download-progress,
+    .particle {
+      animation: none;
+    }
+
+    .particle {
+      opacity: 0.3;
+    }
+
+    /* Show static state for reduced motion users */
+    .download-progress {
+      width: 75%;
+    }
+  }
 </style>
+
+<script>
+  // @ts-nocheck
+  // Download Animation Controller
+  (function() {
+    'use strict';
+
+    // Download Animation Controller
+    function DownloadAnimationController() {
+      this.percentageElement = null;
+      this.animationInterval = null;
+      this.currentPercentage = 0;
+      this.targetPercentage = 100;
+      this.animationDuration = 8000; // 8 seconds to match CSS animation
+      this.init();
+    }
+
+    DownloadAnimationController.prototype.init = function() {
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => this.setupAnimation());
+      } else {
+        this.setupAnimation();
+      }
+    };
+
+    DownloadAnimationController.prototype.setupAnimation = function() {
+      this.percentageElement = document.querySelector('.download-percentage');
+
+      if (!this.percentageElement) return;
+
+      // Check if user prefers reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        // Show static percentage for accessibility
+        this.percentageElement.textContent = '75%';
+        return;
+      }
+
+      // Start the percentage animation
+      this.startPercentageAnimation();
+    };
+
+    DownloadAnimationController.prototype.startPercentageAnimation = function() {
+      const self = this;
+      const startTime = Date.now();
+      const updateInterval = 100; // Update every 100ms for smooth animation
+
+      this.animationInterval = setInterval(function() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / self.animationDuration, 1);
+
+        // Use easing function for more natural progression
+        const easedProgress = self.easeInOutCubic(progress);
+        self.currentPercentage = Math.floor(easedProgress * self.targetPercentage);
+
+        if (self.percentageElement) {
+          self.percentageElement.textContent = self.currentPercentage + '%';
+        }
+
+        // Reset animation when complete
+        if (progress >= 1) {
+          setTimeout(function() {
+            self.currentPercentage = 0;
+            self.startPercentageAnimation();
+          }, 2000); // 2 second pause before restart
+
+          clearInterval(self.animationInterval);
+        }
+      }, updateInterval);
+    };
+
+    // Easing function for smooth animation
+    DownloadAnimationController.prototype.easeInOutCubic = function(t) {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    };
+
+    // Cleanup method
+    DownloadAnimationController.prototype.destroy = function() {
+      if (this.animationInterval) {
+        clearInterval(this.animationInterval);
+      }
+    };
+
+    // Enhanced floating animation for mobile devices
+    function initMobileFloatingImage() {
+      const downloadImage = document.querySelector('[transition\\:name="downloads-hero-image"]');
+
+      if (!downloadImage) return;
+
+      // Add enhanced floating effect on mobile
+      if (window.innerWidth < 768) {
+        const imgElement = downloadImage;
+        if (imgElement && imgElement.style) {
+          imgElement.style.animation = 'float-gentle 6s ease-in-out infinite';
+        }
+      }
+    }
+
+    // Enhanced particle effects
+    function initParticleEffects() {
+      const particleContainer = document.querySelector('.download-particles');
+      if (!particleContainer) return;
+
+      // Check if user prefers reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      // Add random particle generation
+      setInterval(() => {
+        if (Math.random() > 0.7) { // 30% chance every interval
+          createRandomParticle();
+        }
+      }, 1000);
+
+      function createRandomParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = '100%';
+        particle.style.animationDelay = '0s';
+        particle.style.animationDuration = (2 + Math.random() * 3) + 's';
+
+        particleContainer.appendChild(particle);
+
+        // Remove particle after animation
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+          }
+        }, 5000);
+      }
+    }
+
+    // Initialize the download animation
+    const downloadAnimation = new DownloadAnimationController();
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        initMobileFloatingImage();
+        initParticleEffects();
+      });
+    } else {
+      initMobileFloatingImage();
+      initParticleEffects();
+    }
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', function() {
+      downloadAnimation.destroy();
+    });
+
+    // Re-initialize on resize
+    window.addEventListener('resize', initMobileFloatingImage);
+  })();
+</script>

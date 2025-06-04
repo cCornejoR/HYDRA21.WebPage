@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import BackToTop from "../components/BackToTop.astro";
+import "../styles/buttons.css";
 
 export interface Props {
   title: string;
@@ -22,13 +24,13 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     <!-- Enhanced View Transitions with optimized configuration -->
     <ClientRouter fallback="animate" />
 
-    <!-- Preload critical resources for faster transitions -->
-    <link rel="preload" href="/assets/images/cube_2.png" as="image" />
-    <link rel="preload" href="/assets/images/torus_2.png" as="image" />
-    <link rel="preload" href="/assets/images/icosahedron_2.png" as="image" />
+    <!-- Preload only essential resources for welcome modal -->
+    <link rel="preload" href="/assets/images/robot.png" as="image" />
+    <link rel="preload" href="/assets/images/logo_empresa.png" as="image" />
+    <link rel="preload" href="/assets/images/Software-main.png" as="image" />
   </head>
-  <body class="h-full font-body antialiased theme-bg theme-text min-w-[300px]" style="min-height: 100vh; min-height: 100svh;">
-    <div class="min-h-screen relative min-w-[300px]" style="min-height: 100vh; min-height: 100svh;">
+  <body class="h-full font-body antialiased theme-bg theme-text min-w-[300px] flex flex-col" style="min-height: 100vh; min-height: 100svh;">
+    <div class="flex-1 relative min-w-[300px]" style="min-height: 100vh; min-height: 100svh;">
       <!-- Optimized Background - Static grid pattern -->
       <div class="absolute inset-0 diagonal-grid opacity-30"></div>
 
@@ -45,7 +47,7 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
       <!-- Top-right accent element -->
       <div class="absolute top-1/4 right-1/4 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-indigo-500/3 dark:bg-indigo-500/2 rounded-full blur-xl"></div>
 
-      <main class="relative z-10" transition:name="main-content">
+      <main class="relative z-10 flex-1" transition:name="main-content">
         <slot />
       </main>
     </div>
@@ -53,6 +55,9 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     <!-- Enhanced View Transitions Loading Elements -->
     <div class="page-loading-bar" id="page-loading-bar"></div>
     <div class="page-transition-overlay" id="page-transition-overlay"></div>
+
+    <!-- Back to Top Button -->
+    <BackToTop />
 
     <!-- Theme Toggle Script con soporte para transiciones -->
     <script is:inline>

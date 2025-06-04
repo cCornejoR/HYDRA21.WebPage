@@ -12,7 +12,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
   <Header />
 
   <!-- About Hero Section -->
-  <section class="relative min-h-screen flex items-center overflow-hidden bg-black">
+  <section class="about-hero-section relative min-h-screen flex items-center overflow-hidden bg-black">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-black about-background">
       <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
@@ -54,36 +54,33 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
             con tecnología de vanguardia.
           </p>
 
-          <!-- Botones CTA (apilados <768px, lado a lado ≥768px) -->
+          <!-- Botones CTA en “About” (mismo estilo y animación que en el CTA principal) -->
           <div class="pt-4 md:pt-6 btn-group">
             <a
-              href="#mision"
-              class="btn-primary"
+              href="/descargas"
+              class="btn-modern-primary"
             >
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <!-- Windows Logo SVG -->
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+              </svg>
+              Descargar HYDRA²¹
+            </a>
+            <a
+              href="#mision"
+              class="btn-modern-secondary"
+            >
+              <!-- Arrow Right SVG -->
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
-              🚀 Conocer Más
-            </a>
-            <a
-              href="/descargas"
-              class="btn-secondary"
-            >
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-                <rect x="69.824" y="58.512" width="372.352" height="253.792"/>
-                <rect x="85.824" y="74.512" fill="#999999" width="340.352" height="221.792"/>
-                <polygon fill="#D6D6D6" points="442.176,312.304 69.824,312.304 0,437.488 512,437.488 "/>
-                <rect x="100.848" y="341.28" fill="#AFAFAF" width="314.192" height="16"/>
-                <rect y="437.488" width="512" height="16"/>
-                <rect x="220.656" y="376.512" fill="#AFAFAF" width="74.56" height="16"/>
-                <polygon fill="#FFFFFF" points="256,259.856 215.408,205.312 228.256,195.744 256,233.04 283.744,195.744 296.592,205.312"/>
-                <rect x="248" y="110.992" fill="#FFFFFF" width="16" height="135.472"/>
-              </svg>
-              📥 Descargar
+              Ver Características
             </a>
           </div>
 
+
+          
         </div>
 
         <!-- Right side - About Image (solo ≥768px) -->
@@ -347,7 +344,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
 
   <!-- CTA Section -->
   <ViewportAnimator animation="slide-up" delay={200} duration={400}>
-  <section class="py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
+  <section class="cta-section py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-5xl mx-auto">
 
@@ -370,32 +367,27 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
               </p>
 
               <!-- Buttons -->
-              <div class="btn-group" transition:name="cta-buttons">
+              <div class="btn-group">
                 <a
                   href="/descargas"
-                  class="btn-primary"
+                  class="btn-modern-primary"
                 >
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-                    <rect x="69.824" y="58.512" width="372.352" height="253.792"/>
-                    <rect x="85.824" y="74.512" fill="#999999" width="340.352" height="221.792"/>
-                    <polygon fill="#D6D6D6" points="442.176,312.304 69.824,312.304 0,437.488 512,437.488 "/>
-                    <rect x="100.848" y="341.28" fill="#AFAFAF" width="314.192" height="16"/>
-                    <rect y="437.488" width="512" height="16"/>
-                    <rect x="220.656" y="376.512" fill="#AFAFAF" width="74.56" height="16"/>
-                    <polygon fill="#FFFFFF" points="256,259.856 215.408,205.312 228.256,195.744 256,233.04 283.744,195.744 296.592,205.312"/>
-                    <rect x="248" y="110.992" fill="#FFFFFF" width="16" height="135.472"/>
+                  <!-- Windows Logo SVG -->
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
                   </svg>
-                  📥 Descargar HYDRA²¹
+                  Descargar HYDRA²¹
                 </a>
                 <a
                   href="/"
-                  class="btn-secondary"
+                  class="btn-modern-secondary"
                 >
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <!-- Home SVG -->
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                   </svg>
-                  🏠 Volver al Inicio
+                  Volver al Inicio
                 </a>
               </div>
 
@@ -429,18 +421,18 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
 <style>
   /* About background image */
   .about-background {
-    background-image: url('/assets/images/fondo_2.jpeg');
+    background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.5;
     background-attachment: scroll;
   }
 
   /* Mobile specific background optimizations */
   @media (max-width: 767px) {
     .about-background {
-      opacity: 0.6;
+      opacity: 0.5;
       background-size: cover;
       background-position: center center;
       background-attachment: scroll;
@@ -450,7 +442,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
   @media (min-width: 768px) {
     .about-background {
       background-attachment: fixed;
-      opacity: 0.4;
+      opacity: 0.5;
     }
   }
 
@@ -525,19 +517,66 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
   }
 
   /* ——————————————————————————————————————————————
-     BUTTON GROUP ALIGNMENT - SAME AS HERO
+     BUTTON GROUP ALIGNMENT - EXACT SAME AS HERO
   ————————————————————————————————————————————— */
 
-  /* About section button group alignment */
-  .btn-group {
+  /* About page button group alignment - Hero section */
+  .about-hero-section .btn-group {
     align-items: center !important;
     justify-content: center !important;
   }
 
   @media (min-width: 1024px) {
-    .btn-group {
+    .about-hero-section .btn-group {
       align-items: flex-start !important;
       justify-content: flex-start !important;
+    }
+  }
+
+  /* CTA section button group - Centered always */
+  .cta-section .btn-group {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* General button group fallback - About specific */
+  .btn-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media (min-width: 768px) {
+    .btn-group {
+      flex-direction: row !important;
+      gap: 24px !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about-hero-section .btn-group {
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+    }
+  }
+
+  /* Mobile specific adjustments for small screens */
+  @media (max-width: 640px) {
+    .btn-group {
+      gap: 12px !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .btn-group {
+      gap: 10px !important;
+    }
+
+    .btn-group .btn-secondary {
+      width: 100% !important;
+      max-width: 280px !important;
     }
   }
 
@@ -601,7 +640,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
       background-position: center center;
       background-size: cover;
       filter: brightness(1.2) contrast(1.2) saturate(1.1);
-      opacity: 0.7;
+      opacity: 0.5;
     }
 
     /* Hero section takes full viewport */
@@ -901,7 +940,224 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
   }
 
   /* ——————————————————————————————————————————————
-     USING GLOBAL BUTTON SYSTEM
-     Note: Button styles are managed globally in src/styles/buttons.css
+     MODERN BUTTON SYSTEM - HERO STYLE REPLICATION
+     Note: Modern buttons matching the Hero component design
   ————————————————————————————————————————————— */
+
+  /* Modern Primary Button - Main CTA */
+  .btn-modern-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    /* Adaptive padding for optimal touch targets */
+    padding: 16px 32px;
+    min-width: 180px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Modern visual styling */
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 12px;
+    box-shadow:
+      0 4px 15px rgba(59, 130, 246, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Modern Secondary Button - Secondary CTA */
+  .btn-modern-secondary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    /* Adaptive padding for optimal touch targets */
+    padding: 16px 32px;
+    min-width: 180px;
+
+    /* Typography */
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Modern visual styling */
+    color: #e0f2fe;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    box-shadow:
+      0 4px 15px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Button icon styling */
+  .btn-modern-primary .icon,
+  .btn-modern-secondary .icon,
+  .btn-modern-primary svg,
+  .btn-modern-secondary svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    stroke: currentColor;
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Primary Button Hover States */
+  .btn-modern-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    color: #ffffff;
+  }
+
+  .btn-modern-primary:hover .icon,
+  .btn-modern-primary:hover svg {
+    transform: scale(1.1);
+  }
+
+  /* Secondary Button Hover States */
+  .btn-modern-secondary:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    color: #ffffff;
+  }
+
+  .btn-modern-secondary:hover .icon,
+  .btn-modern-secondary:hover svg {
+    transform: scale(1.1);
+  }
+
+  /* Button Active States */
+  .btn-modern-primary:active,
+  .btn-modern-secondary:active {
+    transform: translateY(0px) scale(1);
+    transition-duration: 0.1s;
+  }
+
+  /* Button Focus States for Accessibility */
+  .btn-modern-primary:focus,
+  .btn-modern-secondary:focus {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(59, 130, 246, 0.5),
+      0 4px 15px rgba(59, 130, 246, 0.25);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      padding: 14px 24px;
+      min-width: 160px;
+      font-size: 15px;
+      gap: 6px;
+    }
+
+    .btn-modern-primary .icon,
+    .btn-modern-secondary .icon,
+    .btn-modern-primary svg,
+    .btn-modern-secondary svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      padding: 12px 20px;
+      min-width: 140px;
+      font-size: 14px;
+      gap: 4px;
+    }
+
+    .btn-modern-primary .icon,
+    .btn-modern-secondary .icon,
+    .btn-modern-primary svg,
+    .btn-modern-secondary svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      padding: 18px 36px;
+      min-width: 200px;
+      font-size: 17px;
+    }
+  }
+
+  /* Accessibility - Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-modern-primary,
+    .btn-modern-secondary,
+    .btn-modern-primary svg,
+    .btn-modern-secondary svg,
+    .btn-modern-primary .icon,
+    .btn-modern-secondary .icon {
+      transition: none;
+      animation: none;
+    }
+
+    .btn-modern-primary:hover,
+    .btn-modern-secondary:hover {
+      transform: none;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-modern-primary,
+    .btn-modern-secondary {
+      border: 2px solid #ffffff;
+      background-color: transparent;
+      color: #ffffff;
+    }
+  }
 </style>

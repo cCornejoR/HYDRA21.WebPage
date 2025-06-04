@@ -246,6 +246,19 @@
   }
 }
 
+/* CallToAction section button group alignment - Left aligned on desktop */
+section .btn-group.justify-center.lg\:justify-start {
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  section .btn-group.justify-center.lg\:justify-start {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
 /* Button group responsive spacing */
 @media (max-width: 640px) {
   .btn-group {

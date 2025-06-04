@@ -115,11 +115,11 @@
 
   /* Background image */
   .documentation-background {
-    background-image: url('/assets/images/fondo_2.jpeg');
+    background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.4;
+    opacity: 0.5;
     background-attachment: scroll;
   }
 
@@ -127,6 +127,69 @@
     .documentation-background {
       background-attachment: fixed;
       opacity: 0.5;
+    }
+  }
+
+  /* ——————————————————————————————————————————————
+     TOP BLUR PARA TRANSICIÓN DESDE FEATURES
+  ————————————————————————————————————————————— */
+  .documentation-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.95) 20%,
+      rgba(0, 0, 0, 0.8) 40%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0.3) 80%,
+      transparent 100%
+    );
+    z-index: 25;
+    pointer-events: none;
+  }
+
+  /* ——————————————————————————————————————————————
+     BOTTOM BLUR PARA INTEGRACIÓN CON FOOTER (igual que Hero)
+  ————————————————————————————————————————————— */
+  /* BOTTOM BLUR PRINCIPAL */
+  .documentation-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.95) 20%,
+      rgba(0, 0, 0, 0.8) 40%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0.3) 80%,
+      transparent 100%
+    );
+    z-index: 25;
+    pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .documentation-hero::before {
+      height: 80px;
+    }
+    .documentation-hero::after {
+      height: 80px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .documentation-hero::before {
+      height: 150px;
+    }
+    .documentation-hero::after {
+      height: 150px;
     }
   }
 

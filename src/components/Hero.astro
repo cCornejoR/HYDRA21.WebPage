@@ -84,25 +84,20 @@ import ViewportAnimator from './ViewportAnimator.astro';
         <div class="pt-4 md:pt-6 btn-group">
           <a
             href="/descargas"
-            class="btn-primary"
+            class="btn-secondary"
           >
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-              <rect x="69.824" y="58.512" width="372.352" height="253.792"/>
-              <rect x="85.824" y="74.512" fill="#999999" width="340.352" height="221.792"/>
-              <polygon fill="#D6D6D6" points="442.176,312.304 69.824,312.304 0,437.488 512,437.488 "/>
-              <rect x="100.848" y="341.28" fill="#AFAFAF" width="314.192" height="16"/>
-              <rect y="437.488" width="512" height="16"/>
-              <rect x="220.656" y="376.512" fill="#AFAFAF" width="74.56" height="16"/>
-              <polygon fill="#FFFFFF" points="256,259.856 215.408,205.312 228.256,195.744 256,233.04 283.744,195.744 296.592,205.312"/>
-              <rect x="248" y="110.992" fill="#FFFFFF" width="16" height="135.472"/>
+            <!-- Windows Logo SVG -->
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
             </svg>
-            <span>Descargar HYDRA²¹</span>
+            Descargar HYDRA²¹
           </a>
           <a
             href="#caracteristicas"
             class="btn-secondary"
           >
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <!-- Arrow Right SVG -->
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
@@ -196,7 +191,7 @@ import ViewportAnimator from './ViewportAnimator.astro';
 .hero-background {
   position: absolute;  /* para que el torus (z-index:1) quede encima */
   z-index: 0;          /* fondo más atrás */
-  background-image: url('/assets/images/fondo_2.jpeg');
+  background-image: url('/assets/images/fondo_3_dark.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -207,7 +202,7 @@ import ViewportAnimator from './ViewportAnimator.astro';
 /* Mobile (≤767px) - overlay más oscuro */
 @media (max-width: 767px) {
   .hero-background {
-    opacity: 0.9;
+    opacity: 0.5;
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
@@ -217,7 +212,7 @@ import ViewportAnimator from './ViewportAnimator.astro';
 @media (min-width: 768px) {
   .hero-background {
     background-attachment: fixed;
-    opacity: 0.7;
+    opacity: 0.5;
   }
 }
 
@@ -231,7 +226,7 @@ import ViewportAnimator from './ViewportAnimator.astro';
     background-position: center center;
     background-size: cover;
     filter: brightness(1.2) contrast(1.2) saturate(1.1);
-    opacity: 0.7;
+    opacity: 0.5;
   }
 
   /* Hero ocupa toda la pantalla (100svh) */
@@ -763,7 +758,7 @@ import ViewportAnimator from './ViewportAnimator.astro';
   }
   /* Fondo un poco menos opaco para destacar texto */
   .hero-background {
-    opacity: 0.8 !important;
+    opacity: 0.5 !important;
     filter: brightness(1.1) contrast(1.1) !important;
   }
   /* TÍTULO h1: tamaño similar a CallToAction */
