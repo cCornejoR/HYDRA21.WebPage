@@ -1,0 +1,1 @@
+document.addEventListener("astro:page-load",()=>{const t=document.getElementById("mobile-sidebar-toggle"),e=document.querySelector(".docs-sidebar");t&&e&&(t.addEventListener("click",()=>{e.classList.toggle("open")}),document.addEventListener("click",n=>{!e.contains(n.target)&&!t.contains(n.target)&&e.classList.remove("open")}))});
