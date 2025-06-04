@@ -27,15 +27,15 @@
   <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
     <!-- Section Title -->
     <div class="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-      <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 xs:px-3 py-1 xs:py-2 text-xs mb-4 sm:mb-6">
-        <span class="text-orange-400">🧠</span>
-        <span class="text-blue-400 font-medium text-xs xs:text-sm">#INTELIGENCIA HIDRÁULICA</span>
+      <div class="inline-flex items-center gap-1 sm:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 py-1 text-xs sm:text-sm mb-4 sm:mb-6">
+        <span class="text-orange-400 text-xs sm:text-sm">🧠</span>
+        <span class="text-blue-400 font-medium text-xs sm:text-xs">#INTELIGENCIA HIDRÁULICA</span>
       </div>
 
       <!-- Title with Brain Image -->
       <div class="flex flex-col items-center justify-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
         <!-- Main Title -->
-        <h2 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight text-center mb-6 sm:mb-8 md:mb-10">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight text-center mb-6 sm:mb-8 md:mb-10">
           Conectando
           <span class="block text-blue-400">Ideas con</span>
           <span class="block text-blue-300">Soluciones</span>
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <p class="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+      <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
         Donde cada conexión neuronal representa<br class="hidden sm:block"/>
         una capacidad avanzada de ingeniería.
       </p>
@@ -78,7 +78,7 @@
 
             <!-- Content -->
             <div class="relative z-10">
-              <h3 class="text-3xl font-medium mb-2">Análisis Hidráulico</h3>
+              <h3 class="text-2xl font-bold mb-2">Análisis Hidráulico</h3>
               <p class="text-sm opacity-90 leading-relaxed">
                 Análisis completo de sistemas hidráulicos con precisión avanzada y simulación en tiempo real
               </p>
@@ -95,7 +95,7 @@
 
             <!-- Content -->
             <div class="relative z-10">
-              <h3 class="text-3xl font-medium mb-2">Diseño de Redes</h3>
+              <h3 class="text-2xl font-bold mb-2">Diseño de Redes</h3>
               <p class="text-sm opacity-90 leading-relaxed">
                 Diseño inteligente de redes de tuberías y sistemas de distribución optimizados
               </p>
@@ -112,7 +112,7 @@
 
             <!-- Content -->
             <div class="relative z-10">
-              <h3 class="text-3xl font-medium mb-2">Cálculos de Flujo</h3>
+              <h3 class="text-2xl font-bold mb-2">Cálculos de Flujo</h3>
               <p class="text-sm opacity-90 leading-relaxed">
                 Cálculos precisos de flujo, velocidad y pérdidas de carga con algoritmos avanzados
               </p>
@@ -129,7 +129,7 @@
 
             <!-- Content -->
             <div class="relative z-10">
-              <h3 class="text-3xl font-medium mb-2">Análisis de Presión</h3>
+              <h3 class="text-2xl font-bold mb-2">Análisis de Presión</h3>
               <p class="text-sm opacity-90 leading-relaxed">
                 Análisis detallado de presiones y comportamiento dinámico del sistema
               </p>
@@ -146,7 +146,7 @@
 
             <!-- Content -->
             <div class="relative z-10">
-              <h3 class="text-3xl font-medium mb-2">Optimización de Sistemas</h3>
+              <h3 class="text-2xl font-bold mb-2">Optimización de Sistemas</h3>
               <p class="text-sm opacity-90 leading-relaxed">
                 Optimización automática para máxima eficiencia energética y rendimiento
               </p>
@@ -163,7 +163,7 @@
 
             <!-- Content -->
             <div class="relative z-10">
-              <h3 class="text-3xl font-medium mb-2">Modelado 3D</h3>
+              <h3 class="text-2xl font-bold mb-2">Modelado 3D</h3>
               <p class="text-sm opacity-90 leading-relaxed">
                 Modelado tridimensional avanzado para visualización completa y análisis detallado
               </p>
@@ -177,6 +177,9 @@
     </div>
   </div>
 </section>
+
+
+
 
 <style>
   .features-section {
@@ -212,9 +215,7 @@
 
   /* Grid pattern - Matching hero style */
   .grid-pattern {
-    background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0);
-    background-size: 20px 20px;
-    background-position: 0 0;
+    display: none;
   }
 
   /* Modern Grid Layout Styles */
@@ -392,11 +393,11 @@
     }
 
     .feature-card h3 {
-      font-size: 1.5rem !important;
+      font-size: 1.25rem !important;     /* 20px - similar al Hero */
     }
 
     .feature-card p {
-      font-size: 0.875rem !important;
+      font-size: 0.75rem !important;     /* 12px - similar al Hero */
     }
 
     /* Reduce particle effects on tablets and mobile */
@@ -418,11 +419,11 @@
     }
 
     .feature-card h3 {
-      font-size: 1.25rem !important;
+      font-size: 1rem !important;        /* 16px - similar al Hero */
     }
 
     .feature-card p {
-      font-size: 0.8rem !important;
+      font-size: 0.75rem !important;     /* 12px - similar al Hero */
     }
 
     /* Further reduce particle effects on mobile */
@@ -491,13 +492,44 @@
   }
 
   @media (max-width: 400px) {
+    /* Fondo similar al Hero */
     .features-background {
-      opacity: 1 !important;
-      filter: brightness(1.3) contrast(1.3) saturate(1.2) !important;
+      opacity: 0.8 !important;
+      filter: brightness(1.1) contrast(1.1) !important;
     }
 
+    /* Cards más compactas */
     .feature-card {
       min-h: 200px !important;
+    }
+
+    /* Títulos y textos similares al Hero */
+    .features-section h2 {
+      font-size: 1.5rem !important;      /* 24px - igual que Hero */
+      line-height: 2rem !important;      /* 32px - igual que Hero */
+    }
+
+    .features-section p {
+      font-size: 0.875rem !important;    /* 14px - igual que Hero */
+      line-height: 1.25rem !important;   /* 20px - igual que Hero */
+    }
+
+    /* Cards h3 y p */
+    .feature-card h3 {
+      font-size: 1rem !important;        /* 16px */
+    }
+
+    .feature-card p {
+      font-size: 0.75rem !important;     /* 12px */
+    }
+
+    /* Badge similar al Hero */
+    .features-section .inline-flex.items-center {
+      padding: 0.2rem 0.4rem !important;  /* 4px / 8px */
+      font-size: 0.625rem !important;     /* 10px */
+    }
+    .features-section .inline-flex.items-center span {
+      font-size: 0.75rem !important;      /* 12px */
     }
   }
 

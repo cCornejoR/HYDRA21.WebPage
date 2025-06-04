@@ -6,15 +6,29 @@ import Features from '../components/Features.astro';
 import Documentation from '../components/Documentation.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Footer from '../components/Footer.astro';
+import ViewportAnimator from '../components/ViewportAnimator.astro';
 import '../styles/global.css';
 ---
 
 <Layout title="HYDRA²¹ - Software de Ingeniería Hidráulica">
   <Header />
-  <Hero />
-  <Features />
-  <Documentation />
-  <CallToAction />
+
+  <ViewportAnimator animation="fade-in" duration={400}>
+    <Hero />
+  </ViewportAnimator>
+
+  <ViewportAnimator animation="slide-up" delay={100} duration={400}>
+    <Features />
+  </ViewportAnimator>
+
+  <ViewportAnimator animation="fade-in" delay={150} duration={400}>
+    <Documentation />
+  </ViewportAnimator>
+
+  <ViewportAnimator animation="slide-up" delay={200} duration={400}>
+    <CallToAction />
+  </ViewportAnimator>
+
   <Footer />
 </Layout>
 

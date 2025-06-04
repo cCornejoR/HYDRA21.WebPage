@@ -30,86 +30,97 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       <div class="absolute inset-0 grid-pattern"></div>
     </div>
 
-    <!-- Main content container -->
-    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
-      
-      <!-- Hero Content -->
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
-        
+    <!-- Main content container following Hero patterns -->
+    <div class="container mx-auto px-4 py-6 md:py-12 lg:py-16 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center lg:justify-items-stretch">
+
         <!-- Left side - Content -->
-        <div class="flex-1 text-center lg:text-left">
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-3 xs:px-4 py-2 xs:py-3 text-xs sm:text-sm mb-8 sm:mb-10">
-            <span class="text-blue-400">📥</span>
-            <span class="text-blue-400 font-medium">#DESCARGA HYDRA²¹</span>
+        <div class="space-y-4 md:space-y-6 lg:space-y-8 w-full lg:w-auto text-center lg:text-left">
+
+          <!-- Badge: #DESCARGA HYDRA²¹ -->
+          <div class="inline-flex items-center gap-1 sm:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 py-1 text-xs sm:text-sm">
+            <span class="text-blue-400 text-xs sm:text-sm">📥</span>
+            <span class="text-blue-400 font-medium text-xs sm:text-xs">#DESCARGA HYDRA²¹</span>
           </div>
 
-          <!-- Main Title -->
-          <h1 class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-tight mb-8 sm:mb-10" transition:name="downloads-hero-title">
-            Descarga
-            <span class="block gradient-text-blue-cyan" transition:name="logo-text">HYDRA²¹</span>
+          <!-- Main Heading -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight" transition:name="downloads-hero-title">
+            Descarga<br/>
+            <span class="block text-blue-400" transition:name="logo-text">HYDRA²¹</span>
           </h1>
-          
-          <!-- Description -->
-          <p class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto lg:mx-0">
+
+          <!-- Subtitle -->
+          <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Software de ingeniería hidráulica<br class="hidden sm:block"/>
-            de última generación
+            de última generación.
           </p>
 
           <!-- Windows Only Notice -->
-          <div class="inline-flex items-center gap-2 bg-orange-600/20 backdrop-blur-sm border border-orange-500/40 rounded-2xl px-4 py-3 mb-6 sm:mb-8">
+          <div class="inline-flex items-center gap-2 bg-orange-600/20 backdrop-blur-sm border border-orange-500/40 rounded-2xl px-3 py-2 text-xs sm:text-sm">
             <!-- Windows Logo SVG -->
-            <svg class="w-5 h-5 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
+            <svg class="w-4 h-4 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
               <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
             </svg>
-            <span class="text-orange-400 text-sm font-semibold">DISPONIBLE SOLO PARA WINDOWS</span>
+            <span class="text-orange-400 font-semibold">SOLO WINDOWS</span>
             <span class="bg-orange-500/20 text-orange-300 text-xs px-2 py-1 rounded-full">TEMPORAL</span>
           </div>
 
           <!-- Version Badge -->
-          <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/40 rounded-2xl px-4 py-3 mb-8 sm:mb-10">
-            <span class="text-blue-400 text-sm font-semibold">VERSIÓN ACTUAL:</span>
-            <span class="text-white text-lg font-bold">v2025.1 ALPHA</span>
+          <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/40 rounded-2xl px-3 py-2 text-xs sm:text-sm">
+            <span class="text-blue-400 font-semibold">VERSIÓN:</span>
+            <span class="text-white font-bold">v2025.1 ALPHA</span>
             <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">NUEVO</span>
           </div>
-          
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-            <a href="#download-section" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
-              <!-- Windows Logo SVG -->
-              <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+
+          <!-- Botones CTA (apilados <768px, lado a lado ≥768px) -->
+          <div class="pt-4 md:pt-6 flex flex-col md:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
+            <a
+              href="#download-section"
+              class="btn-primary"
+            >
+              <div class="circle"></div>
+              <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
               </svg>
-              Descargar para Windows
-            </a>
-            <a href="#system-requirements" class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-600 hover:border-cyan-400 text-gray-300 hover:text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105">
-              <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 376.846 376.846">
-                <path d="M364.966,372.743c2.382-2.39,4.316-4.324,4.316-4.324l4.316-4.324c2.382-2.398-1.691-13.453-9.104-24.695l-19.013-28.865c-7.413-11.242-19.127-21.565-26.174-23.044c-7.047-1.488-12.762-2.691-12.762-2.691l-57.298-57.274L228.389,248.4l57.25,57.282l2.707,12.762c1.488,7.039,11.819,18.769,23.061,26.174l28.881,19.037C351.529,371.06,362.584,375.133,364.966,372.743z"/>
-                <path d="M13.608,74.197l85.139,85.139l10.632,10.608c0.244,0.26,0.48,0.398,0.715,0.642l14.062-14.071L23.728,56.086c-2.447-2.422-2.447-6.397,0-8.795c2.422-2.455,6.34-2.455,8.795,0l100.396,100.453l15.664-15.696L48.154,31.635c-2.455-2.43-2.455-6.365,0-8.795c2.422-2.422,6.365-2.422,8.763,0l100.477,100.477l14.038-14.087c-0.211-0.244-0.366-0.504-0.585-0.74l-11.161-11.177l-84.594-84.57c-16.972-17.005-44.52-16.981-61.485,0C-3.389,29.709-3.389,57.224,13.608,74.197z"/>
-                <path d="M375.728,81.651c-1.024-13.428-12.892-16.038-22.41-6.519l-33.262,33.27c-7.722,7.779-20.378,7.755-28.125,0l-21.549-21.524c-7.803-7.844-7.779-20.46-0.024-28.247l34.392-34.359c9.527-9.519,7.112-21.817-6.259-23.41c-25.865-3.089-52.82,5.275-72.678,25.117c-15.127,15.152-23.573,34.473-25.361,54.258c-0.715,7.999-0.341,16.07,1.097,24.004L16.965,288.84c-9.746,9.754-15.127,22.703-15.127,36.497c0,13.762,5.381,26.694,15.103,36.432c20.11,20.102,52.819,20.102,72.962,0c0,0,132.683-132.666,186.413-186.461c8.446,1.154,16.997,1.073,25.41-0.26c17.769-2.78,34.847-10.925,48.56-24.613C369.152,131.568,377.614,106.296,375.728,81.651z M70.857,345.91c-10.551,10.494-27.523,10.494-38.042-0.024c-10.47-10.445-10.494-27.499,0.024-37.969c10.494-10.47,27.466-10.445,37.985,0C81.295,318.387,81.295,335.441,70.857,345.91z"/>
+              <span class="text">📥 Descargar para Windows</span>
+              <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
               </svg>
-              Requisitos del Sistema
+            </a>
+            <a
+              href="#system-requirements"
+              class="btn-secondary"
+            >
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              🔧 Requisitos del Sistema
             </a>
           </div>
+
         </div>
-        
-        <!-- Right side - Download Image -->
-        <div class="relative flex justify-center lg:justify-end mt-4 xs:mt-6 sm:mt-8 lg:mt-0">
-          <div class="relative">
+
+        <!-- Right side - Download Image (solo ≥768px) -->
+        <div class="hidden md:flex w-full lg:w-auto relative justify-center lg:justify-end items-center">
+          <div class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] flex items-center justify-center">
             <!-- Main download image -->
-            <div class="relative w-64 xs:w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] 2xl:w-[36rem]">
-              <img 
-                src="/assets/images/download.png" 
-                alt="Descarga HYDRA²¹" 
+            <div class="relative">
+              <img
+                src="/assets/images/download.png"
+                alt="Descarga HYDRA²¹"
                 class="w-full h-auto animate-float-gentle filter drop-shadow-2xl"
                 transition:name="downloads-hero-image"
+                loading="eager"
+                decoding="async"
               />
             </div>
-            
+
             <!-- Subtle glow effect -->
             <div class="absolute inset-0 bg-blue-500/10 rounded-2xl blur-3xl scale-110 opacity-50"></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1135,14 +1146,326 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
   }
 
-  /* Floating animation */
+  /* Floating animation following Hero patterns */
   @keyframes float-gentle {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-8px) rotate(0.5deg) scale(1.02);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg) scale(1.03);
+    }
+    75% {
+      transform: translateY(-6px) rotate(0.5deg) scale(1.02);
+    }
   }
 
   .animate-float-gentle {
-    animation: float-gentle 6s ease-in-out infinite;
+    animation: float-gentle 8s ease-in-out infinite;
+  }
+
+  /* Mobile optimizations for animations */
+  @media (max-width: 640px) {
+    .animate-float-gentle {
+      animation: float-gentle 12s ease-in-out infinite;
+    }
+
+    @keyframes float-gentle {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translateY(-5px) rotate(0.5deg) scale(1.01);
+      }
+    }
+  }
+
+  /* Performance optimizations for <400px */
+  @media (max-width: 400px) {
+    .animate-float-gentle {
+      animation: float-gentle 15s ease-in-out infinite;
+    }
+
+    /* Simplify animations for better performance */
+    @keyframes float-gentle {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.005);
+      }
+    }
+  }
+
+  /* Enhanced responsive design following Hero patterns */
+
+  /* Mobile optimizations for screens ≤640px */
+  @media (max-width: 640px) {
+    /* Mobile: Single column layout */
+    .grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+
+    /* Reduce padding on mobile */
+    .p-8 {
+      padding: 1.5rem !important;
+    }
+
+    .p-12, .sm\:p-10, .md\:p-12, .lg\:p-16 {
+      padding: 1.5rem !important;
+    }
+
+    /* Reduce section spacing on mobile */
+    .py-20, .sm\:py-24, .md\:py-28, .lg\:py-32 {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    /* Reduce margin between sections */
+    .mb-16, .sm\:mb-20, .md\:mb-24 {
+      margin-bottom: 2rem !important;
+    }
+
+    .mb-6, .sm\:mb-8 {
+      margin-bottom: 1rem !important;
+    }
+
+    /* Adjust hero section for mobile */
+    .min-h-screen {
+      min-height: 100vh;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  /* Enhanced optimizations for screens ≤499px following Hero pattern */
+  @media (max-width: 499px) {
+    /* Background adjustments for better text contrast */
+    .downloads-background {
+      background-attachment: scroll;
+      background-position: center center;
+      background-size: cover;
+      filter: brightness(1.2) contrast(1.2) saturate(1.1);
+      opacity: 0.7;
+    }
+
+    /* Hero section takes full viewport */
+    .relative.min-h-screen {
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    /* Enhanced text shadows for better readability */
+    h1 {
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    p {
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  /* Specific optimizations for screens <400px following Hero pattern */
+  @media (max-width: 400px) {
+    /* Hero section takes full viewport */
+    .relative.min-h-screen {
+      min-height: 100vh !important;
+      min-height: 100svh !important;
+    }
+
+    /* Background adjustments similar to Hero */
+    .downloads-background {
+      opacity: 0.8 !important;
+      filter: brightness(1.1) contrast(1.1) !important;
+    }
+
+    /* TITLE h1: sizes similar to Hero */
+    h1 {
+      font-size: 1.5rem !important;      /* 24px - same as Hero */
+      line-height: 2rem !important;      /* 32px - same as Hero */
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* SUBTITLE p: sizes similar to Hero */
+    p {
+      font-size: 0.875rem !important;    /* 14px - same as Hero */
+      line-height: 1.25rem !important;   /* 20px - same as Hero */
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Section titles similar to Hero */
+    .text-3xl, .sm\:text-4xl, .md\:text-5xl, .lg\:text-6xl {
+      font-size: 1.5rem !important;      /* 24px - same as Hero */
+      line-height: 2rem !important;      /* 32px - same as Hero */
+    }
+
+    /* Section descriptions similar to Hero */
+    .text-lg, .sm\:text-xl, .md\:text-2xl {
+      font-size: 0.875rem !important;    /* 14px - same as Hero */
+      line-height: 1.25rem !important;   /* 20px - same as Hero */
+    }
+
+    /* Compact badge similar to Hero */
+    .inline-flex.items-center {
+      padding: 0.2rem 0.4rem !important;  /* 4px / 8px */
+      font-size: 0.625rem !important;     /* 10px */
+    }
+
+    .inline-flex.items-center span {
+      font-size: 0.75rem !important;      /* 12px */
+    }
+
+    /* CTA buttons similar to Hero */
+    .flex.flex-col.md\:flex-row {
+      gap: 0.75rem !important;           /* 12px - more space */
+    }
+
+    .flex.flex-col.md\:flex-row a {
+      width: 100% !important;
+      padding: 0.75rem 1.5rem !important; /* 12px top/bottom, 24px left/right */
+      font-size: 1rem !important;         /* 16px - same as Hero */
+      border-radius: 0.5rem !important;   /* 8px radius */
+    }
+  }
+
+  /* ——————————————————————————————————————————————
+     BOTONES "COOL" DEL HERO – BTN-PRIMARY Y BTN-SECONDARY
+  ————————————————————————————————————————————— */
+
+  /* Botón Primario (Descargar HYDRA²¹) - Configuración Animada */
+  .btn-primary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: #1e3a8a;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #e0f2fe;
+    box-shadow: 0 0 0 2px #1e3a8a;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary svg {
+    position: absolute;
+    width: 24px;
+    fill: #e0f2fe;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary .arr-1 {
+    right: 16px;
+  }
+
+  .btn-primary .arr-2 {
+    left: -25%;
+  }
+
+  .btn-primary .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #ffffff;
+    border-radius: 12px;
+  }
+
+  .btn-primary:hover .arr-1 {
+    right: -25%;
+  }
+
+  .btn-primary:hover .arr-2 {
+    left: 16px;
+  }
+
+  .btn-primary:hover .text {
+    transform: translateX(12px);
+  }
+
+  .btn-primary:hover svg {
+    fill: #ffffff;
+  }
+
+  .btn-primary:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px #60a5fa;
+  }
+
+  .btn-primary:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+
+  /* Botón Secundario (EXPLORAR CARACTERÍSTICAS) - Configuración Moderna */
+  .btn-secondary {
+    cursor: pointer;
+    padding: 1em;
+    font-size: 1em;
+    min-width: 7em;
+
+    color: #e0f2fe;
+    background: #0f172a;
+    background-size: cover;
+    background-blend-mode: overlay;
+    border-radius: 0.5em;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 0.5em 0.25em rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
+    background: linear-gradient(45deg, #0f172a, #1e293b);
+    background: radial-gradient(
+      circle at bottom,
+      rgba(59, 130, 246, 0.6) 10%,
+      #0f172a 70%
+    );
+    outline: 0;
+  }
+
+  .btn-secondary .icon {
+    fill: #e0f2fe;
+    width: 1em;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+    margin: auto;
+    transform: translate(-35%, 10%);
   }
 
   /* Force consistent black backgrounds across all sections */

@@ -2,619 +2,865 @@
 // Brand New Modern Hero Section for HYDRA²¹
 ---
 
+<!-- ————————————————————————————————————————
+  Brand New Modern Hero Section for HYDRA²¹
+  Optimizado para Desktop, Tablets, Móviles (≥400px y <400px)
+———————————————————————————————————————— -->
+
 <section id="inicio" class="hero-section relative min-h-screen flex items-center overflow-hidden">
-  <!-- Background Image - Responsive -->
+
+  <!-- 1) FONDO OSCURO + OVERLAY SEMITRANSPARENTE -->
   <div class="absolute inset-0 bg-black hero-background">
-    <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
   </div>
-  
-  <!-- Main content container - Enhanced responsive padding -->
-  <div class="container mx-auto px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 relative z-10 py-4 xs:py-6 sm:py-8 md:py-12 lg:py-16 xl:py-0">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
-      <!-- Left content - Enhanced responsive spacing -->
-      <div class="space-y-3 xs:space-y-4 sm:space-y-6 md:space-y-8 text-center lg:text-left">
-        <!-- Badge - Responsive sizing -->
-        <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-1 xs:px-2 sm:px-3 py-0.5 xs:py-1 sm:py-2 text-[10px] xs:text-xs sm:text-sm">
-          <span class="text-orange-400 text-sm xs:text-base">⚡</span>
-          <span class="text-blue-400 font-medium text-[10px] xs:text-xs sm:text-sm">#SOFTWARE HIDRÁULICO</span>
+
+  <!-- 2) TORUS (MÓVIL <768px) -->
+  <div class="mobile-torus-background md:hidden absolute inset-0 pointer-events-none">
+    <div class="torus-floating absolute">
+      <img
+        src="/assets/images/torus_2.png"
+        alt="Floating Torus"
+        class="torus-image"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <!-- 3) CONTENIDO PRINCIPAL (z-index 10 para que quede por encima del torus) -->
+  <div class="container mx-auto px-4 py-6 md:py-12 lg:py-16 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center lg:justify-items-stretch">
+      
+      <!-- 3.1) IZQUIERDA: Badge + Título + Subtítulo + Estadísticas + Botones -->
+      <div class="space-y-4 md:space-y-6 lg:space-y-8 w-full lg:w-auto text-center lg:text-left">
+        
+        <!-- Badge: #SOFTWARE HIDRÁULICO -->
+        <div class="inline-flex items-center gap-1 sm:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 py-1 text-xs sm:text-sm">
+          <span class="text-orange-400 text-xs sm:text-sm">⚡</span>
+          <span class="text-blue-400 font-medium text-xs sm:text-xs">#SOFTWARE HIDRÁULICO</span>
         </div>
-                
-        <!-- Main heading - Enhanced responsive typography -->
-        <h1 class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-tight">
-          Diseña y analiza,
+
+        <!-- Main Heading -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          Diseña y analiza,<br/>
           <span class="block text-blue-400">haz ingeniería de</span>
           <span class="block text-blue-300">forma fácil</span>
         </h1>
-                
-        <!-- Subtitle - Enhanced responsive sizing -->
-        <p class="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-lg mx-auto lg:mx-0">
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
           Donde los Desafíos de Ingeniería<br class="hidden sm:block"/>
           Encuentran Soluciones Innovadoras.
         </p>
-                
-        <!-- Stats - Enhanced responsive grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 xs:gap-3 sm:gap-4 md:gap-6 lg:gap-8 pt-3 xs:pt-4 sm:pt-6 md:pt-8">
-          <div class="text-center">
-            <div class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400">99.7%</div>
-            <div class="text-xs xs:text-xs sm:text-sm text-gray-400 uppercase tracking-wider">PRECISIÓN</div>
+
+        <!-- Estadísticas con líneas decorativas -->
+        <div class="pt-6 pb-4">
+          <!-- Línea superior -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent mb-4"></div>
+
+          <!-- Estadísticas (1 columna <768px, 3 columnas ≥768px) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
+            <div class="text-center lg:text-left">
+              <div class="text-2xl font-bold text-blue-400">99.7%</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider">PRECISIÓN</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-2xl font-bold text-blue-400">50x</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider">MÁS RÁPIDO</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-2xl font-bold text-blue-400">ISO</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider">CERTIFICADO</div>
+            </div>
           </div>
-          <div class="text-center">
-            <div class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400">50x</div>
-            <div class="text-xs xs:text-xs sm:text-sm text-gray-400 uppercase tracking-wider">MÁS RÁPIDO</div>
-          </div>
-          <div class="text-center">
-            <div class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400">ISO</div>
-            <div class="text-xs xs:text-xs sm:text-sm text-gray-400 uppercase tracking-wider">CERTIFICADO</div>
-          </div>
+
+          <!-- Línea inferior -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent mt-4"></div>
         </div>
-        
-        <!-- CTA Buttons - Enhanced responsive sizing -->
-        <div class="pt-2 xs:pt-3 sm:pt-4 md:pt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+
+        <!-- Botones CTA (apilados <768px, lado a lado ≥768px) -->
+        <div class="pt-4 md:pt-6 flex flex-col md:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
           <a
             href="/descargas"
-            class="flex justify-center gap-2 items-center shadow-xl text-xs xs:text-sm sm:text-base md:text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white lg:font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 relative z-10 px-4 py-2 xs:px-6 xs:py-3 rounded-full w-full sm:w-auto"
+            class="btn-primary"
           >
-
-          
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            <div class="circle"></div>
+            <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
-            <span>Descargar HYDRA²¹</span>
+            <span class="text">Descargar HYDRA²¹</span>
+            <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
           </a>
           <a
             href="#caracteristicas"
-            class="flex justify-center gap-2 items-center shadow-xl text-xs xs:text-sm sm:text-base md:text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-blue-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-3 py-1.5 xs:px-4 xs:py-2 overflow-hidden border-2 rounded-full w-full sm:w-auto"
-          >            <span class="text-gray-800 group-hover:text-gray-50 transition-colors duration-300">EXPLORAR CARACTERÍSTICAS</span>
-            <svg
-              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-1.5 sm:p-2 rotate-45"
-              viewBox="0 0 16 19"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                class="fill-gray-800 group-hover:fill-gray-800"
-              ></path>
+            class="btn-secondary"
+          >
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
+            Ver Características
           </a>
         </div>
+
       </div>
-      
-      <!-- Right side - “Shapes cluster” (antes: hidden sm:flex) -->
-      <div class="hidden sm:flex relative justify-center lg:justify-end mt-4 xs:mt-6 sm:mt-8 lg:mt-0">
-        <div class="shapes-cluster relative w-48 xs:w-56 sm:w-72 md:w-96 lg:w-[28rem] xl:w-[32rem] 2xl:w-[36rem] h-48 xs:h-56 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] 2xl:h-[36rem]">        
-          <div class="absolute cube-cluster-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <img 
-              src="/assets/images/cube_2.png" 
-              alt="3D Cube" 
-              class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-72 xl:h-72 2xl:w-80 2xl:h-80 animate-float-2 cube-blue-1" 
+
+      <!-- 3.2) DERECHA: Bloque de cubos compacto (solo ≥768px) -->
+      <div class="hidden md:flex w-full lg:w-auto relative justify-center lg:justify-end items-center">
+        <div class="shapes-cluster-compact relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] flex items-center justify-center">
+
+          <!-- Cubo central (principal) -->
+          <div class="absolute cube-cluster-central top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-float-2 z-30">
+            <img
+              src="/assets/images/cube_2.png"
+              alt="3D Cube Central"
+              class="w-32 h-32 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-64 xl:h-64 2xl:w-72 2xl:h-72 cube-blue-1"
               loading="eager"
               decoding="async"
             />
           </div>
-          <div class="absolute cube-cluster-3 top-1/3 left-1/3 transform -translate-x-1/4 -translate-y-1/4">
-            <img 
-              src="/assets/images/cube_2.png" 
-              alt="3D Cube" 
-              class="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-60 xl:h-60 2xl:w-64 2xl:h-64 animate-float-3 cube-blue-2" 
+
+          <!-- Cubo superior izquierdo (más cerca) -->
+          <div class="absolute cube-cluster-top-left top-[35%] left-[35%] transform -translate-x-1/2 -translate-y-1/2 animate-float-3 z-20">
+            <img
+              src="/assets/images/cube_2.png"
+              alt="3D Cube"
+              class="w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 2xl:w-52 2xl:h-52 cube-blue-2"
               loading="lazy"
               decoding="async"
             />
           </div>
-          <div class="absolute cube-cluster-4 top-2/3 left-2/3 transform -translate-x-3/4 -translate-y-3/4">
-            <img 
-              src="/assets/images/cube_2.png" 
-              alt="3D Cube" 
-              class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-44 lg:h-44 xl:w-52 xl:h-52 2xl:w-56 2xl:h-56 animate-float-4 cube-blue-3" 
+
+          <!-- Cubo inferior derecho (más cerca) -->
+          <div class="absolute cube-cluster-bottom-right top-[65%] left-[65%] transform -translate-x-1/2 -translate-y-1/2 animate-float-4 z-20">
+            <img
+              src="/assets/images/cube_2.png"
+              alt="3D Cube"
+              class="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-44 2xl:h-44 cube-blue-3"
               loading="lazy"
               decoding="async"
             />
-          </div> 
+          </div>
+
+          <!-- Cubo superior derecho (acento) -->
+          <div class="absolute cube-cluster-top-right top-[30%] left-[70%] transform -translate-x-1/2 -translate-y-1/2 animate-float-1 z-15">
+            <img
+              src="/assets/images/cube_2.png"
+              alt="3D Cube"
+              class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32 cube-blue-4 opacity-80"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
         </div>
       </div>
 
-
     </div>
   </div>
-  
+</section>
+
+
 <style>
-  .hero-section {
-    background: #000000;
-  }
-  
-  /* Hero background image - Enhanced responsive */
+/* ——————————————————————————————————————————————
+   1) HERO SECTION & FONDO
+————————————————————————————————————————————— */
+.hero-section {
+  background: #000000;
+}
+
+/* Hero background image - Enhanced responsive */
+.hero-background {
+  position: absolute;  /* para que el torus (z-index:1) quede encima */
+  z-index: 0;          /* fondo más atrás */
+  background-image: url('/assets/images/fondo_2.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  background-attachment: scroll;
+}
+
+/* Mobile (≤767px) - overlay más oscuro */
+@media (max-width: 767px) {
   .hero-background {
-    background-image: url('/assets/images/fondo_2.jpeg');
+    opacity: 0.9;
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
-    opacity: 0.5;
     background-attachment: scroll;
   }
-  
-  /* Mobile specific background optimizations */
-  @media (max-width: 767px) {
-    .hero-background {
-      opacity: 0.9;
-      background-size: cover;
-      background-position: center center;
-      background-attachment: scroll;
-    }
+}
+/* Tablet (≥768px) - fondo fijo y un poco más transparente */
+@media (min-width: 768px) {
+  .hero-background {
+    background-attachment: fixed;
+    opacity: 0.7;
   }
-  
-  @media (min-width: 768px) {
-    .hero-background {
-      background-attachment: fixed;
-      opacity: 0.7;
-    }
+}
+
+/* ——————————————————————————————————————————————
+   2) MOBILE OPTIMIZATIONS (≤499px)
+————————————————————————————————————————————— */
+@media (max-width: 499px) {
+  /* Fondo: ajustes extra para móviles muy pequeños */
+  .hero-background {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(1.2) contrast(1.2) saturate(1.1);
+    opacity: 0.7;
   }
-  
-  /* Mobile optimizations */
-  @media (max-width: 499px) {
-    /* Extra small screens optimization */
-    .hero-background {
-      background-attachment: scroll;
-      background-position: center center;
-      background-size: cover;
-      /* Enhanced filters for extra small screens */
-      filter: brightness(1.2) contrast(1.2) saturate(1.1);
-      opacity: 0.7;
-    }
-    
-    .hero-section {
-      min-height: 100vh;
-      min-height: 100svh;
-    }
-    
-    /* Enhanced text shadows for extra small screens */
-    .hero-section h1 {
-      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
-    }
-    
-    .hero-section p {
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-    }
-    
-    /* Floating shapes optimization for very small screens */
-    .floating-shapes {
-      opacity: 0.18;
-    }
-    
-    .floating-cube img {
-      width: 50px;
-      height: 50px;
-      opacity: 1;
-    }
+
+  /* Hero ocupa toda la pantalla (100svh) */
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100svh;
   }
-  
-  @media (min-width: 500px) and (max-width: 767px) {
-    /* Regular mobile optimization - No grid scaling */
-    .hero-background {
-      background-attachment: scroll;
-      background-position: center center;
-      background-size: cover;
-      filter: brightness(1.1) contrast(1.1);
-    }
-    
-    .hero-section {
-      min-height: 100svh;
-    }
+
+  /* Sombra de texto más intensa para legibilidad */
+  .hero-section h1 {
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
   }
-  
-  /* Bottom blur effect for footer integration */
-  .hero-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.95) 20%,
-      rgba(0, 0, 0, 0.8) 40%,
-      rgba(0, 0, 0, 0.6) 60%,
-      rgba(0, 0, 0, 0.3) 80%,
-      transparent 100%
-    );
-    z-index: 25;
-    pointer-events: none;
+  .hero-section p {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   }
-  
-  /* Additional blur layer for smoother transition */
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.7) 30%,
-      rgba(0, 0, 0, 0.4) 60%,
-      transparent 100%
-    );
-    backdrop-filter: blur(2px);
-    z-index: 24;
-    pointer-events: none;
-  }
-  
-  /* Responsive blur adjustments */
-  @media (max-width: 640px) {
-    .hero-section::after {
-      height: 80px;
-    }
-    
-    .hero-section::before {
-      height: 60px;
-      backdrop-filter: blur(1px);
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .hero-section::after {
-      height: 150px;
-    }
-    
-    .hero-section::before {
-      height: 100px;
-      backdrop-filter: blur(3px);
-    }
-  }
-  
-  /* Floating background shapes */
+
+  /* Floating shapes (si existieran) */
   .floating-shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.12;
+    opacity: 0.18;
   }
-  
-  .floating-cube {
-    position: absolute;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-  }
-  
   .floating-cube img {
-    width: 80px;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+  }
+}
+
+/* Tablet (500-767px) - ajustes intermedios para fondo y altura */
+@media (min-width: 500px) and (max-width: 767px) {
+  .hero-background {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(1.1) contrast(1.1);
+  }
+  .hero-section {
+    min-height: 100svh;
+  }
+}
+
+/* ——————————————————————————————————————————————
+   3) BOTTOM BLUR PARA INTEGRACIÓN CON FOOTER
+————————————————————————————————————————————— */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.3) 80%,
+    transparent 100%
+  );
+  z-index: 25;
+  pointer-events: none;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 30%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
+  backdrop-filter: blur(2px);
+  z-index: 24;
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .hero-section::after {
     height: 80px;
+  }
+  .hero-section::before {
+    height: 60px;
+    backdrop-filter: blur(1px);
+  }
+}
+@media (min-width: 1024px) {
+  .hero-section::after {
+    height: 150px;
+  }
+  .hero-section::before {
+    height: 100px;
+    backdrop-filter: blur(3px);
+  }
+}
+
+/* ——————————————————————————————————————————————
+   4) FLOATING BACKGROUND SHAPES (SI EXISTIERAN)
+————————————————————————————————————————————— */
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+}
+.floating-cube {
+  position: absolute;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.floating-cube img {
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .floating-shapes {
+    opacity: 0.15;
+  }
+  .floating-cube img {
+    width: 60px;
+    height: 60px;
+    opacity: 0.9;
+  }
+}
+@media (min-width: 641px) and (max-width: 768px) {
+  .floating-cube img {
+    width: 70px;
+    height: 70px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .floating-cube img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ——————————————————————————————————————————————
+   5) SHAPES CLUSTER COMPACTO (CUBOS 3D)
+————————————————————————————————————————————— */
+.shapes-cluster-compact {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive sizes para el cluster compacto - MUCHO MÁS GRANDES */
+@media (min-width: 768px) {
+  .shapes-cluster-compact {
+    width: 384px;  /* 96 * 4 - Tablet */
+    height: 384px;
+  }
+}
+@media (min-width: 1024px) {
+  .shapes-cluster-compact {
+    width: 448px;  /* 28rem - Desktop */
+    height: 448px;
+  }
+}
+@media (min-width: 1280px) {
+  .shapes-cluster-compact {
+    width: 512px;  /* 32rem - XL */
+    height: 512px;
+  }
+}
+@media (min-width: 1536px) {
+  .shapes-cluster-compact {
+    width: 576px;  /* 36rem - 2XL */
+    height: 576px;
+  }
+}
+
+.cube-1 {
+  top: 10%;
+  left: 5%;
+  animation-name: float-diagonal-1;
+  animation-delay: 0s;
+}
+.cube-2 {
+  top: 20%;
+  right: 10%;
+  animation-name: float-diagonal-2;
+  animation-delay: -3s;
+}
+.cube-3 {
+  top: 60%;
+  left: 15%;
+  animation-name: float-vertical;
+  animation-delay: -6s;
+}
+.cube-5 {
+  top: 70%;
+  left: 8%;
+  animation-name: float-diagonal-1;
+  animation-delay: -12s;
+}
+.cube-6 {
+  bottom: 20%;
+  right: 8%;
+  animation-name: float-diagonal-2;
+  animation-delay: -15s;
+}
+.cube-7 {
+  top: 15%;
+  left: 50%;
+  animation-name: float-vertical;
+  animation-delay: -18s;
+}
+.cube-8 {
+  bottom: 15%;
+  left: 45%;
+  animation-name: float-horizontal;
+  animation-delay: -21s;
+}
+
+/* Main cluster animations (flotantes) - Compactas y suaves */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateY(-4px) translateX(2px) rotate(30deg) scale(1.03);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-3px) translateX(0px) rotate(60deg) scale(1.05);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateY(-5px) translateX(-2px) rotate(90deg) scale(1.03);
+  }
+}
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translate(-50%, -50%) translateY(-8px) rotate(40deg) scale(1.06);
+  }
+  40% {
+    transform: translate(-50%, -50%) translateY(-4px) rotate(80deg) scale(0.98);
+  }
+  60% {
+    transform: translate(-50%, -50%) translateY(-10px) rotate(120deg) scale(1.08);
+  }
+  80% {
+    transform: translate(-50%, -50%) translateY(-3px) rotate(160deg) scale(1.02);
+  }
+}
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(-50%, -50%) translateY(-6px) translateX(3px) rotate(60deg) scale(1.04);
+  }
+  66% {
+    transform: translate(-50%, -50%) translateY(-8px) translateX(-2px) rotate(120deg) scale(0.96);
+  }
+}
+@keyframes float-4 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translate(-50%, -50%) translateY(-12px) rotate(50deg) scale(1.1);
+  }
+  70% {
+    transform: translate(-50%, -50%) translateY(-6px) rotate(100deg) scale(1.04);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 12s ease-in-out infinite;
+  animation-delay: -3s;
+}
+.animate-float-2 {
+  animation: float-2 10s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+.animate-float-3 {
+  animation: float-3 14s ease-in-out infinite;
+  animation-delay: -7s;
+}
+.animate-float-4 {
+  animation: float-4 11s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+/* Estilos específicos para cada cubo */
+.cube-blue-1 {
+  filter: drop-shadow(0 8px 16px rgba(59, 130, 246, 0.3));
+}
+.cube-blue-2 {
+  filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.25));
+}
+.cube-blue-3 {
+  filter: drop-shadow(0 4px 8px rgba(29, 78, 216, 0.2));
+}
+.cube-blue-4 {
+  filter: drop-shadow(0 3px 6px rgba(30, 64, 175, 0.15));
+}
+
+/* Responsive adjustments for shapes-cluster-compact */
+@media (max-width: 640px) {
+  .shapes-cluster-compact {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  /* Animaciones simplificadas para móviles */
+  @keyframes float-1 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-3px) translateX(0px) rotate(90deg) scale(1.02);
+    }
+  }
+  @keyframes float-2 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0px) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-5px) rotate(90deg) scale(1.04);
+    }
+  }
+  @keyframes float-3 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-4px) translateX(2px) rotate(90deg) scale(1.03);
+    }
+  }
+  @keyframes float-4 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0px) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-6px) rotate(90deg) scale(1.05);
+    }
+  }
+}
+
+/* ——————————————————————————————————————————————
+   6) TORUS (MÓVIL <768px) – MÁS OPACO Y CENTRADO
+————————————————————————————————————————————— */
+.mobile-torus-background {
+  position: absolute;
+  inset: 0;           /* ocupa TODO el hero */
+  pointer-events: none;
+  z-index: 5;         /* por encima del fondo (z-0), pero por debajo del contenedor (z-10) */
+  display: block;     /* asegurar que esté visible */
+}
+.torus-floating {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: torus-float 15s ease-in-out infinite;
+}
+.torus-image {
+  width: 400px;
+  height: 400px;
+  opacity: 0.55;     /* Aumentado para mejor visibilidad */
+  filter: blur(0.5px);
+  transform-origin: center;
+  display: block;    /* asegurar que la imagen esté visible */
+}
+/* Si la pantalla es <400px, hacemos el Torus más pequeño pero visible */
+@media (max-width: 400px) {
+  .torus-image {
+    width: 300px !important;
+    height: 300px !important;
+    opacity: 0.5 !important;
+    filter: blur(1px) !important;
+  }
+}
+/* Para pantallas entre 400px y 640px */
+@media (min-width: 400px) and (max-width: 640px) {
+  .torus-image {
+    width: 350px;
+    height: 350px;
+    opacity: 0.40;
+    filter: blur(0.8px);
+  }
+}
+/* Animación flotante del Torus */
+@keyframes torus-float {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
     opacity: 0.8;
   }
-  
-  @media (max-width: 640px) {
-    .floating-shapes {
-      opacity: 0.15;
-    }
-    
-    .floating-cube img {
-      width: 60px;
-      height: 60px;
-      opacity: 0.9;
-    }
+  25% {
+    transform: translate(-48%, -52%) rotate(90deg) scale(1.05);
+    opacity: 0.8;
   }
-  
-  @media (min-width: 641px) and (max-width: 768px) {
-    .floating-cube img {
-      width: 70px;
-      height: 70px;
-    }
+  50% {
+    transform: translate(-52%, -48%) rotate(180deg) scale(0.95);
+    opacity: 0.8;
   }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .floating-cube img {
-      width: 90px;
-      height: 90px;
-    }
+  75% {
+    transform: translate(-50%, -54%) rotate(270deg) scale(1.02);
+    opacity: 0.8;
   }
-  
-  @media (min-width: 1024px) {
-    .floating-cube img {
-      width: 130px;
-      height: 130px;
-    }
-    
-    .shapes-cluster {
-      width: 800px;
-      height: 800px;
-    }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    opacity: 0.8;
   }
-  
-  @media (min-width: 1280px) {
-    .shapes-cluster {
-      width: 960px;
-      height: 960px;
-    }
+}
+/* En tablets y desktop, ocultamos el Torus */
+@media (min-width: 768px) {
+  .mobile-torus-background {
+    display: none !important;
   }
+}
+
+/* ——————————————————————————————————————————————
+   7) BOTONES “COOL” DEL HERO – BTN-PRIMARY Y BTN-SECONDARY
+————————————————————————————————————————————— */
+
+/* Botón Primario (Descargar HYDRA²¹) - Configuración Animada */
+.btn-primary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: #1e3a8a;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #e0f2fe;
+  box-shadow: 0 0 0 2px #0f172a;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary svg {
+  position: absolute;
+  width: 24px;
+  fill: #e0f2fe;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary .arr-1 {
+  right: 16px;
+}
+
+.btn-primary .arr-2 {
+  left: -25%;
+}
+
+.btn-primary .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #ffffff;
+  border-radius: 12px;
+}
+
+.btn-primary:hover .arr-1 {
+  right: -25%;
+}
+
+.btn-primary:hover .arr-2 {
+  left: 16px;
+}
+
+.btn-primary:hover .text {
+  transform: translateX(12px);
+}
+
+.btn-primary:hover svg {
+  fill: #ffffff;
+}
+
+.btn-primary:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px #60a5fa;
+}
+
+.btn-primary:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+/* Botón Secundario (EXPLORAR CARACTERÍSTICAS) - Configuración Moderna */
+.btn-secondary {
+  cursor: pointer;
+  padding: 1em;
+  font-size: 1em;
+  min-width: 7em;
   
-  @media (min-width: 1536px) {
-    .shapes-cluster {
-      width: 1152px;
-      height: 1152px;
-    }
+  color: #e0f2fe;
+  background: #0f172a;
+  background-size: cover;
+  background-blend-mode: overlay;
+  border-radius: 0.5em;
+  outline: 0.1em solid #1e3a8a;
+  border: 0;
+  box-shadow: 0 0 1em 1em rgba(15, 23, 42, 0.2);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
+  background: linear-gradient(45deg, #0f172a, #1e293b);
+  background: radial-gradient(
+    circle at bottom,
+    rgba(59, 130, 246, 0.6) 10%,
+    #0f172a 70%
+  );
+  outline: 0;
+}
+
+.btn-secondary .icon {
+  fill: #e0f2fe;
+  width: 1em;
+  aspect-ratio: 1;
+  top: 0;
+  left: 0;
+  margin: auto;
+  transform: translate(-35%, 10%);
+}
+
+/* ——————————————————————————————————————————————
+   8) AJUSTES FINOS PARA PANTALLAS < 400px
+————————————————————————————————————————————— */
+@media (max-width: 400px) {
+  /* Hero ocupa todo el alto aplicación */
+  .hero-section {
+    min-height: 100vh !important;
+    min-height: 100svh !important;
   }
-  
-  .cube-1 {
-    top: 10%;
-    left: 5%;
-    animation-name: float-diagonal-1;
-    animation-delay: 0s;
+  /* Fondo un poco menos opaco para destacar texto */
+  .hero-background {
+    opacity: 0.8 !important;
+    filter: brightness(1.1) contrast(1.1) !important;
   }
-  
-  .cube-2 {
-    top: 20%;
-    right: 10%;
-    animation-name: float-diagonal-2;
-    animation-delay: -3s;
+  /* TÍTULO h1: tamaño similar a CallToAction */
+  .hero-section h1 {
+    font-size: 1.5rem !important;      /* 24px - igual que CallToAction */
+    line-height: 2rem !important;      /* 32px - igual que CallToAction */
+    margin-bottom: 0.5rem !important;
   }
-  
-  .cube-3 {
-    top: 60%;
-    left: 15%;
-    animation-name: float-vertical;
-    animation-delay: -6s;
+  /* SUBTÍTULO p: tamaño similar a CallToAction */
+  .hero-section p {
+    font-size: 0.875rem !important;    /* 14px - igual que CallToAction */
+    line-height: 1.25rem !important;   /* 20px - igual que CallToAction */
+    margin-bottom: 0.75rem !important;
   }
-  
-  .cube-5 {
-    top: 70%;
-    left: 8%;
-    animation-name: float-diagonal-1;
-    animation-delay: -12s;
+  /* Estadísticas: mantener tamaños legibles y espaciado compacto */
+  .hero-section .grid.grid-cols-1.md\:grid-cols-3 {
+    gap: 0.25rem !important;           /* 4px - más compacto */
   }
-  
-  .cube-6 {
-    bottom: 20%;
-    right: 8%;
-    animation-name: float-diagonal-2;
-    animation-delay: -15s;
+  .hero-section .grid.grid-cols-1.md\:grid-cols-3 > div {
+    margin-bottom: 0.25rem !important; /* 4px entre cada estadística */
   }
-  
-  .cube-7 {
-    top: 15%;
-    left: 50%;
-    animation-name: float-vertical;
-    animation-delay: -18s;
+  .hero-section .grid.grid-cols-1.md\:grid-cols-3 div > .text-2xl {
+    font-size: 1.25rem !important;     /* 20px - más grande que antes */
   }
-  
-  .cube-8 {
-    bottom: 15%;
-    left: 45%;
-    animation-name: float-horizontal;
-    animation-delay: -21s;
+  .hero-section .grid.grid-cols-1.md\:grid-cols-3 div > .text-sm {
+    font-size: 0.75rem !important;     /* 12px - más legible */
   }
-  
-  
-  /* Main cluster animations - Solo movimiento, sin cambio de colores */
-  @keyframes float-1 {
-    0%, 100% { 
-      transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
-    }
-    25% { 
-      transform: translateY(-12px) translateX(4px) rotate(90deg) scale(1.05); 
-    }
-    50% { 
-      transform: translateY(-8px) translateX(0px) rotate(180deg) scale(1.1); 
-    }
-    75% { 
-      transform: translateY(-16px) translateX(-4px) rotate(270deg) scale(1.05); 
-    }
+  /* Líneas decorativas más sutiles en móviles */
+  .hero-section .h-px {
+    opacity: 0.6 !important;           /* Líneas más sutiles */
   }
-  
-  @keyframes float-2 {
-    0%, 100% { 
-      transform: translateY(0px) rotate(0deg) scale(1); 
-    }
-    20% { 
-      transform: translateY(-18px) rotate(72deg) scale(1.15); 
-    }
-    40% { 
-      transform: translateY(-10px) rotate(144deg) scale(0.95); 
-    }
-    60% { 
-      transform: translateY(-22px) rotate(216deg) scale(1.2); 
-    }
-    80% { 
-      transform: translateY(-6px) rotate(288deg) scale(1.05); 
-    }
+  /* Botones CTA: mantener tamaños del CallToAction */
+  .hero-section .flex.flex-col.md\:flex-row {
+    gap: 0.75rem !important;           /* 12px - más espacio */
   }
-  
-  @keyframes float-3 {
-    0%, 100% { 
-      transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
-    }
-    33% { 
-      transform: translateY(-14px) translateX(8px) rotate(120deg) scale(1.1); 
-    }
-    66% { 
-      transform: translateY(-20px) translateX(-6px) rotate(240deg) scale(0.9); 
-    }
+  .hero-section .flex.flex-col.md\:flex-row a {
+    width: 100% !important;
+    padding: 0.75rem 1.5rem !important; /* 12px arriba/abajo, 24px izq/der */
+    font-size: 1rem !important;         /* 16px - igual que CallToAction */
+    border-radius: 0.5rem !important;   /* 8px radio */
   }
-  
-  @keyframes float-4 {
-    0%, 100% { 
-      transform: translateY(0px) rotate(0deg) scale(1); 
-    }
-    30% { 
-      transform: translateY(-25px) rotate(108deg) scale(1.25); 
-    }
-    70% { 
-      transform: translateY(-15px) rotate(252deg) scale(1.1); 
-    }
+  /* Badge compacto */
+  .hero-section .inline-flex.items-center {
+    padding: 0.2rem 0.4rem !important;  /* 4px / 8px */
+    font-size: 0.625rem !important;     /* 10px */
   }
-  
-  /* Background floating animations - Solo movimiento */
-  @keyframes float-diagonal-1 {
-    0% { 
-      transform: translate(0, 0) rotate(0deg) scale(1); 
-      opacity: 0.3;
-    }
-    25% { 
-      transform: translate(60px, -40px) rotate(90deg) scale(1.2); 
-      opacity: 0.6;
-    }
-    50% { 
-      transform: translate(30px, -80px) rotate(180deg) scale(0.8); 
-      opacity: 0.9;
-    }
-    75% { 
-      transform: translate(-40px, -50px) rotate(270deg) scale(1.1); 
-      opacity: 0.4;
-    }
-    100% { 
-      transform: translate(0, 0) rotate(360deg) scale(1); 
-      opacity: 0.3;
-    }
+  .hero-section .inline-flex.items-center span {
+    font-size: 0.75rem !important;      /* 12px */
   }
-  
-  @keyframes float-diagonal-2 {
-    0% { 
-      transform: translate(0, 0) rotate(0deg) scale(1); 
-      opacity: 0.4;
-    }
-    30% { 
-      transform: translate(-50px, -30px) rotate(108deg) scale(1.3); 
-      opacity: 0.7;
-    }
-    60% { 
-      transform: translate(-20px, -70px) rotate(216deg) scale(0.9); 
-      opacity: 0.8;
-    }
-    90% { 
-      transform: translate(40px, -40px) rotate(324deg) scale(1.15); 
-      opacity: 0.5;
-    }
-    100% { 
-      transform: translate(0, 0) rotate(360deg) scale(1); 
-      opacity: 0.4;
-    }
+  /* Torus en <400px: mantener visible pero más pequeño */
+  .mobile-torus-background {
+    opacity: 1 !important;   /* No reducir la opacidad del contenedor */
   }
-  
-  @keyframes float-vertical {
-    0%, 100% { 
-      transform: translateY(0px) rotate(0deg) scale(1); 
-      opacity: 0.3;
-    }
-    50% { 
-      transform: translateY(-60px) rotate(180deg) scale(1.4); 
-      opacity: 0.8;
-    }
+  .mobile-torus-background .torus-image {
+    width: 180px !important;
+    height: 180px !important;
+    filter: blur(1px) !important;
+    opacity: 0.20 !important;  /* Mantener visible */
   }
-  
-  @keyframes float-horizontal {
-    0%, 100% { 
-      transform: translateX(0px) rotate(0deg) scale(1); 
-      opacity: 0.4;
-    }
-    50% { 
-      transform: translateX(40px) rotate(180deg) scale(1.2); 
-      opacity: 0.7;
-    }
+  /* Cubo de fondo (shapes-cluster) muy pequeño en <400px */
+  .hero-section .shapes-cluster {
+    width: 64px !important;     
+    height: 64px !important;
   }
-  
-  .animate-float-1 {
-    animation: float-1 8s ease-in-out infinite;
+  .hero-section .shapes-cluster img {
+    width: 32px !important;     
+    height: 32px !important;
+    opacity: 0.08 !important;
+    top: 65% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
-  
-  .animate-float-2 {
-    animation: float-2 10s ease-in-out infinite;
-    animation-delay: -2.5s;
+  /* Ocultar cubos grandes en <400px por si acaso */
+  .hero-section .hidden.lg\:block {
+    display: none !important;
   }
-  
-  .animate-float-3 {
-    animation: float-3 9s ease-in-out infinite;
-    animation-delay: -5s;
-  }
-  
-  .animate-float-4 {
-    animation: float-4 7s ease-in-out infinite;
-    animation-delay: -1.5s;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .shapes-cluster {
-      width: 400px !important;
-      height: 400px !important;
-    }
-    
-    .floating-cube img {
-      width: 55px !important;
-      height: 55px !important;
-    }
-    
-    /* Reduce animation intensity on mobile */
-    @keyframes float-1 {
-      0%, 100% { 
-        transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
-      }
-      50% { 
-        transform: translateY(-8px) translateX(0px) rotate(180deg) scale(1.05); 
-      }
-    }
-    
-    @keyframes float-2 {
-      0%, 100% { 
-        transform: translateY(0px) rotate(0deg) scale(1); 
-      }
-      50% { 
-        transform: translateY(-12px) rotate(180deg) scale(1.1); 
-      }
-    }
-    
-    @keyframes float-3 {
-      0%, 100% { 
-        transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
-      }
-      50% { 
-        transform: translateY(-10px) translateX(4px) rotate(180deg) scale(1.05); 
-      }
-    }
-    
-    @keyframes float-4 {
-      0%, 100% { 
-        transform: translateY(0px) rotate(0deg) scale(1); 
-      }
-      50% { 
-        transform: translateY(-15px) rotate(180deg) scale(1.1); 
-      }
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .shapes-cluster {
-      width: 480px;
-      height: 480px;
-    }
-    
-    .floating-cube img {
-      width: 70px;
-      height: 70px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .shapes-cluster {
-      width: 800px;
-      height: 800px;
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .shapes-cluster {
-      width: 960px;
-      height: 960px;
-    }
-  }
-  
-  @media (min-width: 1536px) {
-    .shapes-cluster {
-      width: 1152px;
-      height: 1152px;
-    }
-  }
-  
-  /* Additional responsive optimizations */
-</style>
+}
+</style>  

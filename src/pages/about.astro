@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ViewportAnimator from '../components/ViewportAnimator.astro';
 
 const title = "Acerca de HYDRA²¹";
 const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ingeniería hidráulica";
@@ -28,51 +29,74 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
       <div class="absolute inset-0 grid-pattern"></div>
     </div>
 
-    <!-- Main content container -->
-    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
-
-      <!-- Hero Content -->
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
+    <!-- Main content container following Hero patterns -->
+    <div class="container mx-auto px-4 py-6 md:py-12 lg:py-16 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center lg:justify-items-stretch">
 
         <!-- Left side - Content -->
-        <div class="flex-1 text-center lg:text-left">
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-3 xs:px-4 py-2 xs:py-3 text-xs sm:text-sm mb-8 sm:mb-10">
-            <span class="text-blue-400">⚡</span>
-            <span class="text-blue-400 font-medium">#INNOVACIÓN HIDRÁULICA</span>
+        <div class="space-y-4 md:space-y-6 lg:space-y-8 w-full lg:w-auto text-center lg:text-left">
+
+          <!-- Badge: #INNOVACIÓN HIDRÁULICA -->
+          <div class="inline-flex items-center gap-1 sm:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 py-1 text-xs sm:text-sm">
+            <span class="text-orange-400 text-xs sm:text-sm">⚡</span>
+            <span class="text-blue-400 font-medium text-xs sm:text-xs">#INNOVACIÓN HIDRÁULICA</span>
           </div>
 
-          <!-- Main Title -->
-          <h1 class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-tight mb-8 sm:mb-10" transition:name="about-hero-title">
-            Acerca de
-            <span class="block gradient-text-blue-cyan" transition:name="logo-text">HYDRA²¹</span>
+          <!-- Main Heading -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight" transition:name="about-hero-title">
+            Acerca de<br/>
+            <span class="block text-blue-400" transition:name="logo-text">HYDRA²¹</span>
           </h1>
 
-          <!-- Description -->
-          <p class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 leading-relaxed mb-8 sm:mb-10 max-w-3xl mx-auto lg:mx-0">
+          <!-- Subtitle -->
+          <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Revolucionando la ingeniería hidráulica<br class="hidden sm:block"/>
-            con tecnología de vanguardia
+            con tecnología de vanguardia.
           </p>
 
-          <!-- CTA Button -->
-          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-            <a href="#mision" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
-              <span class="mr-2">🚀</span>
-              Conocer Más
+          <!-- Botones CTA (apilados <768px, lado a lado ≥768px) -->
+          <div class="pt-4 md:pt-6 flex flex-col md:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
+            <a
+              href="#mision"
+              class="btn-primary"
+            >
+              <div class="circle"></div>
+              <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+              <span class="text">🚀 Conocer Más</span>
+              <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </a>
+            <a
+              href="/descargas"
+              class="btn-secondary"
+            >
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              📥 Descargar
             </a>
           </div>
+
         </div>
 
-        <!-- Right side - About Image -->
-        <div class="relative flex justify-center lg:justify-end mt-4 xs:mt-6 sm:mt-8 lg:mt-0">
-          <div class="relative">
+        <!-- Right side - About Image (solo ≥768px) -->
+        <div class="hidden md:flex w-full lg:w-auto relative justify-center lg:justify-end items-center">
+          <div class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[36rem] 2xl:h-[36rem] flex items-center justify-center">
             <!-- Main about image -->
-            <div class="relative w-64 xs:w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] 2xl:w-[36rem]">
+            <div class="relative">
               <img
                 src="/assets/images/about.png"
                 alt="Acerca de HYDRA²¹"
                 class="w-full h-auto animate-float-gentle filter drop-shadow-2xl"
                 transition:name="about-hero-image"
+                loading="eager"
+                decoding="async"
               />
             </div>
 
@@ -80,24 +104,26 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
             <div class="absolute inset-0 bg-blue-500/10 rounded-2xl blur-3xl scale-110 opacity-50"></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Mission Section -->
-  <section id="mision" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto">
+  <ViewportAnimator animation="fade-in" delay={100} duration={400}>
+    <section id="mision" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
 
-        <!-- Section Header -->
-        <div class="text-center mb-16 sm:mb-20 md:mb-24">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8" transition:name="mission-title">
-            Nuestra Misión
-          </h2>
-          <p class="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-            Transformando la ingeniería hidráulica con innovación y precisión
-          </p>
-        </div>
+          <!-- Section Header -->
+          <div class="text-center mb-16 sm:mb-20 md:mb-24">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8" transition:name="mission-title">
+              Nuestra Misión
+            </h2>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+              Transformando la ingeniería hidráulica con innovación y precisión
+            </p>
+          </div>
 
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
 
@@ -198,8 +224,10 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
       </div>
     </div>
   </section>
+  </ViewportAnimator>
 
   <!-- Values Section -->
+  <ViewportAnimator animation="stagger" delay={150} duration={400}>
   <section class="py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
@@ -314,8 +342,10 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
       </div>
     </div>
   </section>
+  </ViewportAnimator>
 
   <!-- CTA Section -->
+  <ViewportAnimator animation="slide-up" delay={200} duration={400}>
   <section class="py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-5xl mx-auto">
@@ -341,18 +371,29 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
               <!-- Buttons -->
               <div class="flex flex-col sm:flex-row gap-6 justify-center" transition:name="cta-buttons">
                 <a
-                  href="/"
-                  class="inline-flex items-center justify-center px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
+                  href="/descargas"
+                  class="btn-primary"
                 >
-                  <span class="mr-2">🏠</span>
-                  Volver al Inicio
+                  <div class="circle"></div>
+                  <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  <span class="text">📥 Descargar HYDRA²¹</span>
+                  <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
                 </a>
                 <a
-                  href="/descargas"
-                  class="inline-flex items-center justify-center px-10 py-4 text-lg font-semibold text-gray-300 border-2 border-gray-600 rounded-2xl hover:border-cyan-400 hover:text-white hover:bg-cyan-600/10 transition-all duration-300 hover:scale-105"
+                  href="/"
+                  class="btn-secondary"
                 >
-                  <span class="mr-2">📥</span>
-                  Descargar
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                  </svg>
+                  🏠 Volver al Inicio
                 </a>
               </div>
 
@@ -378,6 +419,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
       </div>
     </div>
   </section>
+  </ViewportAnimator>
 
   <Footer />
 </Layout>
@@ -427,14 +469,194 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
   }
 
-  /* Floating animation */
+  /* Floating animation following Hero patterns */
   @keyframes float-gentle {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-8px) rotate(0.5deg) scale(1.02);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg) scale(1.03);
+    }
+    75% {
+      transform: translateY(-6px) rotate(0.5deg) scale(1.02);
+    }
   }
 
   .animate-float-gentle {
-    animation: float-gentle 6s ease-in-out infinite;
+    animation: float-gentle 8s ease-in-out infinite;
+  }
+
+  /* Mobile optimizations for animations */
+  @media (max-width: 640px) {
+    .animate-float-gentle {
+      animation: float-gentle 12s ease-in-out infinite;
+    }
+
+    @keyframes float-gentle {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translateY(-5px) rotate(0.5deg) scale(1.01);
+      }
+    }
+  }
+
+  /* Performance optimizations for <400px */
+  @media (max-width: 400px) {
+    .animate-float-gentle {
+      animation: float-gentle 15s ease-in-out infinite;
+    }
+
+    /* Simplify animations for better performance */
+    @keyframes float-gentle {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.005);
+      }
+    }
+  }
+
+  /* ——————————————————————————————————————————————
+     BOTONES "COOL" DEL HERO – BTN-PRIMARY Y BTN-SECONDARY
+  ————————————————————————————————————————————— */
+
+  /* Botón Primario (Descargar HYDRA²¹) - Configuración Animada */
+  .btn-primary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: #1e3a8a;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #e0f2fe;
+    box-shadow: 0 0 0 2px #1e3a8a;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary svg {
+    position: absolute;
+    width: 24px;
+    fill: #e0f2fe;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary .arr-1 {
+    right: 16px;
+  }
+
+  .btn-primary .arr-2 {
+    left: -25%;
+  }
+
+  .btn-primary .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #ffffff;
+    border-radius: 12px;
+  }
+
+  .btn-primary:hover .arr-1 {
+    right: -25%;
+  }
+
+  .btn-primary:hover .arr-2 {
+    left: 16px;
+  }
+
+  .btn-primary:hover .text {
+    transform: translateX(12px);
+  }
+
+  .btn-primary:hover svg {
+    fill: #ffffff;
+  }
+
+  .btn-primary:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px #60a5fa;
+  }
+
+  .btn-primary:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+
+  /* Botón Secundario (EXPLORAR CARACTERÍSTICAS) - Configuración Moderna */
+  .btn-secondary {
+    cursor: pointer;
+    padding: 1em;
+    font-size: 1em;
+    min-width: 7em;
+
+    color: #e0f2fe;
+    background: #0f172a;
+    background-size: cover;
+    background-blend-mode: overlay;
+    border-radius: 0.5em;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 0.5em 0.25em rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
+    background: linear-gradient(45deg, #0f172a, #1e293b);
+    background: radial-gradient(
+      circle at bottom,
+      rgba(59, 130, 246, 0.6) 10%,
+      #0f172a 70%
+    );
+    outline: 0;
+  }
+
+  .btn-secondary .icon {
+    fill: #e0f2fe;
+    width: 1em;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+    margin: auto;
+    transform: translate(-35%, 10%);
   }
 
   /* Glassmorphism card hover effects */
@@ -442,7 +664,9 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     transform: scale(1.1);
   }
 
-  /* Enhanced responsive design */
+  /* Enhanced responsive design following Hero patterns */
+
+  /* Mobile optimizations for screens ≤640px */
   @media (max-width: 640px) {
     /* Mobile: Single column layout */
     .grid {
@@ -457,21 +681,6 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
 
     .p-12, .sm\:p-10, .md\:p-12, .lg\:p-16 {
       padding: 1.5rem !important;
-    }
-
-    /* Adjust text sizes on mobile */
-    .text-4xl, .xs\:text-5xl, .sm\:text-6xl, .md\:text-7xl, .lg\:text-8xl, .xl\:text-9xl {
-      font-size: 2rem !important;
-      line-height: 1.2 !important;
-    }
-
-    .text-3xl, .sm\:text-4xl, .md\:text-5xl, .lg\:text-6xl {
-      font-size: 1.875rem !important;
-      line-height: 1.3 !important;
-    }
-
-    .text-lg, .sm\:text-xl, .md\:text-2xl {
-      font-size: 1rem !important;
     }
 
     /* Reduce section spacing on mobile */
@@ -497,7 +706,109 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     }
   }
 
-  @media (min-width: 641px) and (max-width: 767px) {
+  /* Enhanced optimizations for screens ≤499px following Hero pattern */
+  @media (max-width: 499px) {
+    /* Background adjustments for better text contrast */
+    .about-background {
+      background-attachment: scroll;
+      background-position: center center;
+      background-size: cover;
+      filter: brightness(1.2) contrast(1.2) saturate(1.1);
+      opacity: 0.7;
+    }
+
+    /* Hero section takes full viewport */
+    .relative.min-h-screen {
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    /* Enhanced text shadows for better readability */
+    h1 {
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    p {
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  /* Specific optimizations for screens <400px following Hero pattern */
+  @media (max-width: 400px) {
+    /* Hero section takes full viewport */
+    .relative.min-h-screen {
+      min-height: 100vh !important;
+      min-height: 100svh !important;
+    }
+
+    /* Background adjustments similar to Hero */
+    .about-background {
+      opacity: 0.8 !important;
+      filter: brightness(1.1) contrast(1.1) !important;
+    }
+
+    /* TITLE h1: sizes similar to Hero */
+    h1 {
+      font-size: 1.5rem !important;      /* 24px - same as Hero */
+      line-height: 2rem !important;      /* 32px - same as Hero */
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* SUBTITLE p: sizes similar to Hero */
+    p {
+      font-size: 0.875rem !important;    /* 14px - same as Hero */
+      line-height: 1.25rem !important;   /* 20px - same as Hero */
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Section titles similar to Hero */
+    .text-3xl, .sm\:text-4xl, .md\:text-5xl, .lg\:text-6xl {
+      font-size: 1.5rem !important;      /* 24px - same as Hero */
+      line-height: 2rem !important;      /* 32px - same as Hero */
+    }
+
+    /* Section descriptions similar to Hero */
+    .text-lg, .sm\:text-xl, .md\:text-2xl {
+      font-size: 0.875rem !important;    /* 14px - same as Hero */
+      line-height: 1.25rem !important;   /* 20px - same as Hero */
+    }
+
+    /* Compact badge similar to Hero */
+    .inline-flex.items-center {
+      padding: 0.2rem 0.4rem !important;  /* 4px / 8px */
+      font-size: 0.625rem !important;     /* 10px */
+    }
+
+    .inline-flex.items-center span {
+      font-size: 0.75rem !important;      /* 12px */
+    }
+
+    /* CTA buttons similar to Hero */
+    .flex.flex-col.md\:flex-row {
+      gap: 0.75rem !important;           /* 12px - more space */
+    }
+
+    .flex.flex-col.md\:flex-row a {
+      width: 100% !important;
+      padding: 0.75rem 1.5rem !important; /* 12px top/bottom, 24px left/right */
+      font-size: 1rem !important;         /* 16px - same as Hero */
+      border-radius: 0.5rem !important;   /* 8px radius */
+    }
+  }
+
+  /* Tablet optimizations (500-767px) - intermediate adjustments */
+  @media (min-width: 500px) and (max-width: 767px) {
+    .about-background {
+      background-attachment: scroll;
+      background-position: center center;
+      background-size: cover;
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    .relative.min-h-screen {
+      min-height: 100svh;
+    }
+
     /* Small tablet adjustments */
     .py-20, .sm\:py-24, .md\:py-28, .lg\:py-32 {
       padding-top: 4rem !important;
@@ -506,6 +817,14 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
 
     .mb-16, .sm\:mb-20, .md\:mb-24 {
       margin-bottom: 3rem !important;
+    }
+  }
+
+  /* Tablet (≥768px) - background fixed and more transparent */
+  @media (min-width: 768px) {
+    .about-background {
+      background-attachment: fixed;
+      opacity: 0.4;
     }
   }
 
@@ -692,5 +1011,143 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     border-radius: 50%;
     animation: particle-float 6s ease-in-out infinite reverse;
     z-index: 1;
+  }
+
+  /* ——————————————————————————————————————————————
+     BOTONES PERSONALIZADOS - BTN-PRIMARY Y BTN-SECONDARY
+  ————————————————————————————————————————————— */
+
+  /* Botón Primario - Configuración Animada */
+  .btn-primary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: #1e3a8a;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #e0f2fe;
+    box-shadow: 0 0 0 2px #0f172a;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary svg {
+    position: absolute;
+    width: 24px;
+    fill: #e0f2fe;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary .arr-1 {
+    right: 16px;
+  }
+
+  .btn-primary .arr-2 {
+    left: -25%;
+  }
+
+  .btn-primary .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #ffffff;
+    border-radius: 12px;
+  }
+
+  .btn-primary:hover .arr-1 {
+    right: -25%;
+  }
+
+  .btn-primary:hover .arr-2 {
+    left: 16px;
+  }
+
+  .btn-primary:hover .text {
+    transform: translateX(12px);
+  }
+
+  .btn-primary:hover svg {
+    fill: #ffffff;
+  }
+
+  .btn-primary:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px #60a5fa;
+  }
+
+  .btn-primary:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+
+  /* Botón Secundario - Configuración Moderna */
+  .btn-secondary {
+    cursor: pointer;
+    padding: 1em;
+    font-size: 1em;
+    min-width: 7em;
+    
+    color: #e0f2fe;
+    background: #0f172a;
+    background-size: cover;
+    background-blend-mode: overlay;
+    border-radius: 0.5em;
+    outline: 0.1em solid #1e3a8a;
+    border: 0;
+    box-shadow: 0 0 1em 1em rgba(15, 23, 42, 0.2);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1em 0.45em rgba(59, 130, 246, 0.3);
+    background: linear-gradient(45deg, #0f172a, #1e293b);
+    background: radial-gradient(
+      circle at bottom,
+      rgba(59, 130, 246, 0.6) 10%,
+      #0f172a 70%
+    );
+    outline: 0;
+  }
+
+  .btn-secondary .icon {
+    fill: #e0f2fe;
+    width: 1em;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+    margin: auto;
+    transform: translate(-35%, 10%);
   }
 </style>

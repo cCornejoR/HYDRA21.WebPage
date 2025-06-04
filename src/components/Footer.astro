@@ -2,65 +2,34 @@
 // Footer.astro - Professional Minimalist Design
 ---
 
-<footer id="contacto" class="relative z-10 bg-black backdrop-blur-xl mt-auto border-t border-white/5">
+<footer id="contacto" class="relative z-10 bg-black backdrop-blur-xl mt-auto border-t border-white/5" transition:name="site-footer">
   <!-- Subtle top accent line -->
   <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 md:w-40 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"></div>
   
   <!-- Main Footer Content -->
   <div class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 md:py-10 lg:py-12">
     
-    <!-- Top Section: Company Info and Quick Links - Enhanced responsive -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
-      
-      <!-- Brand Section - Enhanced responsive -->
-      <div class="flex flex-col items-center sm:items-start space-y-3 sm:space-y-4 col-span-1 sm:col-span-2 lg:col-span-1">
-        <div class="flex items-center space-x-2 sm:space-x-3">
+    <!-- Top Section: Brand Only - Centered and Responsive -->
+    <div class="flex justify-center mb-8 sm:mb-10 md:mb-12">
+
+      <!-- Brand Section - Centered and Enhanced responsive -->
+      <div class="flex flex-col items-center space-y-4 sm:space-y-5 md:space-y-6 max-w-md text-center">
+        <div class="flex items-center space-x-3 sm:space-x-4">
           <img
             src="/pipe_logo.svg"
             alt="HYDRA²¹ Logo"
-            class="h-6 w-auto sm:h-7 md:h-8 lg:h-9 xl:h-10 opacity-90"
+            class="h-8 w-auto sm:h-10 md:h-12 lg:h-14 xl:h-16 opacity-90"
           />
-          <div class="flex flex-col">
-            <span class="font-heading font-bold text-white text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight">
-              <span class="gradient-text-blue-cyan">HYDRA</span><sup class="text-xs sm:text-sm gradient-text-blue-cyan">²¹</sup>
+          <div class="flex flex-col items-start">
+            <span class="font-heading font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight">
+              <span class="gradient-text-blue-cyan">HYDRA</span><sup class="text-sm sm:text-base md:text-lg gradient-text-blue-cyan">²¹</sup>
             </span>
-            <span class="text-xs text-gray-400 font-medium tracking-wider uppercase">Engineering Software</span>
+            <span class="text-sm sm:text-base text-gray-400 font-medium tracking-wider uppercase">Engineering Software</span>
           </div>
         </div>
-        <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-left max-w-xs leading-relaxed">
+        <p class="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed max-w-sm sm:max-w-md">
           Soluciones avanzadas en ingeniería hidráulica con tecnología de vanguardia.
         </p>
-      </div>
-
-      <!-- Quick Links - Enhanced responsive -->
-      <div class="flex flex-col items-center sm:items-start space-y-3 sm:space-y-4">
-        <h4 class="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider">Enlaces Rápidos</h4>
-        <nav class="flex flex-col space-y-1 sm:space-y-2">
-          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Productos</a>
-          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Documentación</a>
-          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Soporte</a>
-          <a href="#" class="text-gray-400 hover:text-cyan-400 text-xs sm:text-sm transition-colors duration-300 hover:translate-x-1 transform">Contacto</a>
-        </nav>
-      </div>
-
-      <!-- Contact Info - Enhanced responsive -->
-      <div class="flex flex-col items-center sm:items-start space-y-3 sm:space-y-4">
-        <h4 class="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider">Contacto</h4>
-        <div class="flex flex-col space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
-          <div class="flex items-center justify-center sm:justify-start space-x-2">
-            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-            <span>info@hydra21.com</span>
-          </div>
-          <div class="flex items-center justify-center sm:justify-start space-x-2">
-            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            <span>Madrid, España</span>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -146,16 +115,11 @@
     .group:hover .absolute {
       display: none;
     }
-    
+
     /* Improve social button touch targets */
     .group {
       min-width: 44px;
       min-height: 44px;
-    }
-    
-    /* Adjust grid spacing for mobile */
-    footer .grid {
-      gap: 1.5rem;
     }
 
     /* Optimizar footer bottom en móvil */
@@ -163,34 +127,68 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
+
+    /* Ajustar logo y texto en móviles */
+    footer .flex.items-center.space-x-3 img {
+      height: 2rem; /* h-8 */
+    }
+
+    footer .font-heading {
+      font-size: 1.25rem; /* text-xl */
+    }
+
+    footer .font-heading sup {
+      font-size: 0.875rem; /* text-sm */
+    }
+
+    footer .text-sm.sm\\:text-base {
+      font-size: 0.75rem; /* más pequeño en móvil */
+    }
   }
 
   /* Breakpoint para pantallas muy pequeñas */
-  @media (max-width: 480px) {
-    footer h4 {
-      font-size: 0.75rem;
-    }
-    
-    footer p,
-    footer span:not(.gradient-text-blue-cyan),
-    footer a:not(.group) {
-      font-size: 0.7rem;
-    }
-
+  @media (max-width: 400px) {
     /* Ajustar espaciado en móviles pequeños */
     footer .container {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Logo y texto más pequeños */
+    footer .flex.items-center.space-x-3 {
+      space-x: 0.5rem; /* space-x-2 */
+    }
+
+    footer .flex.items-center.space-x-3 img {
+      height: 1.75rem; /* h-7 */
+    }
+
+    footer .font-heading {
+      font-size: 1.125rem; /* text-lg */
+    }
+
+    footer .font-heading sup {
+      font-size: 0.75rem; /* text-xs */
+    }
+
+    footer .text-sm.sm\\:text-base {
+      font-size: 0.75rem; /* text-xs */
+    }
+
+    footer .text-sm.sm\\:text-base.md\\:text-lg {
+      font-size: 0.75rem; /* text-xs */
     }
 
     /* Mejorar el espaciado vertical en la sección bottom */
     footer .flex.flex-col.space-y-4 {
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
-    /* Centrar todo en móviles muy pequeños */
-    footer .flex.flex-col.items-center {
-      text-align: center;
+    /* Reducir espaciado en la sección de marca */
+    footer .flex.flex-col.items-center.space-y-4 {
+      gap: 1rem;
     }
   }
 

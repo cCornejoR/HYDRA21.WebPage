@@ -20,52 +20,55 @@
       <!-- Left content -->
       <div class="space-y-3 xs:space-y-4 sm:space-y-6 md:space-y-8 text-center lg:text-left">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 xs:px-3 py-1 xs:py-2 text-xs">
-          <span class="text-orange-400">📚</span>
-          <span class="text-blue-400 font-medium text-xs xs:text-sm">#DOCUMENTACIÓN TÉCNICA</span>
+        <div class="inline-flex items-center gap-1 sm:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-2 py-1 text-xs sm:text-sm">
+          <span class="text-orange-400 text-xs sm:text-sm">📚</span>
+          <span class="text-blue-400 font-medium text-xs sm:text-xs">#DOCUMENTACIÓN TÉCNICA</span>
         </div>
-        
+
         <!-- Main heading -->
-        <h1 class="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white leading-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
           Documentación
           <span class="block text-blue-400">Completa y</span>
           <span class="block text-blue-300">Actualizada</span>
         </h1>
-        
+
         <!-- Subtitle -->
-        <p class="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-lg mx-auto lg:mx-0">
+        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
           Guías técnicas, tutoriales y recursos<br class="hidden sm:block"/>
           para dominar HYDRA²¹
         </p>
         
-        <!-- Features grid -->
-        <div class="grid grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 lg:gap-8 pt-3 xs:pt-4 sm:pt-6 md:pt-8">
-          <div class="text-center lg:text-left">
-            <div class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400">500+</div>
-            <div class="text-xs xs:text-xs sm:text-sm text-gray-400 uppercase tracking-wider">PÁGINAS</div>
+        <!-- Features grid con líneas decorativas -->
+        <div class="pt-6 pb-4">
+          <!-- Línea superior -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent mb-4"></div>
+
+          <!-- Estadísticas -->
+          <div class="grid grid-cols-2 gap-2 md:gap-4">
+            <div class="text-center lg:text-left">
+              <div class="text-2xl font-bold text-blue-400">500+</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider">PÁGINAS</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-2xl font-bold text-blue-400">24/7</div>
+              <div class="text-sm text-gray-400 uppercase tracking-wider">ACCESO</div>
+            </div>
           </div>
-          <div class="text-center lg:text-left">
-            <div class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400">24/7</div>
-            <div class="text-xs xs:text-xs sm:text-sm text-gray-400 uppercase tracking-wider">ACCESO</div>
-          </div>
+
+          <!-- Línea inferior -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent mt-4"></div>
         </div>
         
         <!-- CTA Button -->
-        <div class="pt-2 xs:pt-3 sm:pt-4 md:pt-6">
+        <div class="pt-4 md:pt-6">
           <a
             href="/docs"
-            class="flex justify-center gap-2 items-center mx-auto lg:mx-0 shadow-xl text-sm sm:text-base md:text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-blue-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group w-full sm:w-auto"
+            class="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-300 border-2 border-gray-600 rounded-lg hover:border-cyan-400 hover:text-white transition-all duration-300 hover:bg-gray-800/50 w-full sm:w-auto"
           >
-            <span class="text-gray-800 group-hover:text-gray-50 transition-colors duration-300">VER DOCUMENTACIÓN</span>
-            <svg
-              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-1.5 sm:p-2 rotate-45"
-              viewBox="0 0 16 19"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                class="fill-gray-800 group-hover:fill-gray-800"
-              ></path>
+            Ver Documentación
+            <svg class="ml-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </a>
         </div>
@@ -175,6 +178,67 @@
   @media (max-width: 640px) {
     .animate-float-gentle {
       animation-duration: 8s;
+    }
+  }
+
+  /* ——————————————————————————————————————————————
+     AJUSTES RESPONSIVOS SIMILARES AL HERO
+  ————————————————————————————————————————————— */
+  @media (max-width: 400px) {
+    /* Fondo similar al Hero */
+    .documentation-background {
+      opacity: 0.8 !important;
+      filter: brightness(1.1) contrast(1.1) !important;
+    }
+
+    /* TÍTULO h1: tamaño similar a Hero */
+    .documentation-hero h1 {
+      font-size: 1.5rem !important;      /* 24px - igual que Hero */
+      line-height: 2rem !important;      /* 32px - igual que Hero */
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* SUBTÍTULO p: tamaño similar a Hero */
+    .documentation-hero p {
+      font-size: 0.875rem !important;    /* 14px - igual que Hero */
+      line-height: 1.25rem !important;   /* 20px - igual que Hero */
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Estadísticas: mantener tamaños legibles y espaciado compacto */
+    .documentation-hero .grid.grid-cols-2 {
+      gap: 0.25rem !important;           /* 4px - más compacto */
+    }
+    .documentation-hero .grid.grid-cols-2 > div {
+      margin-bottom: 0.25rem !important; /* 4px entre cada estadística */
+    }
+    .documentation-hero .grid.grid-cols-2 div > .text-2xl {
+      font-size: 1.25rem !important;     /* 20px - más grande que antes */
+    }
+    .documentation-hero .grid.grid-cols-2 div > .text-sm {
+      font-size: 0.75rem !important;     /* 12px - más legible */
+    }
+
+    /* Líneas decorativas más sutiles en móviles */
+    .documentation-hero .h-px {
+      opacity: 0.6 !important;           /* Líneas más sutiles */
+    }
+
+    /* Botón CTA: mantener tamaños del Hero */
+    .documentation-hero a {
+      width: 100% !important;
+      padding: 0.75rem 1.5rem !important; /* 12px arriba/abajo, 24px izq/der */
+      font-size: 1rem !important;         /* 16px - igual que Hero */
+      border-radius: 0.5rem !important;   /* 8px radio */
+    }
+
+    /* Badge similar al Hero */
+    .documentation-hero .inline-flex.items-center {
+      padding: 0.2rem 0.4rem !important;  /* 4px / 8px */
+      font-size: 0.625rem !important;     /* 10px */
+    }
+    .documentation-hero .inline-flex.items-center span {
+      font-size: 0.75rem !important;      /* 12px */
     }
   }
 </style> 
