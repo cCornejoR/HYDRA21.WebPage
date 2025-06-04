@@ -1,0 +1,1951 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProtectedDownload from '../components/ProtectedDownload.jsx';
+import PasswordModal from '../components/PasswordModal.jsx';
+
+const title = "Descargas - HYDRA²¹";
+const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de vanguardia. Versiones actuales, requisitos del sistema, documentación y soporte técnico.";
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  
+  <!-- Downloads Hero Section -->
+  <section class="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-black downloads-background">
+      <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
+    </div>
+    
+    <!-- Top blur transition -->
+    <div class="absolute top-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20"></div>
+    
+    <!-- Bottom blur transition -->
+    <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
+    
+    <!-- Geometric grid pattern -->
+    <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
+      <div class="absolute inset-0 grid-pattern"></div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+      
+      <!-- Hero Content -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
+        
+        <!-- Left side - Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-3 xs:px-4 py-2 xs:py-3 text-xs sm:text-sm mb-8 sm:mb-10">
+            <span class="text-blue-400">📥</span>
+            <span class="text-blue-400 font-medium">#DESCARGA HYDRA²¹</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8" transition:name="downloads-hero-title">
+            Descarga
+            <span class="block gradient-text-blue-cyan" transition:name="logo-text">HYDRA²¹</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed mb-4 sm:mb-6 max-w-3xl mx-auto lg:mx-0">
+            Software de ingeniería hidráulica<br class="hidden sm:block"/>
+            de última generación
+          </p>
+
+          <!-- Windows Only Notice -->
+          <div class="inline-flex items-center gap-2 bg-orange-600/20 backdrop-blur-sm border border-orange-500/40 rounded-2xl px-4 py-3 mb-6 sm:mb-8">
+            <!-- Windows Logo SVG -->
+            <svg class="w-5 h-5 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+            </svg>
+            <span class="text-orange-400 text-sm font-semibold">DISPONIBLE SOLO PARA WINDOWS</span>
+            <span class="bg-orange-500/20 text-orange-300 text-xs px-2 py-1 rounded-full">TEMPORAL</span>
+          </div>
+
+          <!-- Version Badge -->
+          <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/40 rounded-2xl px-4 py-3 mb-8 sm:mb-10">
+            <span class="text-blue-400 text-sm font-semibold">VERSIÓN ACTUAL:</span>
+            <span class="text-white text-lg font-bold">v2025.1 ALPHA</span>
+            <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">NUEVO</span>
+          </div>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+            <a href="#download-section" class="inline-flex items-center justify-center px-6 xs:px-7 sm:px-8 py-3 xs:py-3.5 sm:py-4 text-sm xs:text-base sm:text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 min-h-[44px]">
+              <!-- Windows Logo SVG -->
+              <svg class="w-4 h-4 xs:w-5 xs:h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+              </svg>
+              <span class="hidden xs:inline">Descargar para Windows</span>
+              <span class="xs:hidden">Descargar</span>
+            </a>
+            <a href="#system-requirements" class="inline-flex items-center justify-center px-6 xs:px-7 sm:px-8 py-3 xs:py-3.5 sm:py-4 text-sm xs:text-base sm:text-lg border-2 border-gray-600 hover:border-cyan-400 text-gray-300 hover:text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 min-h-[44px]">
+              <svg class="w-4 h-4 xs:w-5 xs:h-5 mr-2 fill-current" viewBox="0 0 376.846 376.846">
+                <path d="M364.966,372.743c2.382-2.39,4.316-4.324,4.316-4.324l4.316-4.324c2.382-2.398-1.691-13.453-9.104-24.695l-19.013-28.865c-7.413-11.242-19.127-21.565-26.174-23.044c-7.047-1.488-12.762-2.691-12.762-2.691l-57.298-57.274L228.389,248.4l57.25,57.282l2.707,12.762c1.488,7.039,11.819,18.769,23.061,26.174l28.881,19.037C351.529,371.06,362.584,375.133,364.966,372.743z"/>
+                <path d="M13.608,74.197l85.139,85.139l10.632,10.608c0.244,0.26,0.48,0.398,0.715,0.642l14.062-14.071L23.728,56.086c-2.447-2.422-2.447-6.397,0-8.795c2.422-2.455,6.34-2.455,8.795,0l100.396,100.453l15.664-15.696L48.154,31.635c-2.455-2.43-2.455-6.365,0-8.795c2.422-2.422,6.365-2.422,8.763,0l100.477,100.477l14.038-14.087c-0.211-0.244-0.366-0.504-0.585-0.74l-11.161-11.177l-84.594-84.57c-16.972-17.005-44.52-16.981-61.485,0C-3.389,29.709-3.389,57.224,13.608,74.197z"/>
+                <path d="M375.728,81.651c-1.024-13.428-12.892-16.038-22.41-6.519l-33.262,33.27c-7.722,7.779-20.378,7.755-28.125,0l-21.549-21.524c-7.803-7.844-7.779-20.46-0.024-28.247l34.392-34.359c9.527-9.519,7.112-21.817-6.259-23.41c-25.865-3.089-52.82,5.275-72.678,25.117c-15.127,15.152-23.573,34.473-25.361,54.258c-0.715,7.999-0.341,16.07,1.097,24.004L16.965,288.84c-9.746,9.754-15.127,22.703-15.127,36.497c0,13.762,5.381,26.694,15.103,36.432c20.11,20.102,52.819,20.102,72.962,0c0,0,132.683-132.666,186.413-186.461c8.446,1.154,16.997,1.073,25.41-0.26c17.769-2.78,34.847-10.925,48.56-24.613C369.152,131.568,377.614,106.296,375.728,81.651z M70.857,345.91c-10.551,10.494-27.523,10.494-38.042-0.024c-10.47-10.445-10.494-27.499,0.024-37.969c10.494-10.47,27.466-10.445,37.985,0C81.295,318.387,81.295,335.441,70.857,345.91z"/>
+              </svg>
+              <span class="hidden sm:inline">Requisitos del Sistema</span>
+              <span class="sm:hidden">Requisitos</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right side - Download Image -->
+        <div class="relative flex justify-center lg:justify-end mt-3 xs:mt-4 sm:mt-6 lg:mt-0">
+          <div class="relative">
+            <!-- Main download image -->
+            <div class="relative w-48 xs:w-56 sm:w-64 md:w-72 lg:w-80 xl:w-96 2xl:w-[28rem]">
+              <img
+                src="/assets/images/download.png"
+                alt="Descarga HYDRA²¹"
+                class="w-full h-auto animate-float-gentle filter drop-shadow-2xl"
+                transition:name="downloads-hero-image"
+              />
+            </div>
+
+            <!-- Subtle glow effect -->
+            <div class="absolute inset-0 bg-blue-500/10 rounded-2xl blur-3xl scale-110 opacity-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Software Versions Section -->
+  <section id="download-section" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8" transition:name="versions-title">
+            Versiones y Addons
+          </h2>
+          <p class="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            Elige la versión principal y descarga addons que potencien tu flujo de trabajo
+          </p>
+        </div>
+
+        <!-- Version Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12">
+          
+          <!-- Current Version Card -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(14,165,233,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(14,165,233,0.2)] via-[rgba(59,130,246,0.15)] to-[rgba(14,165,233,0.1)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(14,165,233,0.7)] hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105">
+
+              <!-- Background Image (Hidden by default, shown on hover) -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
+                <img src="/assets/images/main_sotfware.png" alt="HYDRA²¹ Main Software" class="w-full h-full object-cover filter group-hover:brightness-110 group-hover:contrast-110" />
+                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700"></div>
+              </div>
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent rounded-3xl"></div>
+
+              <!-- Featured Badge -->
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 group-hover:opacity-0 transition-opacity duration-500">
+                <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm font-bold px-4 py-2 rounded-full">
+                  RECOMENDADO
+                </div>
+              </div>
+
+              <!-- Content that disappears on hover -->
+              <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-opacity duration-500">
+                <!-- Version Info -->
+                <div class="text-center">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">HYDRA²¹ v2025.1</h3>
+                  <div class="inline-flex items-center gap-2 bg-green-500/20 text-green-400 text-sm px-3 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    ALPHA - PRIMERA VERSIÓN
+                  </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-blue-400">✓</span>
+                    <span class="text-sm sm:text-base">Interfaz moderna completamente rediseñada</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-blue-400">✓</span>
+                    <span class="text-sm sm:text-base">Generación de mallas avanzada</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-blue-400">✓</span>
+                    <span class="text-sm sm:text-base">Solver explícito de nueva generación</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-blue-400">✓</span>
+                    <span class="text-sm sm:text-base">Conectividad web integrada</span>
+                  </div>
+                </div>
+
+                <!-- Release Info -->
+                <div class="text-center pt-2 border-t border-gray-700/50">
+                  <p class="text-xs text-gray-400">Lanzado: 15 Enero 2025</p>
+                  <p class="text-xs text-gray-400">Compatibilidad: Solo Windows 10/11</p>
+                </div>
+              </div>
+
+              <!-- Download Button - Always visible and centered on hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21/releases/download/v2025.1-alpha/HYDRA21-v2025.1-alpha-Setup.exe" 
+                  className="cursor-pointer"
+                  client:load
+                >
+                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+
+              <!-- Normal Download Button - Hidden on hover -->
+              <div class="relative z-10 pt-4 group-hover:opacity-0 transition-opacity duration-500">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Addons/archive/refs/tags/v0.0.1-beta-PDFCompressor.zip" 
+                  className="cursor-pointer w-full"
+                  client:load
+                >
+                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PaperExtension Card -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20 hover:scale-105">
+
+              <!-- Background Image (Hidden by default, shown on hover) -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
+                <img src="/assets/images/PaperExtension.png" alt="PaperExtension" class="w-full h-full object-cover filter group-hover:brightness-110 group-hover:contrast-110" />
+                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700"></div>
+              </div>
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <!-- Featured Badge -->
+              <div class="absolute -top-3 -right-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full border-2 border-black group-hover:opacity-0 transition-opacity duration-500">
+                EXTENSION
+              </div>
+
+              <!-- Content that disappears on hover -->
+              <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-opacity duration-500">
+                <!-- Header -->
+                <div class="text-center">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">PaperExtension</h3>
+                  <div class="inline-flex items-center gap-2 bg-purple-500/20 text-purple-400 text-sm px-3 py-1 rounded-full mb-4">
+                    <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
+                    BETA - DOCUMENTOS
+                  </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Generación automática de reportes</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Plantillas profesionales</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Exportación a múltiples formatos</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-300">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Integración con HYDRA²¹</span>
+                  </div>
+                </div>
+
+                <!-- Release Info -->
+                <div class="text-center pt-2 border-t border-gray-700/50">
+                  <p class="text-xs text-gray-400">Versión: v0.0.1-beta</p>
+                  <p class="text-xs text-gray-400">Solo Windows • Extensión de HYDRA²¹</p>
+                </div>
+              </div>
+
+              <!-- Download Button - Always visible and centered on hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Extensions/releases/download/v0.0.1-beta/PaperExtension-v0.0.1-beta.zip" 
+                  className="cursor-pointer"
+                  client:load
+                >
+                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+
+              <!-- Normal Download Button - Hidden on hover -->
+              <div class="relative z-10 pt-4 group-hover:opacity-0 transition-opacity duration-500">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Extensions/releases/download/v0.0.1-beta/PaperExtension-v0.0.1-beta.zip" 
+                  className="cursor-pointer w-full"
+                  client:load
+                >
+                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+            </div>
+          </div>
+
+          <!-- PDF Compressor Addon Card -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(34,197,94,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.2)] via-[rgba(16,185,129,0.15)] to-[rgba(34,197,94,0.1)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(34,197,94,0.7)] hover:shadow-2xl hover:shadow-green-500/25 hover:scale-105">
+
+              <!-- Background Image (Hidden by default, shown on hover) -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
+                <img src="/assets/images/pdf_compresor.png" alt="PDF Compressor" class="w-full h-full object-cover filter group-hover:brightness-110 group-hover:contrast-110" />
+                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700"></div>
+              </div>
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent rounded-3xl"></div>
+
+              <!-- Featured Badge -->
+              <div class="absolute -top-3 -right-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full border-2 border-black group-hover:opacity-0 transition-opacity duration-500">
+                ADDON
+              </div>
+
+              <!-- Content that disappears on hover -->
+              <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-opacity duration-500">
+                <!-- Header -->
+                <div class="text-center">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">PDF Compressor</h3>
+                  <div class="inline-flex items-center gap-2 bg-green-600/20 backdrop-blur-sm border border-green-500/40 rounded-full px-3 py-1">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-green-400 text-xs font-semibold">BETA - GHOSTSCRIPT</span>
+                  </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span class="text-sm sm:text-base">Compresión avanzada con Ghostscript</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span class="text-sm sm:text-base">Reducción de tamaño hasta 90%</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span class="text-sm sm:text-base">Calidad optimizada para ingeniería</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span class="text-sm sm:text-base">Procesamiento por lotes</span>
+                  </div>
+                </div>
+
+                <!-- Release Info -->
+                <div class="text-center pt-2 border-t border-gray-700/50">
+                  <p class="text-xs text-gray-400">Versión: v0.0.1-beta</p>
+                  <p class="text-xs text-gray-400">Solo Windows • Requiere Ghostscript</p>
+                </div>
+              </div>
+
+              <!-- Download Button - Always visible and centered on hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Addons/archive/refs/tags/v0.0.1-beta-PDFCompressor.zip" 
+                  className="cursor-pointer"
+                  client:load
+                >
+                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+
+              <!-- Normal Download Button - Hidden on hover -->
+              <div class="relative z-10 pt-4 group-hover:opacity-0 transition-opacity duration-500">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Addons/archive/refs/tags/v0.0.1-beta-PDFCompressor.zip" 
+                  className="cursor-pointer w-full"
+                  client:load
+                >
+                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clipper Manager Addon Card -->
+          <div class="group relative md:col-span-2 xl:col-span-1">
+            <div class="relative h-full border-2 border-[rgba(168,85,247,0.4)] rounded-3xl bg-gradient-to-br from-[rgba(168,85,247,0.2)] via-[rgba(139,92,246,0.15)] to-[rgba(168,85,247,0.1)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(168,85,247,0.7)] hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105">
+
+              <!-- Background Image (Hidden by default, shown on hover) -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 rounded-3xl overflow-hidden">
+                <img src="/assets/images/clip_manager.png" alt="Clipper Manager" class="w-full h-full object-cover filter group-hover:brightness-110 group-hover:contrast-110" />
+                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700"></div>
+              </div>
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent rounded-3xl"></div>
+
+              <!-- Featured Badge -->
+              <div class="absolute -top-3 -right-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full border-2 border-black group-hover:opacity-0 transition-opacity duration-500">
+                ADDON
+              </div>
+
+              <!-- Content that disappears on hover -->
+              <div class="relative z-10 space-y-6 group-hover:opacity-0 transition-opacity duration-500">
+                <!-- Header -->
+                <div class="text-center">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Clipper Manager</h3>
+                  <div class="inline-flex items-center gap-2 bg-purple-600/20 backdrop-blur-sm border border-purple-500/40 rounded-full px-3 py-1">
+                    <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
+                    <span class="text-purple-400 text-xs font-semibold">BETA - PRODUCTIVIDAD</span>
+                  </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Gestión avanzada del portapapeles</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Historial persistente de copias</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Búsqueda rápida de contenido</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-purple-400">✓</span>
+                    <span class="text-sm sm:text-base">Sincronización entre aplicaciones</span>
+                  </div>
+                </div>
+
+                <!-- Release Info -->
+                <div class="text-center pt-2 border-t border-gray-700/50">
+                  <p class="text-xs text-gray-400">Versión: v0.0.1-beta</p>
+                  <p class="text-xs text-gray-400">Solo Windows • Herramienta independiente</p>
+                </div>
+              </div>
+
+              <!-- Download Button - Always visible and centered on hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Addons/releases/download/v0.0.1-beta-Clipper/ClipboardManager.zip" 
+                  className="cursor-pointer"
+                  client:load
+                >
+                  <div class="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+
+              <!-- Normal Download Button - Hidden on hover -->
+              <div class="relative z-10 pt-4 group-hover:opacity-0 transition-opacity duration-500">
+                <ProtectedDownload 
+                  downloadUrl="https://github.com/cCornejoR/HYDRA21.Addons/releases/download/v0.0.1-beta-Clipper/ClipboardManager.zip" 
+                  className="cursor-pointer w-full"
+                  client:load
+                >
+                  <div class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25">
+                    <!-- Windows Logo SVG -->
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+                    </svg>
+                    <span>Descargar</span>
+                  </div>
+                </ProtectedDownload>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Requirements Section -->
+  <section id="system-requirements" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8">
+            Requisitos del Sistema
+          </h2>
+          <p class="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto mb-6">
+            Asegúrate de que tu sistema Windows cumple con los requisitos mínimos y recomendados
+          </p>
+          <!-- Windows Only Badge -->
+          <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/40 rounded-2xl px-4 py-3">
+            <!-- Windows Logo SVG -->
+            <svg class="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.351"/>
+            </svg>
+            <span class="text-blue-400 text-sm font-semibold">COMPATIBLE SOLO CON WINDOWS</span>
+          </div>
+        </div>
+
+        <!-- Requirements Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+
+          <!-- Minimum Requirements -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(255,165,0,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(255,165,0,0.15)] via-[rgba(255,140,0,0.1)] to-[rgba(255,165,0,0.05)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(255,165,0,0.6)] hover:shadow-2xl hover:shadow-orange-500/20 hover:scale-105">
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <div class="relative z-10 space-y-6">
+                <!-- Header -->
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-orange-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">⚠️</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Requisitos Mínimos</h3>
+                  <p class="text-orange-400 text-sm">Para funcionamiento básico</p>
+                </div>
+
+                <!-- Requirements List -->
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <span class="text-orange-400 mt-1">🖥️</span>
+                    <div>
+                      <p class="text-white font-semibold">Sistema Operativo</p>
+                      <p class="text-gray-300 text-sm">Windows 10 (64-bit) o superior</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-orange-400 mt-1">🧠</span>
+                    <div>
+                      <p class="text-white font-semibold">Procesador</p>
+                      <p class="text-gray-300 text-sm">Intel i5 o AMD Ryzen 5 (4 núcleos)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-orange-400 mt-1">💾</span>
+                    <div>
+                      <p class="text-white font-semibold">Memoria RAM</p>
+                      <p class="text-gray-300 text-sm">8 GB DDR4</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-orange-400 mt-1">💿</span>
+                    <div>
+                      <p class="text-white font-semibold">Almacenamiento</p>
+                      <p class="text-gray-300 text-sm">2 GB espacio libre (SSD recomendado)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-orange-400 mt-1">🎮</span>
+                    <div>
+                      <p class="text-white font-semibold">Tarjeta Gráfica</p>
+                      <p class="text-gray-300 text-sm">DirectX 11 compatible</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Requirements -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(34,197,94,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.15)] via-[rgba(16,185,129,0.1)] to-[rgba(34,197,94,0.05)] backdrop-blur-xl p-6 sm:p-8 md:p-10 transition-all duration-500 hover:border-[rgba(34,197,94,0.6)] hover:shadow-2xl hover:shadow-green-500/20 hover:scale-105">
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <div class="relative z-10 space-y-6">
+                <!-- Header -->
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">⭐</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Requisitos Recomendados</h3>
+                  <p class="text-green-400 text-sm">Para rendimiento óptimo</p>
+                </div>
+
+                <!-- Requirements List -->
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <span class="text-green-400 mt-1">🖥️</span>
+                    <div>
+                      <p class="text-white font-semibold">Sistema Operativo</p>
+                      <p class="text-gray-300 text-sm">Windows 11 (64-bit)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-green-400 mt-1">🧠</span>
+                    <div>
+                      <p class="text-white font-semibold">Procesador</p>
+                      <p class="text-gray-300 text-sm">Intel i7/i9 o AMD Ryzen 7/9 (8+ núcleos)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-green-400 mt-1">💾</span>
+                    <div>
+                      <p class="text-white font-semibold">Memoria RAM</p>
+                      <p class="text-gray-300 text-sm">32 GB DDR4/DDR5</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-green-400 mt-1">💿</span>
+                    <div>
+                      <p class="text-white font-semibold">Almacenamiento</p>
+                      <p class="text-gray-300 text-sm">10 GB espacio libre (NVMe SSD)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span class="text-green-400 mt-1">🎮</span>
+                    <div>
+                      <p class="text-white font-semibold">Tarjeta Gráfica</p>
+                      <p class="text-gray-300 text-sm">NVIDIA RTX 3060+ o AMD RX 6600+</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8">
+            Hoja de Ruta
+          </h2>
+          <p class="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            Descubre las características pasadas, presentes y futuras de HYDRA²¹
+          </p>
+        </div>
+
+        <!-- Roadmap Timeline -->
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-600 via-cyan-500 to-purple-600"></div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-16 sm:space-y-20">
+
+            <!-- 2025 -->
+            <div class="relative">
+              <!-- Year Badge -->
+              <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xl font-bold px-6 py-3 rounded-full border-4 border-black z-10">
+                2025
+              </div>
+
+              <!-- Content -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
+                <!-- Left Side -->
+                <div class="lg:text-right lg:pr-8">
+                  <div class="group relative">
+                    <div class="relative border-2 border-[rgba(14,165,233,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(14,165,233,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(14,165,233,0.05)] backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:border-[rgba(14,165,233,0.6)] hover:shadow-2xl hover:shadow-blue-500/20">
+                      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+                      <div class="relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Lanzamientos Alpha</h3>
+                        <ul class="space-y-2 text-gray-300">
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-blue-400">✓</span>
+                            <span>Generación avanzada de mallas</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-blue-400">✓</span>
+                            <span>Precipitación integrada</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-blue-400">✓</span>
+                            <span>Estructuras básicas</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-blue-400">✓</span>
+                            <span>Solver GPU inicial</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="lg:pl-8">
+                  <div class="group relative">
+                    <div class="relative border-2 border-[rgba(14,165,233,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(14,165,233,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(14,165,233,0.05)] backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:border-[rgba(14,165,233,0.6)] hover:shadow-2xl hover:shadow-blue-500/20">
+                      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+                      <div class="relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Versión 1.0 - Otoño 2025</h3>
+                        <ul class="space-y-2 text-gray-300">
+                          <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">🔄</span>
+                            <span>Solver híbrido 1D/2D</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">🔄</span>
+                            <span>Importador mejorado v6</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">🔄</span>
+                            <span>Modificaciones de terreno</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">🔄</span>
+                            <span>Lanzamiento oficial estable</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2026 -->
+            <div class="relative">
+              <!-- Year Badge -->
+              <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-cyan-600 to-purple-600 text-white text-xl font-bold px-6 py-3 rounded-full border-4 border-black z-10">
+                2026
+              </div>
+
+              <!-- Content -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
+                <!-- Left Side -->
+                <div class="lg:text-right lg:pr-8">
+                  <div class="group relative">
+                    <div class="relative border-2 border-[rgba(6,182,212,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(6,182,212,0.15)] via-[rgba(14,165,233,0.1)] to-[rgba(6,182,212,0.05)] backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:border-[rgba(6,182,212,0.6)] hover:shadow-2xl hover:shadow-cyan-500/20">
+                      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+                      <div class="relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Características Avanzadas</h3>
+                        <ul class="space-y-2 text-gray-300">
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-cyan-400">⏳</span>
+                            <span>Estructuras avanzadas</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-cyan-400">⏳</span>
+                            <span>Herramientas de post-procesado</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-cyan-400">⏳</span>
+                            <span>Solver 1D avanzado</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-cyan-400">⏳</span>
+                            <span>Condiciones de contorno mejoradas</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="lg:pl-8">
+                  <div class="group relative">
+                    <div class="relative border-2 border-[rgba(6,182,212,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(6,182,212,0.15)] via-[rgba(14,165,233,0.1)] to-[rgba(6,182,212,0.05)] backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:border-[rgba(6,182,212,0.6)] hover:shadow-2xl hover:shadow-cyan-500/20">
+                      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+                      <div class="relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Versión 2.0</h3>
+                        <ul class="space-y-2 text-gray-300">
+                          <li class="flex items-center gap-2">
+                            <span class="text-purple-400">⏳</span>
+                            <span>Condiciones iniciales</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-purple-400">⏳</span>
+                            <span>Análisis de rotura</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-purple-400">⏳</span>
+                            <span>Mallas multi-resolución</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-purple-400">⏳</span>
+                            <span>Mejoras de escalabilidad extrema</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2027 -->
+            <div class="relative">
+              <!-- Year Badge -->
+              <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xl font-bold px-6 py-3 rounded-full border-4 border-black z-10">
+                2027
+              </div>
+
+              <!-- Content -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
+                <!-- Left Side -->
+                <div class="lg:text-right lg:pr-8">
+                  <div class="group relative">
+                    <div class="relative border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20">
+                      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+                      <div class="relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Gestión de Proyectos</h3>
+                        <ul class="space-y-2 text-gray-300">
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-purple-400">🔮</span>
+                            <span>Análisis de sensibilidad</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-purple-400">🔮</span>
+                            <span>Gráficos de delta de modelo</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-purple-400">🔮</span>
+                            <span>Reportes de resumen</span>
+                          </li>
+                          <li class="flex items-center gap-2 lg:justify-end">
+                            <span class="text-purple-400">🔮</span>
+                            <span>Recorte de geometría</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="lg:pl-8">
+                  <div class="group relative">
+                    <div class="relative border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20">
+                      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+                      <div class="relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Solver Implícito 2D</h3>
+                        <ul class="space-y-2 text-gray-300">
+                          <li class="flex items-center gap-2">
+                            <span class="text-indigo-400">🔮</span>
+                            <span>Mapeo de inundación mejorado</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-indigo-400">🔮</span>
+                            <span>Flujo superficial con precipitación</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-indigo-400">🔮</span>
+                            <span>Solver implícito completo</span>
+                          </li>
+                          <li class="flex items-center gap-2">
+                            <span class="text-indigo-400">🔮</span>
+                            <span>Optimización de rendimiento</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation & Support Section -->
+  <section class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 sm:mb-20 md:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8">
+            Documentación y Soporte
+          </h2>
+          <p class="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            Todo lo que necesitas para comenzar y dominar HYDRA²¹
+          </p>
+        </div>
+
+        <!-- Documentation Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+
+          <!-- Getting Started -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(34,197,94,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(34,197,94,0.15)] via-[rgba(16,185,129,0.1)] to-[rgba(34,197,94,0.05)] backdrop-blur-xl p-6 sm:p-8 text-center transition-all duration-500 hover:border-[rgba(34,197,94,0.6)] hover:shadow-2xl hover:shadow-green-500/20 hover:scale-105">
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <div class="relative z-10 space-y-6">
+                <!-- Icon -->
+                <div class="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto">
+                  <span class="text-2xl">🚀</span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-xl sm:text-2xl font-bold text-white">Guía de Inicio</h3>
+
+                <!-- Description -->
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  Aprende los conceptos básicos y configura tu primer proyecto en minutos.
+                </p>
+
+                <!-- Button -->
+                <a href="/docs" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105">
+                  <span class="mr-2">📖</span>
+                  Ver Guía
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- API Documentation -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(59,130,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(59,130,246,0.15)] via-[rgba(14,165,233,0.1)] to-[rgba(59,130,246,0.05)] backdrop-blur-xl p-6 sm:p-8 text-center transition-all duration-500 hover:border-[rgba(59,130,246,0.6)] hover:shadow-2xl hover:shadow-blue-500/20 hover:scale-105">
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <div class="relative z-10 space-y-6">
+                <!-- Icon -->
+                <div class="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto">
+                  <span class="text-2xl">⚙️</span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-xl sm:text-2xl font-bold text-white">API Técnica</h3>
+
+                <!-- Description -->
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  Documentación completa de la API para desarrolladores y automatización.
+                </p>
+
+                <!-- Button -->
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105">
+                  <span class="mr-2">🔧</span>
+                  Ver API
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Tutorials -->
+          <div class="group relative">
+            <div class="relative h-full border-2 border-[rgba(239,68,68,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(239,68,68,0.15)] via-[rgba(220,38,38,0.1)] to-[rgba(239,68,68,0.05)] backdrop-blur-xl p-6 sm:p-8 text-center transition-all duration-500 hover:border-[rgba(239,68,68,0.6)] hover:shadow-2xl hover:shadow-red-500/20 hover:scale-105">
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <div class="relative z-10 space-y-6">
+                <!-- Icon -->
+                <div class="w-16 h-16 bg-red-600/20 rounded-full flex items-center justify-center mx-auto">
+                  <span class="text-2xl">🎥</span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-xl sm:text-2xl font-bold text-white">Video Tutoriales</h3>
+
+                <!-- Description -->
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                  Aprende visualmente con nuestros tutoriales paso a paso en YouTube.
+                </p>
+
+                <!-- Button -->
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105">
+                  <span class="mr-2">▶️</span>
+                  Ver Videos
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Support Section -->
+        <div class="mt-16 sm:mt-20 md:mt-24">
+          <div class="group relative">
+            <div class="relative border-2 border-[rgba(139,92,246,0.3)] rounded-3xl bg-gradient-to-br from-[rgba(139,92,246,0.15)] via-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.05)] backdrop-blur-xl p-8 sm:p-10 md:p-12 transition-all duration-500 hover:border-[rgba(139,92,246,0.6)] hover:shadow-2xl hover:shadow-purple-500/20">
+
+              <!-- Glassmorphism overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+
+              <div class="relative z-10">
+                <div class="text-center mb-8">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">¿Necesitas Ayuda?</h3>
+                  <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                    Nuestro equipo de soporte está aquí para ayudarte con cualquier pregunta o problema técnico.
+                  </p>
+                </div>
+
+                <!-- Support Options -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                  <!-- Email Support -->
+                  <div class="text-center p-4 bg-purple-600/10 rounded-xl border border-purple-500/20">
+                    <div class="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-xl">📧</span>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Email</h4>
+                    <p class="text-gray-400 text-sm mb-3">Respuesta en 24h</p>
+                    <a href="mailto:support@hydra21.com" class="text-purple-400 hover:text-purple-300 text-sm font-medium">
+                      support@hydra21.com
+                    </a>
+                  </div>
+
+                  <!-- Live Chat -->
+                  <div class="text-center p-4 bg-blue-600/10 rounded-xl border border-blue-500/20">
+                    <div class="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-xl">💬</span>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Chat en Vivo</h4>
+                    <p class="text-gray-400 text-sm mb-3">Lun-Vie 9-18h</p>
+                    <button class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                      Iniciar Chat
+                    </button>
+                  </div>
+
+                  <!-- Community Forum -->
+                  <div class="text-center p-4 bg-green-600/10 rounded-xl border border-green-500/20">
+                    <div class="w-12 h-12 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-xl">👥</span>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Foro</h4>
+                    <p class="text-gray-400 text-sm mb-3">Comunidad activa</p>
+                    <a href="#" class="text-green-400 hover:text-green-300 text-sm font-medium">
+                      Unirse al Foro
+                    </a>
+                  </div>
+
+                  <!-- Bug Reports -->
+                  <div class="text-center p-4 bg-orange-600/10 rounded-xl border border-orange-500/20">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-xl">🐛</span>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Reportar Bug</h4>
+                    <p class="text-gray-400 text-sm mb-3">Desde la app</p>
+                    <span class="text-orange-400 text-sm font-medium">
+                      Ayuda > Reportar Bug
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Global de Autenticación -->
+  <PasswordModal client:load />
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Downloads background image */
+  .downloads-background {
+    background-image: url('/assets/images/fondo_2.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    background-attachment: scroll;
+  }
+
+  /* Mobile specific background optimizations */
+  @media (max-width: 767px) {
+    .downloads-background {
+      opacity: 0.6;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: scroll;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .downloads-background {
+      background-attachment: fixed;
+      opacity: 0.4;
+    }
+  }
+
+  /* Grid pattern */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Enhanced gradient text */
+  .gradient-text-blue-cyan {
+    background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
+  }
+
+  /* Floating animation */
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  /* Force consistent black backgrounds across all sections */
+  section {
+    background-color: #000000 !important;
+    background: #000000 !important;
+  }
+
+  /* Force footer black background */
+  footer {
+    background-color: #000000 !important;
+    background: #000000 !important;
+  }
+
+  /* Ensure hero section maintains black background */
+  .hero-section,
+  .relative.min-h-screen {
+    background-color: #000000 !important;
+  }
+
+  /* Ensure all page sections have black background */
+  .bg-black {
+    background-color: #000000 !important;
+  }
+
+  /* Override any potential background overrides */
+  body {
+    background-color: #000000 !important;
+  }
+
+  /* Ensure main layout has black background */
+  main {
+    background-color: #000000 !important;
+  }
+
+  /* Override Layout.astro theme backgrounds and decorative elements */
+  .min-h-screen.relative.min-w-\\[300px\\] {
+    background-color: #000000 !important;
+    background: #000000 !important;
+  }
+
+  /* Hide or override Layout decorative elements */
+  .absolute.inset-0.diagonal-grid,
+  .absolute.top-10.left-10,
+  .absolute.bottom-10.right-10,
+  .absolute.top-1\\/2.left-1\\/2,
+  .absolute.top-1\\/4.right-1\\/4 {
+    display: none !important;
+  }
+
+  /* Override theme-based CSS variables for this page */
+  :root {
+    --color-background: #000000 !important;
+    --color-foreground: #ffffff !important;
+  }
+
+  /* Force dark theme styles */
+  html.light,
+  html.dark {
+    background-color: #000000 !important;
+  }
+
+  /* Override any theme-bg classes */
+  .theme-bg {
+    background-color: #000000 !important;
+    background: #000000 !important;
+  }
+
+  /* Enhanced card animations */
+  .group {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .group:hover {
+    transform: translateY(-8px);
+  }
+
+  /* Enhanced responsive design */
+  @media (max-width: 640px) {
+    /* Mobile: Single column layout */
+    .grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+
+    /* Reduce padding on mobile */
+    .p-8 {
+      padding: 1.5rem !important;
+    }
+
+    .p-12, .sm\:p-10, .md\:p-12, .lg\:p-16 {
+      padding: 1.5rem !important;
+    }
+
+    /* Hero-specific mobile adjustments */
+    section.relative.min-h-screen {
+      min-height: 100vh;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    /* Hero content container mobile */
+    section.relative.min-h-screen .container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+    /* Hero flex layout mobile */
+    section.relative.min-h-screen .flex.flex-col {
+      gap: 2rem !important;
+    }
+
+    /* Hero title mobile */
+    section.relative.min-h-screen h1 {
+      font-size: 2.5rem !important; /* 40px */
+      line-height: 1.1 !important;
+      margin-bottom: 1.5rem !important;
+      text-align: center !important;
+    }
+
+    /* Hero description mobile */
+    section.relative.min-h-screen h1 + p {
+      font-size: 1.125rem !important; /* 18px */
+      line-height: 1.4 !important;
+      margin-bottom: 1.5rem !important;
+      text-align: center !important;
+      max-width: 100% !important;
+    }
+
+    /* Hero badges mobile */
+    section.relative.min-h-screen .inline-flex {
+      font-size: 0.875rem !important; /* 14px */
+      padding: 0.75rem 1rem !important;
+      margin-bottom: 1.5rem !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+    }
+
+    /* Hero buttons mobile */
+    section.relative.min-h-screen .flex.flex-col.sm\\:flex-row {
+      flex-direction: column !important;
+      gap: 1rem !important;
+      align-items: stretch !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col.sm\\:flex-row a {
+      padding: 1rem 1.5rem !important;
+      font-size: 0.875rem !important;
+      text-align: center !important;
+      justify-content: center !important;
+    }
+
+    /* Hero image mobile */
+    section.relative.min-h-screen .relative.w-64 {
+      width: 16rem !important; /* 256px */
+      margin: 0 auto !important;
+    }
+
+    /* Adjust text sizes on mobile for other sections */
+    .text-4xl:not(section.relative.min-h-screen *), 
+    .xs\\:text-5xl:not(section.relative.min-h-screen *), 
+    .sm\\:text-6xl:not(section.relative.min-h-screen *), 
+    .md\\:text-7xl:not(section.relative.min-h-screen *), 
+    .lg\\:text-8xl:not(section.relative.min-h-screen *), 
+    .xl\\:text-9xl:not(section.relative.min-h-screen *) {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-3xl:not(section.relative.min-h-screen *), 
+    .sm\\:text-4xl:not(section.relative.min-h-screen *), 
+    .md\\:text-5xl:not(section.relative.min-h-screen *), 
+    .lg\\:text-6xl:not(section.relative.min-h-screen *) {
+      font-size: 1.875rem !important;
+      line-height: 1.3 !important;
+    }
+
+    .text-lg:not(section.relative.min-h-screen *), 
+    .sm\\:text-xl:not(section.relative.min-h-screen *), 
+    .md\\:text-2xl:not(section.relative.min-h-screen *) {
+      font-size: 1rem !important;
+    }
+
+    /* Reduce section spacing on mobile */
+    .py-20, .sm\\:py-24, .md\\:py-28, .lg\\:py-32 {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    /* Reduce margin between sections */
+    .mb-16, .sm\\:mb-20, .md\\:mb-24 {
+      margin-bottom: 2rem !important;
+    }
+
+    .mb-6, .sm\\:mb-8 {
+      margin-bottom: 1rem !important;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 767px) {
+    /* Small tablet adjustments */
+    
+    /* Hero-specific small tablet */
+    section.relative.min-h-screen .container {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 3rem !important; /* 48px */
+      line-height: 1.1 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    section.relative.min-h-screen h1 + p {
+      font-size: 1.25rem !important; /* 20px */
+      line-height: 1.4 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 18rem !important; /* 288px */
+    }
+
+    .py-20, .sm\\:py-24, .md\\:py-28, .lg\\:py-32 {
+      padding-top: 4rem !important;
+      padding-bottom: 4rem !important;
+    }
+
+    .mb-16, .sm\\:mb-20, .md\\:mb-24 {
+      margin-bottom: 3rem !important;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* Medium tablet adjustments */
+    
+    /* Hero-specific medium tablet */
+    section.relative.min-h-screen .container {
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+      padding-top: 4rem !important;
+      padding-bottom: 4rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 3.75rem !important; /* 60px */
+      line-height: 1.1 !important;
+      margin-bottom: 2.5rem !important;
+    }
+
+    section.relative.min-h-screen h1 + p {
+      font-size: 1.5rem !important; /* 24px */
+      line-height: 1.4 !important;
+      margin-bottom: 2.5rem !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col {
+      gap: 3rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 20rem !important; /* 320px */
+    }
+
+    /* Tablet: 2 columns for most grids */
+    .grid.md\\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 2rem !important;
+    }
+
+    .grid.xl\\:grid-cols-3 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 2rem !important;
+    }
+
+    /* Special handling for addon cards on tablet */
+    .grid.xl\\:grid-cols-3 > div:nth-child(3) {
+      grid-column: 1 / -1;
+      max-width: 70%;
+      margin: 0 auto;
+    }
+
+    .grid.xl\\:grid-cols-3 > div:nth-child(4) {
+      grid-column: 1 / -1;
+      max-width: 70%;
+      margin: 0 auto;
+    }
+
+    /* Tablet section spacing */
+    .py-20, .sm\\:py-24, .md\\:py-28, .lg\\:py-32 {
+      padding-top: 5rem !important;
+      padding-bottom: 5rem !important;
+    }
+
+    .mb-16, .sm\\:mb-20, .md\\:mb-24 {
+      margin-bottom: 4rem !important;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    /* Large tablet/small desktop */
+    
+    /* Hero-specific large tablet */
+    section.relative.min-h-screen .container {
+      padding-left: 3rem !important;
+      padding-right: 3rem !important;
+      padding-top: 5rem !important;
+      padding-bottom: 5rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 4.5rem !important; /* 72px */
+      line-height: 1.05 !important;
+      margin-bottom: 3rem !important;
+    }
+
+    section.relative.min-h-screen h1 + p {
+      font-size: 1.75rem !important; /* 28px */
+      line-height: 1.4 !important;
+      margin-bottom: 3rem !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col {
+      gap: 4rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 24rem !important; /* 384px */
+    }
+
+    /* Desktop: Optimal spacing */
+    .py-20, .sm\\:py-24, .md\\:py-28, .lg\\:py-32 {
+      padding-top: 6rem !important;
+      padding-bottom: 6rem !important;
+    }
+
+    .mb-16, .sm\\:mb-20, .md\\:mb-24 {
+      margin-bottom: 5rem !important;
+    }
+
+    /* Better grid gaps on desktop */
+    .grid {
+      gap: 2.5rem !important;
+    }
+
+    .gap-12, .lg\\:gap-16 {
+      gap: 3rem !important;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    /* Large desktop and above */
+    
+    /* Hero-specific large desktop */
+    section.relative.min-h-screen .container {
+      padding-left: 4rem !important;
+      padding-right: 4rem !important;
+      padding-top: 6rem !important;
+      padding-bottom: 6rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 6rem !important; /* 96px */
+      line-height: 1 !important;
+      margin-bottom: 3.5rem !important;
+    }
+
+    section.relative.min-h-screen h1 + p {
+      font-size: 2rem !important; /* 32px */
+      line-height: 1.4 !important;
+      margin-bottom: 3.5rem !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col {
+      gap: 5rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 28rem !important; /* 448px */
+    }
+
+    /* Ultra-wide improvements */
+    .py-20, .sm\\:py-24, .md\\:py-28, .lg\\:py-32 {
+      padding-top: 8rem !important;
+      padding-bottom: 8rem !important;
+    }
+
+    .mb-16, .sm\\:mb-20, .md\\:mb-24 {
+      margin-bottom: 6rem !important;
+    }
+
+    .grid {
+      gap: 3rem !important;
+    }
+
+    .gap-12, .lg\\:gap-16 {
+      gap: 4rem !important;
+    }
+  }
+
+  /* Timeline specific styles */
+  .space-y-16 > * + * {
+    margin-top: 4rem;
+  }
+
+  .space-y-20 > * + * {
+    margin-top: 5rem;
+  }
+
+  @media (max-width: 640px) {
+    .space-y-16 > * + * {
+      margin-top: 2rem;
+    }
+
+    .space-y-20 > * + * {
+      margin-top: 2.5rem;
+    }
+  }
+
+  /* Hero-specific breakpoint fine-tuning */
+  @media (max-width: 480px) {
+    /* Extra small mobile */
+    section.relative.min-h-screen h1 {
+      font-size: 2rem !important; /* 32px */
+      margin-bottom: 1rem !important;
+    }
+
+    section.relative.min-h-screen h1 + p {
+      font-size: 1rem !important; /* 16px */
+      margin-bottom: 1rem !important;
+    }
+
+    section.relative.min-h-screen .container {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 14rem !important; /* 224px */
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 640px) {
+    /* Standard mobile */
+    section.relative.min-h-screen h1 {
+      font-size: 2.25rem !important; /* 36px */
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 15rem !important; /* 240px */
+    }
+  }
+
+  /* Landscape mobile optimizations */
+  @media (max-width: 768px) and (orientation: landscape) {
+    section.relative.min-h-screen {
+      min-height: 100vh;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    section.relative.min-h-screen .container {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 2rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    section.relative.min-h-screen h1 + p {
+      font-size: 1rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col {
+      gap: 1rem !important;
+    }
+
+    section.relative.min-h-screen .inline-flex {
+      margin-bottom: 0.75rem !important;
+      padding: 0.5rem 0.75rem !important;
+    }
+  }
+
+  /* Ensure hero content is never too cramped */
+  section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+    min-height: calc(100vh - 8rem);
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Better balance between text and image on all screens */
+  @media (min-width: 1024px) {
+    section.relative.min-h-screen .flex-1 {
+      flex: 0 1 60%;
+    }
+
+    section.relative.min-h-screen .relative.flex {
+      flex: 0 1 40%;
+    }
+  }
+
+  /* Ensure buttons are always accessible on mobile */
+  @media (max-width: 767px) {
+    section.relative.min-h-screen .flex.flex-col.sm\\:flex-row {
+      position: sticky;
+      bottom: 1rem;
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  }
+
+  /* Enhanced responsive design */
+  
+  /* HERO RESPONSIVE - Pantallas ultra pequeñas (300px+) */
+  @media (max-width: 479px) {
+    /* Hero principal - Ultra mobile */
+    section.relative.min-h-screen.flex.items-center {
+      min-height: 100vh !important;
+      padding: 0 !important;
+    }
+
+    section.relative.min-h-screen .container.mx-auto {
+      padding: 0.75rem !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+      flex-direction: column !important;
+      gap: 1rem !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      min-height: calc(100vh - 2rem) !important;
+    }
+
+    /* Título hero ultra mobile */
+    section.relative.min-h-screen h1 {
+      font-size: 1.75rem !important; /* 28px */
+      line-height: 1.1 !important;
+      margin-bottom: 0.75rem !important;
+      text-align: center !important;
+      padding: 0 0.5rem !important;
+    }
+
+    /* Descripción hero ultra mobile */
+    section.relative.min-h-screen p {
+      font-size: 0.875rem !important; /* 14px */
+      line-height: 1.3 !important;
+      margin-bottom: 0.75rem !important;
+      text-align: center !important;
+      padding: 0 0.5rem !important;
+      max-width: 100% !important;
+    }
+
+    /* Badges hero ultra mobile */
+    section.relative.min-h-screen .inline-flex {
+      font-size: 0.75rem !important; /* 12px */
+      padding: 0.5rem 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 0.25rem !important;
+    }
+
+    /* Botones hero ultra mobile */
+    section.relative.min-h-screen .flex.flex-col.sm\\:flex-row {
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      padding: 0 0.5rem !important;
+    }
+
+    section.relative.min-h-screen .flex.flex-col.sm\\:flex-row a {
+      padding: 0.75rem 1rem !important;
+      font-size: 0.75rem !important;
+      text-align: center !important;
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    /* Imagen hero ultra mobile */
+    section.relative.min-h-screen .relative.w-64 {
+      width: 12rem !important; /* 192px */
+      margin: 0 auto !important;
+    }
+
+    /* Ocultar elementos no esenciales en ultra mobile */
+    section.relative.min-h-screen br {
+      display: none !important;
+    }
+  }
+
+  /* HERO RESPONSIVE - Mobile estándar (480px-640px) */
+  @media (min-width: 480px) and (max-width: 640px) {
+    section.relative.min-h-screen .container.mx-auto {
+      padding: 1rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 2.25rem !important; /* 36px */
+      line-height: 1.1 !important;
+      margin-bottom: 1rem !important;
+    }
+
+    section.relative.min-h-screen p {
+      font-size: 1rem !important; /* 16px */
+      margin-bottom: 1rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 14rem !important; /* 224px */
+    }
+
+    section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+      gap: 1.5rem !important;
+    }
+  }
+
+  /* HERO RESPONSIVE - Small tablet (641px-767px) */
+  @media (min-width: 641px) and (max-width: 767px) {
+    section.relative.min-h-screen .container.mx-auto {
+      padding: 1.5rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 3rem !important; /* 48px */
+      line-height: 1.1 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    section.relative.min-h-screen p {
+      font-size: 1.125rem !important; /* 18px */
+      margin-bottom: 1.5rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 16rem !important; /* 256px */
+    }
+
+    section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+      gap: 2rem !important;
+    }
+  }
+
+  /* HERO RESPONSIVE - Medium tablet (768px-1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    section.relative.min-h-screen .container.mx-auto {
+      padding: 2rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 3.75rem !important; /* 60px */
+      line-height: 1.1 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    section.relative.min-h-screen p {
+      font-size: 1.25rem !important; /* 20px */
+      margin-bottom: 2rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 18rem !important; /* 288px */
+    }
+
+    section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+      gap: 2.5rem !important;
+    }
+  }
+
+  /* HERO RESPONSIVE - Large tablet/Small desktop (1024px-1279px) */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    section.relative.min-h-screen .container.mx-auto {
+      padding: 3rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 4.5rem !important; /* 72px */
+      line-height: 1.05 !important;
+      margin-bottom: 2.5rem !important;
+    }
+
+    section.relative.min-h-screen p {
+      font-size: 1.5rem !important; /* 24px */
+      margin-bottom: 2.5rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 22rem !important; /* 352px */
+    }
+
+    section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+      gap: 3rem !important;
+    }
+  }
+
+  /* HERO RESPONSIVE - Large desktop (1280px+) */
+  @media (min-width: 1280px) {
+    section.relative.min-h-screen .container.mx-auto {
+      padding: 4rem !important;
+    }
+
+    section.relative.min-h-screen h1 {
+      font-size: 6rem !important; /* 96px */
+      line-height: 1 !important;
+      margin-bottom: 3rem !important;
+    }
+
+    section.relative.min-h-screen p {
+      font-size: 1.75rem !important; /* 28px */
+      margin-bottom: 3rem !important;
+    }
+
+    section.relative.min-h-screen .relative.w-64 {
+      width: 26rem !important; /* 416px */
+    }
+
+    section.relative.min-h-screen .flex.flex-col.lg\\:flex-row {
+      gap: 4rem !important;
+    }
+  }
+
+  /* Reglas generales para otras secciones - Mobile */
+  @media (max-width: 640px) {
+    /* Mobile: Single column layout */
+    .grid:not(section.relative.min-h-screen *) {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+
+    /* Reduce padding on mobile */
+    .p-8:not(section.relative.min-h-screen *) {
+      padding: 1.5rem !important;
+    }
+
+    .p-12:not(section.relative.min-h-screen *), 
+    .sm\\:p-10:not(section.relative.min-h-screen *), 
+    .md\\:p-12:not(section.relative.min-h-screen *), 
+    .lg\\:p-16:not(section.relative.min-h-screen *) {
+      padding: 1.5rem !important;
+    }
+
+    /* Adjust text sizes on mobile for other sections */
+    .text-4xl:not(section.relative.min-h-screen *), 
+    .xs\\:text-5xl:not(section.relative.min-h-screen *), 
+    .sm\\:text-6xl:not(section.relative.min-h-screen *), 
+    .md\\:text-7xl:not(section.relative.min-h-screen *), 
+    .lg\\:text-8xl:not(section.relative.min-h-screen *), 
+    .xl\\:text-9xl:not(section.relative.min-h-screen *) {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-3xl:not(section.relative.min-h-screen *), 
+    .sm\\:text-4xl:not(section.relative.min-h-screen *), 
+    .md\\:text-5xl:not(section.relative.min-h-screen *), 
+    .lg\\:text-6xl:not(section.relative.min-h-screen *) {
+      font-size: 1.875rem !important;
+      line-height: 1.3 !important;
+    }
+
+    .text-lg:not(section.relative.min-h-screen *), 
+    .sm\\:text-xl:not(section.relative.min-h-screen *), 
+    .md\\:text-2xl:not(section.relative.min-h-screen *) {
+      font-size: 1rem !important;
+    }
+
+    /* Reduce section spacing on mobile */
+    .py-20:not(section.relative.min-h-screen *), 
+    .sm\\:py-24:not(section.relative.min-h-screen *), 
+    .md\\:py-28:not(section.relative.min-h-screen *), 
+    .lg\\:py-32:not(section.relative.min-h-screen *) {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    /* Reduce margin between sections */
+    .mb-16:not(section.relative.min-h-screen *), 
+    .sm\\:mb-20:not(section.relative.min-h-screen *), 
+    .md\\:mb-24:not(section.relative.min-h-screen *) {
+      margin-bottom: 2rem !important;
+    }
+
+    .mb-6:not(section.relative.min-h-screen *), 
+    .sm\\:mb-8:not(section.relative.min-h-screen *) {
+      margin-bottom: 1rem !important;
+    }
+  }
+</style>

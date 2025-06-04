@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import "../styles/global-responsive.css";
 
 export interface Props {
   title: string;
@@ -22,8 +23,8 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     <!-- Habilitar transiciones entre páginas -->
     <ClientRouter />
   </head>
-  <body class="h-full font-body antialiased theme-bg theme-text transition-colors duration-300 min-w-[300px]">
-    <div class="min-h-screen relative min-w-[300px]">
+  <body class="h-full font-body antialiased theme-bg theme-text transition-colors duration-300 min-w-[300px] overflow-x-hidden">
+    <div class="min-h-screen relative min-w-[300px] w-full max-w-full overflow-x-hidden">
       <!-- Enhanced Background with diagonal grid pattern -->
       <div class="absolute inset-0 diagonal-grid opacity-60"></div>
 
@@ -105,9 +106,18 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     }
   }
 
-  /* Minimum width enforcement */
+  /* GLOBAL RESPONSIVE FIXES */
   body, html {
     min-width: 300px !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Prevent any element from causing horizontal scroll */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
   /* Smooth theme transitions */

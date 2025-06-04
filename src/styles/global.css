@@ -423,6 +423,224 @@
   .theme-text-blue-secondary {
     font-weight: 600;
   }
+
+  /* Force smaller text sizes on extra small screens */
+  .text-4xl,
+  .text-5xl,
+  .text-6xl,
+  .text-7xl,
+  .text-8xl,
+  .text-9xl {
+    font-size: 1.875rem !important; /* 30px */
+    line-height: 1.2 !important;
+  }
+
+  .text-3xl {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 1.3 !important;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem !important; /* 20px */
+    line-height: 1.4 !important;
+  }
+
+  .text-xl {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.5 !important;
+  }
+
+  .text-lg {
+    font-size: 1rem !important; /* 16px */
+    line-height: 1.6 !important;
+  }
+
+  /* Reduce padding and margins on extra small screens */
+  .p-8,
+  .p-10,
+  .p-12,
+  .p-16 {
+    padding: 1rem !important;
+  }
+
+  .px-8,
+  .px-10,
+  .px-12,
+  .px-16 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-8,
+  .py-10,
+  .py-12,
+  .py-16,
+  .py-20,
+  .py-24 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .mb-8,
+  .mb-10,
+  .mb-12,
+  .mb-16,
+  .mb-20,
+  .mb-24 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .mt-8,
+  .mt-10,
+  .mt-12,
+  .mt-16,
+  .mt-20,
+  .mt-24 {
+    margin-top: 1.5rem !important;
+  }
+
+  /* Optimize gap spacing */
+  .gap-8,
+  .gap-10,
+  .gap-12,
+  .gap-16 {
+    gap: 1rem !important;
+  }
+
+  /* Ensure minimum touch targets */
+  button,
+  .btn,
+  a[role="button"] {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* Mobile responsive utilities (375px - 640px) */
+@media (min-width: 375px) and (max-width: 640px) {
+  /* Slightly larger text than extra small but still constrained */
+  .text-4xl,
+  .text-5xl,
+  .text-6xl,
+  .text-7xl,
+  .text-8xl,
+  .text-9xl {
+    font-size: 2.25rem !important; /* 36px */
+    line-height: 1.2 !important;
+  }
+
+  .text-3xl {
+    font-size: 1.875rem !important; /* 30px */
+    line-height: 1.3 !important;
+  }
+
+  .text-2xl {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 1.4 !important;
+  }
+
+  /* Moderate padding reduction */
+  .p-8,
+  .p-10,
+  .p-12,
+  .p-16 {
+    padding: 1.5rem !important;
+  }
+
+  .py-8,
+  .py-10,
+  .py-12,
+  .py-16,
+  .py-20,
+  .py-24 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .mb-8,
+  .mb-10,
+  .mb-12,
+  .mb-16,
+  .mb-20,
+  .mb-24 {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Grid improvements for mobile */
+  .grid {
+    gap: 1.5rem !important;
+  }
+
+  /* Ensure proper button sizing */
+  .px-8 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .py-4 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+}
+
+/* Tablet responsive utilities (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .text-4xl,
+  .text-5xl,
+  .text-6xl,
+  .text-7xl,
+  .text-8xl,
+  .text-9xl {
+    font-size: 3rem !important; /* 48px */
+    line-height: 1.1 !important;
+  }
+
+  .text-3xl {
+    font-size: 2.25rem !important; /* 36px */
+    line-height: 1.2 !important;
+  }
+
+  .py-20,
+  .py-24 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .mb-16,
+  .mb-20,
+  .mb-24 {
+    margin-bottom: 3rem !important;
+  }
+}
+
+/* Large tablet responsive utilities (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .text-4xl,
+  .text-5xl,
+  .text-6xl,
+  .text-7xl,
+  .text-8xl,
+  .text-9xl {
+    font-size: 3.75rem !important; /* 60px */
+    line-height: 1.1 !important;
+  }
+
+  .text-3xl {
+    font-size: 2.5rem !important; /* 40px */
+    line-height: 1.2 !important;
+  }
+
+  .py-20,
+  .py-24 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  .mb-16,
+  .mb-20,
+  .mb-24 {
+    margin-bottom: 4rem !important;
+  }
 }
 
 /* Enhanced contrast for light mode */
