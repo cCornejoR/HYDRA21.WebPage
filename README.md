@@ -45,7 +45,8 @@ HYDRA²¹ es una suite de software especializada en **ingeniería hidráulica** 
 - **Frontend:** Astro 5.8+ con React 19
 - **Estilos:** Tailwind CSS con componentes personalizados
 - **Búsqueda:** Fuse.js para búsqueda inteligente
-- **Deploy:** GitHub Actions + GitHub Pages
+- **Deploy:** GitHub Actions + GitHub Pages (Sitio Estático)
+- **Autenticación:** Client-side con Web Crypto API
 - **Dominio:** www.hydra21.com
 
 ---
@@ -72,17 +73,19 @@ npm install
 npm run dev
 ```
 
-El sitio estará disponible en `http://localhost:4321` 🎉
+El sitio estará disponible en `http://localhost:3500` 🎉
 
 ### 🛠️ Comandos Disponibles
 
-| Comando           | Descripción                    |
-| ----------------- | ------------------------------ |
-| `npm run dev`     | 🔧 Servidor de desarrollo      |
-| `npm run build`   | 🏗️ Construir para producción   |
-| `npm run preview` | 👀 Previsualizar build local   |
-| `npm run deploy`  | 🚀 Deploy a GitHub Pages       |
-| `npm run clean`   | 🧹 Limpiar archivos temporales |
+| Comando           | Descripción                    | Estado         |
+| ----------------- | ------------------------------ | -------------- |
+| `npm run dev`     | 🔧 Servidor de desarrollo      | ✅ Funcionando |
+| `npm run build`   | 🏗️ Construir para producción   | ✅ Funcionando |
+| `npm run preview` | 👀 Previsualizar build local   | ✅ Funcionando |
+| `npm run deploy`  | 🚀 Deploy a GitHub Pages       | ✅ Funcionando |
+| `npm run clean`   | 🧹 Limpiar archivos temporales | ✅ Funcionando |
+
+> ⚡ **Build Status:** El proyecto se construye exitosamente como sitio estático optimizado para GitHub Pages.
 
 ---
 
@@ -96,10 +99,10 @@ HYDRA21.GH/
 ├── 📂 src/
 │   ├── 🧩 components/   # Componentes reutilizables
 │   ├── 📄 pages/        # Páginas del sitio
-│   │   ├── 💻 api/      # Endpoints API
 │   │   └── 📚 docs/     # Documentación
 │   ├── 🎨 styles/       # Estilos globales
-│   └── 🔧 utils/        # Utilidades
+│   └── 🔧 utils/        # Utilidades y autenticación
+├── 📂 dist/            # Build de producción
 ├── 📋 package.json      # Dependencias
 └── ⚙️ astro.config.mjs  # Configuración Astro
 ```
@@ -114,6 +117,7 @@ El proyecto está configurado para **deploy automático** en GitHub Pages:
 - **🌍 Dominio:** [www.hydra21.com](https://www.hydra21.com)
 - **🔒 HTTPS:** Certificado SSL automático
 - **⚡ CDN:** Distribución global optimizada
+- **📦 Build:** Sitio estático optimizado
 
 ### Deploy Manual
 
@@ -123,6 +127,19 @@ npm run deploy
 ```
 
 Ver [`DEPLOY.md`](DEPLOY.md) para instrucciones detalladas.
+
+---
+
+## 🔐 Autenticación
+
+El sistema de autenticación funciona completamente en el **lado del cliente**:
+
+- **🔒 Seguridad:** Hashing SHA-256 con Web Crypto API
+- **💾 Persistencia:** SessionStorage para tokens temporales
+- **⏰ Expiración:** Tokens válidos por 1 hora
+- **🚫 Sin servidor:** Compatible con hosting estático
+
+Utilidad disponible en `/src/utils/auth-client.js` para integración en componentes.
 
 ---
 

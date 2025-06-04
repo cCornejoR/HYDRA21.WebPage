@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { verifyPassword, generateToken } from "../utils/auth-client.js";
 
 export default function PasswordModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,23 +76,20 @@ export default function PasswordModal() {
     setError("");
 
     try {
-      const response = await fetch("/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password }),
-      });
+      // Verificar contraseña usando autenticación del lado cliente
+      const isValid = await verifyPassword(password);
 
-      const data = await response.json();
+      if (isValid) {
+        // Generar token y timestamp
+        const token = generateToken();
+        const timestamp = Date.now();
 
-      if (data.success) {
         // Guardar token y timestamp en sessionStorage
-        sessionStorage.setItem("hydra_download_token", data.token);
+        sessionStorage.setItem("hydra_download_token", token);
         sessionStorage.setItem("hydra_download_auth", "true");
         sessionStorage.setItem(
           "hydra_download_timestamp",
-          data.timestamp.toString()
+          timestamp.toString()
         );
 
         // Disparar evento de autenticación exitosa
@@ -114,11 +112,11 @@ export default function PasswordModal() {
           }, 200);
         }
       } else {
-        setError(data.message || "Contraseña incorrecta");
+        setError("Contraseña incorrecta");
       }
     } catch (error) {
       console.error("Error de autenticación:", error);
-      setError("Error de conexión. Inténtalo de nuevo.");
+      setError("Error de verificación. Inténtalo de nuevo.");
     } finally {
       setIsLoading(false);
     }
@@ -202,24 +200,24 @@ export default function PasswordModal() {
               htmlFor="global-password-input"
               className="block text-sm font-medium text-gray-300 mb-2"
             >
-              Contraseña
+              Contraseña de Descarga
             </label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
                 id="global-password-input"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-800/80 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all backdrop-blur-sm"
-                placeholder="Ingresa la contraseña"
                 disabled={isLoading}
-                autoComplete="current-password"
+                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors disabled:opacity-50 pr-12"
+                placeholder="Ingresa la contraseña..."
+                autoFocus
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                 disabled={isLoading}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors disabled:opacity-50"
               >
                 {showPassword ? (
                   <svg
@@ -232,7 +230,7 @@ export default function PasswordModal() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L8.464 8.464M18.364 18.364L16.95 16.95M18.364 18.364L19.778 19.778M16.95 16.95l-4.242-4.242"
+                      d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"
                     />
                   </svg>
                 ) : (
@@ -262,8 +260,23 @@ export default function PasswordModal() {
 
           {/* Error message */}
           {error && (
-            <div className="bg-red-500/20 border border-red-500/40 rounded-xl p-3 backdrop-blur-sm">
-              <p className="text-red-400 text-sm">{error}</p>
+            <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-4">
+              <div className="flex items-center">
+                <svg
+                  className="w-5 h-5 text-red-400 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.864-.833-2.634 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"
+                  />
+                </svg>
+                <p className="text-red-300 text-sm">{error}</p>
+              </div>
             </div>
           )}
 
@@ -272,21 +285,40 @@ export default function PasswordModal() {
             <button
               type="button"
               onClick={handleClose}
-              className="flex-1 px-4 py-3 border border-gray-600 text-gray-300 rounded-xl hover:border-gray-500 hover:text-white transition-colors disabled:opacity-50"
               disabled={isLoading}
+              className="flex-1 px-4 py-3 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-xl transition-colors disabled:opacity-50"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              disabled={isLoading}
-              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25"
+              disabled={isLoading || !password.trim()}
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {isLoading ? (
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
                   Verificando...
-                </div>
+                </>
               ) : (
                 "Acceder"
               )}
@@ -294,10 +326,16 @@ export default function PasswordModal() {
           </div>
         </form>
 
-        {/* Info */}
+        {/* Help text */}
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-500">
-            Si no tienes la contraseña, contacta al administrador
+            ¿No tienes la contraseña?{" "}
+            <a
+              href="mailto:support@hydra21.com"
+              className="text-blue-400 hover:text-blue-300 underline"
+            >
+              Contáctanos
+            </a>
           </p>
         </div>
       </div>

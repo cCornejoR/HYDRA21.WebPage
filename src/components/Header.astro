@@ -6,9 +6,9 @@
   <nav class="w-full px-4 lg:container lg:mx-auto lg:px-8">
     <div class="flex justify-between items-center h-16 lg:h-14">
       <!-- Logo -->
-      <div class="flex items-center space-x-1.5 xs:space-x-2 lg:space-x-3" transition:name="logo-section">
-        <img src="/pipe_logo.svg" alt="HYDRA²¹ Logo" class="h-6 xs:h-7 lg:h-9 w-auto" transition:name="logo-image" />
-        <span class="font-bold text-white text-base xs:text-lg lg:text-xl tracking-tight">
+      <div class="flex items-center space-x-2 lg:space-x-3" transition:name="logo-section">
+        <img src="/pipe_logo.svg" alt="HYDRA²¹ Logo" class="h-7 lg:h-9 w-auto" transition:name="logo-image" />
+        <span class="font-bold text-white text-lg lg:text-xl tracking-tight">
           <span class="gradient-text-blue-cyan" transition:name="logo-text">HYDRA²¹</span>
         </span>
       </div>
@@ -91,7 +91,6 @@
       const updateHeader = () => {
         const currentScrollY = window.scrollY;
         const isDesktop = window.innerWidth >= 1024;
-        const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
 
         // Enhanced sticky behavior with smooth transitions
         if (currentScrollY > 20) {
@@ -120,24 +119,19 @@
           }
         }
 
-        // Improved auto-hide behavior
-        if (currentScrollY > 150 && scrollDirection === 'down' && !isHeaderHidden) {
-          // Hide header with smooth animation
-          header.style.transform = isDesktop ? 'translateY(-120%)' : 'translateY(-100%)';
-          header.style.opacity = '0.95';
-          isHeaderHidden = true;
-        } else if ((scrollDirection === 'up' || currentScrollY < 50) && isHeaderHidden) {
-          // Show header with bounce effect
-          header.style.transform = isDesktop ? `translateY(${Math.min(currentScrollY * 0.1, 8)}px)` : 'translateY(0)';
-          header.style.opacity = '1';
-          isHeaderHidden = false;
-        }
+        // Sticky behavior without auto-hide (user preference)
+        // Always keep header visible with proper styling
+        header.style.opacity = '1';
+        isHeaderHidden = false;
 
-        // Special behavior at top of page
-        if (currentScrollY === 0) {
+        // Apply appropriate transform based on device
+        if (isDesktop && currentScrollY > 20) {
+          // Subtle parallax effect for desktop only
+          const parallaxOffset = Math.min(currentScrollY * 0.1, 8);
+          header.style.transform = `translateY(${parallaxOffset}px)`;
+        } else {
+          // Keep mobile header fixed without transform
           header.style.transform = 'translateY(0)';
-          header.style.opacity = '1';
-          isHeaderHidden = false;
         }
 
         lastScrollY = currentScrollY;

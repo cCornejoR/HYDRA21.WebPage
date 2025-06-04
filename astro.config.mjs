@@ -12,8 +12,8 @@ export default defineConfig({
   site: "https://www.hydra21.com",
   base: "/",
 
-  // Build configuration - server permite endpoints API con SSR
-  output: "server",
+  // Build configuration - static para GitHub Pages
+  output: "static",
 
   integrations: [tailwind(), react()],
 
