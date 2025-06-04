@@ -1,0 +1,481 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Documentación HYDRA²¹";
+const description = "Documentación técnica completa para HYDRA²¹ - Software de ingeniería hidráulica";
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="bg-gray-900 min-h-screen">
+    <div class="flex">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar fixed inset-y-0 left-0 z-40 w-64 bg-gray-800 border-r border-gray-700 transform -translate-x-full lg:translate-x-0 lg:static lg:inset-0 transition-transform duration-300">
+        <div class="flex flex-col h-full pt-20 lg:pt-4">
+          <!-- Sidebar Header -->
+          <div class="px-6 py-4 border-b border-gray-700">
+            <h2 class="text-lg font-semibold text-white">Documentación</h2>
+            <p class="text-sm text-gray-400">HYDRA²¹ v2.1.0</p>
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto">
+            <div class="space-y-1">
+              <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Comenzar</h3>
+              <a href="#introduccion" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                Introducción
+              </a>
+              <a href="#instalacion" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Instalación
+              </a>
+              <a href="#configuracion" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
+                Configuración
+              </a>
+            </div>
+
+            <div class="space-y-1 pt-4">
+              <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tutoriales</h3>
+              <a href="#tutorial-basico" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                Tutorial Básico
+              </a>
+              <a href="#tutorial-avanzado" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                Tutorial Avanzado
+              </a>
+            </div>
+
+            <div class="space-y-1 pt-4">
+              <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">API Reference</h3>
+              <a href="#funciones-hidraulicas" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
+                Funciones Hidráulicas
+              </a>
+              <a href="#funciones-red" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                Funciones de Red
+              </a>
+              <a href="#ejemplos-codigo" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+                Ejemplos de Código
+              </a>
+            </div>
+
+            <div class="space-y-1 pt-4">
+              <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Ayuda</h3>
+              <a href="#faq" class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700">
+                <span class="w-2 h-2 bg-gray-500 rounded-full mr-3"></span>
+                Preguntas Frecuentes
+              </a>
+            </div>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn fixed top-4 left-4 z-50 lg:hidden p-2 rounded-md bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile overlay -->
+      <div class="mobile-overlay fixed inset-0 z-30 bg-gray-900 bg-opacity-50 lg:hidden hidden"></div>
+
+      <!-- Main Content -->
+      <div class="main-content flex-1 lg:ml-0">
+        <div class="container mx-auto px-4 lg:px-8 py-8 max-w-4xl">
+          
+          <!-- Introduction -->
+          <section id="introduccion" class="mb-12">
+            <div class="mb-8">
+              <h1 class="text-4xl font-bold text-white mb-4">Documentación HYDRA²¹</h1>
+              <p class="text-xl text-gray-300">Software profesional para análisis y diseño de sistemas hidráulicos</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-6">
+              <h2 class="text-2xl font-semibold text-white mb-4">Bienvenido a HYDRA²¹</h2>
+              <p class="text-gray-300 mb-4">
+                HYDRA²¹ es una suite completa de software para ingeniería hidráulica que permite realizar análisis 
+                precisos de redes de distribución de agua, sistemas de bombeo, y cálculos hidráulicos complejos.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div class="bg-gray-700 rounded-lg p-4">
+                  <div class="text-2xl text-blue-400 mb-2">⚡</div>
+                  <h3 class="text-white font-semibold mb-1">Rápido</h3>
+                  <p class="text-gray-400 text-sm">Resultados en tiempo real</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-4">
+                  <div class="text-2xl text-green-400 mb-2">🎯</div>
+                  <h3 class="text-white font-semibold mb-1">Preciso</h3>
+                  <p class="text-gray-400 text-sm">Cálculos certificados ISO</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-4">
+                  <div class="text-2xl text-purple-400 mb-2">🔧</div>
+                  <h3 class="text-white font-semibold mb-1">Completo</h3>
+                  <p class="text-gray-400 text-sm">Suite integral de herramientas</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Installation -->
+          <section id="instalacion" class="mb-12">
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">🚀 Instalación y Configuración</h2>
+              
+              <div class="space-y-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-200 mb-4">Requisitos del Sistema</h3>
+                  <div class="bg-gray-700 rounded-lg p-4">
+                    <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                      <li>Windows 10/11 (64-bit) o macOS 10.15+</li>
+                      <li>8 GB RAM mínimo (16 GB recomendado)</li>
+                      <li>2 GB espacio libre en disco</li>
+                      <li>Tarjeta gráfica compatible con OpenGL 3.3+</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div id="configuracion">
+                  <h3 class="text-xl font-semibold text-gray-200 mb-4">Pasos de Instalación</h3>
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                      <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                      <div>
+                        <p class="text-gray-300">Descarga HYDRA²¹ desde el portal oficial</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                      <div>
+                        <p class="text-gray-300">Ejecuta el instalador como administrador</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                      <div>
+                        <p class="text-gray-300">Sigue el asistente de instalación</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                      <div>
+                        <p class="text-gray-300">Activa tu licencia con el código proporcionado</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-4 border border-gray-600">
+                  <h4 class="font-semibold text-gray-200 mb-3">Verificación por Línea de Comandos</h4>
+                  <pre class="bg-black text-green-400 p-4 rounded-md overflow-x-auto"><code>hydra21 --install --license YOUR_LICENSE_KEY
+hydra21 --verify-installation
+hydra21 --version</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Basic Tutorial -->
+          <section id="tutorial-basico" class="mb-12">
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">📚 Tutorial Básico: Análisis de Tubería</h2>
+              
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-200 mb-4">Configuración del Proyecto</h3>
+                  <div class="space-y-4">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                      <h4 class="font-semibold text-gray-200 mb-2">Paso 1: Crear Proyecto</h4>
+                      <p class="text-gray-400 text-sm">Archivo → Nuevo Proyecto → "Análisis de Tuberías"</p>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                      <h4 class="font-semibold text-gray-200 mb-2">Paso 2: Definir Geometría</h4>
+                      <ul class="text-gray-400 text-sm space-y-1">
+                        <li>• Longitud: 100 m</li>
+                        <li>• Diámetro: 200 mm</li>
+                        <li>• Material: PVC</li>
+                        <li>• Rugosidad: 0.15 mm</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="tutorial-avanzado">
+                  <h3 class="text-xl font-semibold text-gray-200 mb-4">Condiciones de Contorno</h3>
+                  <div class="space-y-4">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                      <h4 class="font-semibold text-gray-200 mb-2">Parámetros de Entrada</h4>
+                      <ul class="text-gray-400 text-sm space-y-1">
+                        <li>• Presión entrada: 30 mca</li>
+                        <li>• Caudal: 50 L/s</li>
+                        <li>• Temperatura: 20°C</li>
+                      </ul>
+                    </div>
+                    <div class="bg-green-900/20 border border-green-700 rounded-lg p-4">
+                      <p class="text-green-400 text-sm">
+                        <strong>Resultado esperado:</strong> Pérdida de carga ≈ 2.3 mca
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Hydraulic Functions -->
+          <section id="funciones-hidraulicas" class="mb-12">
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">⚙️ Funciones Hidráulicas</h2>
+              
+              <div class="space-y-6">
+                <div class="border-l-4 border-blue-500 pl-6 bg-gray-700 rounded-r-lg p-4">
+                  <h3 class="text-lg font-semibold text-white mb-2">calculateFlow()</h3>
+                  <p class="text-gray-300 mb-3">Calcula el caudal en una tubería dadas las condiciones de presión.</p>
+                  <pre class="bg-black text-green-400 p-3 rounded text-sm overflow-x-auto"><code>calculateFlow(diameter, length, roughness, pressureIn, pressureOut)
+// Retorna: caudal en L/s</code></pre>
+                  <div class="mt-3">
+                    <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded">Parámetros</span>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1">
+                      <li><code class="text-blue-300">diameter</code>: Diámetro interno (mm)</li>
+                      <li><code class="text-blue-300">length</code>: Longitud tubería (m)</li>
+                      <li><code class="text-blue-300">roughness</code>: Rugosidad absoluta (mm)</li>
+                      <li><code class="text-blue-300">pressureIn/Out</code>: Presiones (mca)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-6 bg-gray-700 rounded-r-lg p-4">
+                  <h3 class="text-lg font-semibold text-white mb-2">calculatePressureLoss()</h3>
+                  <p class="text-gray-300 mb-3">Determina la pérdida de carga por fricción y accesorios.</p>
+                  <pre class="bg-black text-green-400 p-3 rounded text-sm overflow-x-auto"><code>calculatePressureLoss(flow, diameter, length, roughness, fittings)
+// Retorna: pérdida de carga en mca</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Network Functions -->
+          <section id="funciones-red" class="mb-12">
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">🔗 Funciones de Red</h2>
+              
+              <div class="space-y-6">
+                <div class="border-l-4 border-purple-500 pl-6 bg-gray-700 rounded-r-lg p-4">
+                  <h3 class="text-lg font-semibold text-white mb-2">createNetwork()</h3>
+                  <p class="text-gray-300 mb-3">Inicializa una nueva red hidráulica.</p>
+                  <pre class="bg-black text-green-400 p-3 rounded text-sm overflow-x-auto"><code>const network = createNetwork();
+network.addNode(id, elevation, demand);
+network.addPipe(nodeA, nodeB, diameter, length);</code></pre>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-6 bg-gray-700 rounded-r-lg p-4">
+                  <h3 class="text-lg font-semibold text-white mb-2">solveNetwork()</h3>
+                  <p class="text-gray-300 mb-3">Resuelve el sistema usando Newton-Raphson.</p>
+                  <pre class="bg-black text-green-400 p-3 rounded text-sm overflow-x-auto"><code>const results = solveNetwork(network, tolerance = 0.001);
+// Retorna: presiones y caudales en todos los elementos</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Code Examples -->
+          <section id="ejemplos-codigo" class="mb-12">
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">💡 Ejemplos de Código</h2>
+              
+              <div class="space-y-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-200 mb-4">Ejemplo 1: Cálculo Básico de Flujo</h3>
+                  <pre class="bg-black text-green-400 p-4 rounded-lg overflow-x-auto"><code>// Tubería de PVC DN200, 500m longitud
+const diameter = 200; // mm
+const length = 500;   // m
+const roughness = 0.15; // mm
+const pressureIn = 35;  // mca
+const pressureOut = 25; // mca
+
+const flow = calculateFlow(diameter, length, roughness, pressureIn, pressureOut);
+console.log(`Caudal calculado: $&#123;flow.toFixed(2)&#125; L/s`);
+
+// Output esperado: Caudal calculado: 45.67 L/s</code></pre>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-200 mb-4">Ejemplo 2: Red Simple con 3 Nodos</h3>
+                  <pre class="bg-black text-green-400 p-4 rounded-lg overflow-x-auto"><code>// Crear red
+const network = createNetwork();
+
+// Agregar nodos
+network.addNode('N1', 100, 0);    // Depósito
+network.addNode('N2', 85, 25);    // Consumo 1
+network.addNode('N3', 80, 30);    // Consumo 2
+
+// Agregar tuberías
+network.addPipe('N1', 'N2', 300, 800);  // DN300, 800m
+network.addPipe('N2', 'N3', 250, 600);  // DN250, 600m
+
+// Resolver
+const results = solveNetwork(network);
+console.log('Presiones:', results.pressures);
+console.log('Caudales:', results.flows);</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section id="faq" class="mb-12">
+            <div class="bg-gray-800 rounded-lg border border-gray-700 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">❓ Preguntas Frecuentes</h2>
+              
+              <div class="space-y-6">
+                <div class="border-b border-gray-700 pb-4">
+                  <h3 class="text-lg font-semibold text-gray-200 mb-2">¿Qué métodos de cálculo utiliza HYDRA²¹?</h3>
+                  <p class="text-gray-400">Utiliza las ecuaciones de Darcy-Weisbach para pérdidas de carga, Colebrook-White para factor de fricción, y Newton-Raphson para resolver redes complejas.</p>
+                </div>
+                
+                <div class="border-b border-gray-700 pb-4">
+                  <h3 class="text-lg font-semibold text-gray-200 mb-2">¿Puedo importar datos desde AutoCAD?</h3>
+                  <p class="text-gray-400">Sí, HYDRA²¹ soporta importación directa desde archivos DWG/DXF. Usa el menú Archivo → Importar → AutoCAD.</p>
+                </div>
+                
+                <div class="border-b border-gray-700 pb-4">
+                  <h3 class="text-lg font-semibold text-gray-200 mb-2">¿Cómo exporto los resultados?</h3>
+                  <p class="text-gray-400">Los resultados se pueden exportar a Excel, PDF, o formato CSV desde el menú Resultados → Exportar.</p>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-200 mb-2">¿Hay límites en el número de elementos?</h3>
+                  <p class="text-gray-400">La versión Pro permite hasta 10,000 nodos y 20,000 tuberías. La versión Enterprise no tiene límites.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.mobile-overlay');
+    
+    function toggleMobileMenu() {
+      if (sidebar) {
+        sidebar.classList.toggle('-translate-x-full');
+      }
+      if (overlay) {
+        overlay.classList.toggle('hidden');
+      }
+    }
+    
+    mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+    overlay?.addEventListener('click', toggleMobileMenu);
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget as HTMLAnchorElement;
+        const href = target.getAttribute('href');
+        if (href) {
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            
+            // Close mobile menu if open
+            if (sidebar && !sidebar.classList.contains('-translate-x-full')) {
+              toggleMobileMenu();
+            }
+          }
+        }
+      });
+    });
+    
+    // Highlight active section in navigation
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-item');
+    
+    function highlightNavigation() {
+      let current = '';
+      sections.forEach(section => {
+        const htmlElement = section as HTMLElement;
+        const sectionTop = htmlElement.offsetTop;
+        if (window.scrollY >= sectionTop - 200) {
+          const id = section.getAttribute('id');
+          if (id) {
+            current = id;
+          }
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('bg-gray-700', 'text-white');
+        link.classList.add('text-gray-300');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('bg-gray-700', 'text-white');
+          link.classList.remove('text-gray-300');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', highlightNavigation);
+    highlightNavigation(); // Initial call
+  });
+</script>
+
+<style>
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for sidebar */
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: rgb(55 65 81);
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgb(107 114 128);
+    border-radius: 3px;
+  }
+
+  /* Code highlighting */
+  pre {
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Responsive sidebar */
+  @media (max-width: 1023px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }
+
+  /* Header offset for fixed navigation */
+  section[id] {
+    scroll-margin-top: 2rem;
+  }
+</style>

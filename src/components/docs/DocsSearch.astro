@@ -1,0 +1,438 @@
+---
+// This component will be enhanced with client-side search functionality
+---
+
+<div class="docs-search-container">
+  <!-- Search Input -->
+  <div class="relative">
+    <input 
+      type="search" 
+      id="docs-search-input"
+      placeholder="Buscar en la documentación..."
+      class="w-full px-4 py-3 pl-12 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm shadow-sm"
+      autocomplete="off"
+    />
+    <svg class="absolute left-4 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+    
+    <!-- Clear button -->
+    <button 
+      id="search-clear"
+      class="absolute right-3 top-3 p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hidden"
+      aria-label="Limpiar búsqueda"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Search Results -->
+  <div 
+    id="search-results" 
+    class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg z-50 max-h-96 overflow-y-auto hidden"
+  >
+    <!-- Loading state -->
+    <div id="search-loading" class="p-4 text-center text-gray-500 dark:text-gray-400 hidden">
+      <svg class="animate-spin w-5 h-5 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+      </svg>
+      Buscando...
+    </div>
+
+    <!-- No results -->
+    <div id="search-no-results" class="p-4 text-center text-gray-500 dark:text-gray-400 hidden">
+      <svg class="w-8 h-8 mx-auto mb-2 text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 6.306a7.962 7.962 0 00-6 0m6 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v1.306"></path>
+      </svg>
+      <p class="text-sm">No se encontraron resultados</p>
+      <p class="text-xs mt-1">Intenta con otros términos de búsqueda</p>
+    </div>
+
+    <!-- Results list -->
+    <div id="search-results-list" class="divide-y divide-gray-200 dark:divide-gray-700">
+      <!-- Results will be populated here -->
+    </div>
+
+    <!-- Search tips -->
+    <div id="search-tips" class="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
+      <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">💡 Consejos de búsqueda:</p>
+      <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-1">
+        <li>• Usa palabras clave específicas como "instalación", "API", "tutorial"</li>
+        <li>• Busca por módulo: "HYDRA Flow", "HYDRA Terrain", etc.</li>
+        <li>• Incluye términos técnicos: "Manning", "caudal", "simulación"</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .docs-search-container {
+    @apply relative;
+  }
+  
+  .search-result-item {
+    @apply p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-colors;
+  }
+  
+  .search-result-item:hover {
+    @apply bg-blue-50 dark:bg-blue-900/20;
+  }
+  
+  .search-result-title {
+    @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+  }
+  
+  .search-result-description {
+    @apply text-gray-600 dark:text-gray-300 text-xs mb-2 line-clamp-2;
+  }
+  
+  .search-result-path {
+    @apply text-blue-600 dark:text-blue-400 text-xs;
+  }
+  
+  .search-highlight {
+    @apply bg-yellow-200 dark:bg-yellow-800 px-1 rounded;
+  }
+</style>
+
+<script>
+  import Fuse from 'fuse.js';
+  
+  class DocsSearch {
+    private searchInput: HTMLElement | null;
+    private searchResults: HTMLElement | null;
+    private searchResultsList: HTMLElement | null;
+    private searchLoading: HTMLElement | null;
+    private searchNoResults: HTMLElement | null;
+    private searchClear: HTMLElement | null;
+    private fuse: Fuse<any> | null;
+    private searchData: any[];
+    private searchTimeout: number | undefined;
+    
+    constructor() {
+      this.searchInput = document.getElementById('docs-search-input');
+      this.searchResults = document.getElementById('search-results');
+      this.searchResultsList = document.getElementById('search-results-list');
+      this.searchLoading = document.getElementById('search-loading');
+      this.searchNoResults = document.getElementById('search-no-results');
+      this.searchClear = document.getElementById('search-clear');
+      
+      this.fuse = null;
+      this.searchData = [];
+      this.searchTimeout = undefined;
+      
+      this.init();
+    }
+    
+    async init() {
+      await this.loadSearchData();
+      this.setupEventListeners();
+      this.setupKeyboardNavigation();
+    }
+    
+    async loadSearchData() {
+      try {
+        // In a real implementation, this would fetch from an API endpoint
+        // For now, we'll create a mock dataset
+        this.searchData = [
+          {
+            title: "Introducción a HYDRA²¹",
+            description: "Bienvenido a HYDRA²¹, la suite de software profesional para ingeniería hidráulica diseñada por ingenieros para ingenieros.",
+            path: "/docs/getting-started/introduction",
+            category: "Primeros Pasos",
+            tags: ["introducción", "overview", "hydra21"]
+          },
+          {
+            title: "Instalación de HYDRA²¹",
+            description: "Guía completa para instalar y configurar HYDRA²¹ en tu sistema operativo.",
+            path: "/docs/getting-started/installation",
+            category: "Primeros Pasos",
+            tags: ["instalación", "setup", "configuración"]
+          },
+          {
+            title: "Tu Primer Proyecto con HYDRA²¹",
+            description: "Aprende a crear tu primer proyecto de análisis hidráulico con HYDRA²¹ paso a paso.",
+            path: "/docs/getting-started/first-project",
+            category: "Primeros Pasos",
+            tags: ["primer proyecto", "tutorial", "básico"]
+          }
+        ];
+        
+        // Initialize Fuse.js for fuzzy search
+        this.fuse = new Fuse(this.searchData, {
+          keys: [
+            { name: 'title', weight: 0.4 },
+            { name: 'description', weight: 0.3 },
+            { name: 'tags', weight: 0.2 },
+            { name: 'category', weight: 0.1 }
+          ],
+          threshold: 0.3,
+          includeMatches: true,
+          includeScore: true
+        });
+      } catch (error) {
+        console.error('Error loading search data:', error);
+      }
+    }
+    
+    setupEventListeners() {
+      // Search input
+      if (this.searchInput) {
+        this.searchInput.addEventListener('input', (e: Event) => {
+          const target = e.target as HTMLInputElement;
+          const query = target.value.trim();
+          this.handleSearch(query);
+        });
+      }
+      
+      // Clear button
+      if (this.searchClear) {
+        this.searchClear.addEventListener('click', () => {
+          this.clearSearch();
+        });
+      }
+      
+      // Click outside to close
+      document.addEventListener('click', (e: Event) => {
+        if (e.target && !(e.target as Element).closest('.docs-search-container')) {
+          this.hideResults();
+        }
+      });
+      
+      // Focus events
+      if (this.searchInput) {
+        this.searchInput.addEventListener('focus', () => {
+          const inputElement = this.searchInput as HTMLInputElement;
+          if (inputElement.value.trim()) {
+            this.showResults();
+          }
+        });
+      }
+    }
+    
+    setupKeyboardNavigation() {
+      if (!this.searchInput || !this.searchResultsList) return;
+      
+      this.searchInput.addEventListener('keydown', (e: KeyboardEvent) => {
+        const results = this.searchResultsList!.querySelectorAll('.search-result-item');
+        const currentActive = this.searchResultsList!.querySelector('.search-result-item.active') as HTMLElement;
+        
+        switch (e.key) {
+          case 'ArrowDown':
+            e.preventDefault();
+            this.navigateResults(results, currentActive, 'down');
+            break;
+          case 'ArrowUp':
+            e.preventDefault();
+            this.navigateResults(results, currentActive, 'up');
+            break;
+          case 'Enter':
+            e.preventDefault();
+            if (currentActive) {
+              currentActive.click();
+            }
+            break;
+          case 'Escape':
+            this.hideResults();
+            if (this.searchInput) {
+              this.searchInput.blur();
+            }
+            break;
+        }
+      });
+    }
+    
+    navigateResults(results: NodeListOf<Element>, currentActive: HTMLElement | null, direction: string) {
+      if (results.length === 0) return;
+      
+      let nextIndex = 0;
+      
+      if (currentActive) {
+        const currentIndex = Array.from(results).indexOf(currentActive);
+        currentActive.classList.remove('active');
+        
+        if (direction === 'down') {
+          nextIndex = (currentIndex + 1) % results.length;
+        } else {
+          nextIndex = currentIndex === 0 ? results.length - 1 : currentIndex - 1;
+        }
+      }
+      
+      (results[nextIndex] as HTMLElement).classList.add('active');
+      (results[nextIndex] as HTMLElement).scrollIntoView({ block: 'nearest' });
+    }
+    
+    async handleSearch(query: string) {
+      if (query.length === 0) {
+        this.clearSearch();
+        return;
+      }
+      
+      this.showClearButton();
+      this.showLoading();
+      
+      // Debounce search
+      if (this.searchTimeout) {
+        clearTimeout(this.searchTimeout);
+      }
+      this.searchTimeout = window.setTimeout(() => {
+        this.performSearch(query);
+      }, 300);
+    }
+    
+    performSearch(query: string) {
+      if (!this.fuse) {
+        this.hideLoading();
+        return;
+      }
+      
+      const results = this.fuse.search(query);
+      this.displayResults(results);
+      this.hideLoading();
+    }
+    
+    displayResults(results: any[]) {
+      if (!this.searchResultsList) return;
+      
+      this.searchResultsList.innerHTML = '';
+      
+      if (results.length === 0) {
+        this.showNoResults();
+        return;
+      }
+      
+      this.hideNoResults();
+      
+      results.slice(0, 8).forEach((result: any) => {
+        const item = this.createResultItem(result.item, result.matches);
+        this.searchResultsList!.appendChild(item);
+      });
+      
+      this.showResults();
+    }
+    
+    createResultItem(item: any, matches: any) {
+      const div = document.createElement('div');
+      div.className = 'search-result-item';
+      
+      // Highlight matches
+      let title = item.title;
+      let description = item.description;
+      
+      if (matches) {
+        matches.forEach((match: any) => {
+          if (match.key === 'title' && match.indices) {
+            title = this.highlightMatches(title, match.indices);
+          } else if (match.key === 'description' && match.indices) {
+            description = this.highlightMatches(description, match.indices);
+          }
+        });
+      }
+      
+      div.innerHTML = `
+        <div class="flex items-start space-x-3 p-3 hover:bg-gray-700 cursor-pointer transition-colors duration-200">
+          <div class="flex-shrink-0 mt-1">
+            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h4 class="text-sm font-medium text-white mb-1">${title}</h4>
+            <p class="text-xs text-gray-400 mb-2 line-clamp-2">${description}</p>
+            <div class="flex items-center space-x-2 text-xs">
+              <span class="bg-blue-600 text-white px-2 py-1 rounded">${item.category}</span>
+              <span class="text-gray-500">${item.path}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      div.addEventListener('click', () => {
+        window.location.href = item.path;
+      });
+      
+      return div;
+    }
+    
+    highlightMatches(text: string, indices: any[]) {
+      let highlightedText = text;
+      let offset = 0;
+      
+      indices.forEach(([start, end]: [number, number]) => {
+        const beforeMatch = highlightedText.slice(0, start + offset);
+        const match = highlightedText.slice(start + offset, end + 1 + offset);
+        const afterMatch = highlightedText.slice(end + 1 + offset);
+        
+        const highlighted = `<mark class="bg-yellow-400 text-black">${match}</mark>`;
+        highlightedText = beforeMatch + highlighted + afterMatch;
+        
+        offset += highlighted.length - match.length;
+      });
+      
+      return highlightedText;
+    }
+    
+    showResults() {
+      if (this.searchResults) {
+        this.searchResults.classList.remove('hidden');
+      }
+    }
+    
+    hideResults() {
+      if (this.searchResults) {
+        this.searchResults.classList.add('hidden');
+      }
+    }
+    
+    showLoading() {
+      if (this.searchLoading) {
+        this.searchLoading.classList.remove('hidden');
+      }
+    }
+    
+    hideLoading() {
+      if (this.searchLoading) {
+        this.searchLoading.classList.add('hidden');
+      }
+    }
+    
+    showNoResults() {
+      if (this.searchNoResults) {
+        this.searchNoResults.classList.remove('hidden');
+      }
+    }
+    
+    hideNoResults() {
+      if (this.searchNoResults) {
+        this.searchNoResults.classList.add('hidden');
+      }
+    }
+    
+    showClearButton() {
+      if (this.searchClear) {
+        this.searchClear.classList.remove('hidden');
+      }
+    }
+    
+    clearSearch() {
+      const inputElement = this.searchInput as HTMLInputElement;
+      if (inputElement) {
+        inputElement.value = '';
+      }
+      if (this.searchClear) {
+        this.searchClear.classList.add('hidden');
+      }
+      this.hideResults();
+      if (this.searchInput) {
+        this.searchInput.focus();
+      }
+    }
+  }
+  
+  // Initialize search when page loads
+  document.addEventListener('astro:page-load', () => {
+    new DocsSearch();
+  });
+</script>

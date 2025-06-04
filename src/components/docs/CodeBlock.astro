@@ -1,0 +1,235 @@
+---
+export interface Props {
+  code: string;
+  language?: string;
+  title?: string;
+  showLineNumbers?: boolean;
+  highlightLines?: number[];
+}
+
+const {
+  code,
+  language = 'text',
+  title,
+  showLineNumbers = false
+} = Astro.props;
+
+// Generate unique ID for this code block
+const codeId = `code-${Math.random().toString(36).substring(2, 11)}`;
+---
+
+<div class="code-block-container relative group">
+
+  <!-- Header with title and copy button -->
+  {(title || true) && (
+    <div class="code-header flex items-center justify-between bg-gray-800 text-gray-300 px-4 py-2 rounded-t-lg border-b border-gray-700">
+      <div class="flex items-center space-x-2">
+        {title && (
+          <span class="text-sm font-medium">{title}</span>
+        )}
+        {language && (
+          <span class="text-xs bg-gray-700 px-2 py-1 rounded text-gray-400">
+            {language}
+          </span>
+        )}
+      </div>
+
+      <!-- Copy button -->
+      <button
+        class="copy-button opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-1.5 hover:bg-gray-700 rounded text-gray-400 hover:text-white"
+        data-code-id={codeId}
+        aria-label="Copiar código"
+        title="Copiar al portapapeles"
+      >
+        <svg class="copy-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        <svg class="check-icon w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </button>
+    </div>
+  )}
+
+  <!-- Code content -->
+  <div class="code-content relative">
+    <pre
+      class={`language-${language} ${showLineNumbers ? 'line-numbers' : ''} ${title ? 'rounded-t-none' : ''} rounded-b-lg`}
+      data-code-id={codeId}
+    ><code class={`language-${language}`} set:html={code}></code></pre>
+
+    <!-- Copy feedback -->
+    <div class="copy-feedback absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-xs opacity-0 transition-opacity duration-200 pointer-events-none">
+      ¡Copiado!
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .code-block-container {
+    @apply my-6;
+  }
+
+  .code-header {
+    @apply text-sm;
+  }
+
+  .code-content pre {
+    @apply m-0 text-gray-100 p-4 overflow-x-auto;
+    background: linear-gradient(135deg, rgb(17 24 39) 0%, rgb(30 41 55) 100%);
+    border: 1px solid rgb(55 65 81);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .code-content code {
+    @apply bg-transparent text-sm font-mono;
+  }
+
+  /* Line numbers */
+  .line-numbers {
+    counter-reset: line-number;
+  }
+
+  .line-numbers code {
+    counter-increment: line-number;
+  }
+
+  .line-numbers code::before {
+    content: counter(line-number);
+    @apply inline-block w-8 text-right text-gray-500 mr-4 select-none;
+  }
+
+  /* Syntax highlighting enhancements */
+  .code-content .token.comment {
+    @apply text-gray-500 italic;
+  }
+
+  .code-content .token.string {
+    @apply text-green-400;
+  }
+
+  .code-content .token.number {
+    @apply text-blue-400;
+  }
+
+  .code-content .token.keyword {
+    @apply text-purple-400 font-semibold;
+  }
+
+  .code-content .token.function {
+    @apply text-yellow-400;
+  }
+
+  .code-content .token.operator {
+    @apply text-pink-400;
+  }
+
+  .code-content .token.variable {
+    @apply text-blue-300;
+  }
+
+  /* Highlighted lines */
+  .highlight-line {
+    @apply bg-blue-900/30 border-l-4 border-blue-500 pl-2 -ml-2;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .code-content pre {
+      @apply text-xs p-3;
+    }
+
+    .code-header {
+      @apply px-3 py-2;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // Copy functionality
+    const copyButtons = document.querySelectorAll('.copy-button');
+
+    copyButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const codeId = button.getAttribute('data-code-id');
+        const codeElement = document.querySelector(`pre[data-code-id="${codeId}"] code`);
+
+        if (!codeElement) return;
+
+        try {
+          // Get the text content without HTML tags
+          const codeText = codeElement.textContent || '';
+
+          // Copy to clipboard
+          await navigator.clipboard.writeText(codeText);
+
+          // Show feedback
+          showCopyFeedback(button);
+
+        } catch (err) {
+          console.error('Failed to copy code:', err);
+
+          // Fallback for older browsers
+          fallbackCopyTextToClipboard(codeElement.textContent || '', button);
+        }
+      });
+    });
+
+    function showCopyFeedback(button: Element) {
+      const copyIcon = button.querySelector('.copy-icon');
+      const checkIcon = button.querySelector('.check-icon');
+      const container = button.closest('.code-block-container');
+      const feedback = container?.querySelector('.copy-feedback');
+
+      // Switch icons
+      if (copyIcon) copyIcon.classList.add('hidden');
+      if (checkIcon) checkIcon.classList.remove('hidden');
+
+      // Show feedback
+      if (feedback) {
+        feedback.classList.remove('opacity-0');
+        feedback.classList.add('opacity-100');
+      }
+
+      // Reset after 2 seconds
+      setTimeout(() => {
+        if (copyIcon) copyIcon.classList.remove('hidden');
+        if (checkIcon) checkIcon.classList.add('hidden');
+        if (feedback) {
+          feedback.classList.add('opacity-0');
+          feedback.classList.remove('opacity-100');
+        }
+      }, 2000);
+    }
+
+    function fallbackCopyTextToClipboard(text: string, button: Element) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+
+      // Avoid scrolling to bottom
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.position = 'fixed';
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        // Use deprecated method only as last resort
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showCopyFeedback(button);
+        } else {
+          console.warn('Copy failed - clipboard not available');
+        }
+      } catch (err) {
+        console.error('Fallback: Unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+  });
+</script>

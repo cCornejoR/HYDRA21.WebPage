@@ -1,0 +1,116 @@
+---
+export interface Props {
+  headings?: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
+}
+
+const { headings = [] } = Astro.props;
+
+// Filter headings to only show h2 and h3
+const filteredHeadings = headings.filter(heading => heading.depth >= 2 && heading.depth <= 3);
+---
+
+{filteredHeadings.length > 0 && (
+  <nav class="toc bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+    <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+      <svg class="w-4 h-4 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+      </svg>
+      En esta página
+    </h3>
+
+    <ul class="space-y-2 text-sm">
+      {filteredHeadings.map(heading => (
+        <li class={`toc-item ${heading.depth === 3 ? 'ml-4' : ''}`}>
+          <a
+            href={`#${heading.slug}`}
+            class={`block py-1 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
+              heading.depth === 2 ? 'font-medium' : ''
+            }`}
+            data-heading-id={heading.slug}
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .toc {
+    backdrop-filter: blur(10px);
+  }
+
+  .toc-item a.active {
+    @apply text-blue-600 dark:text-blue-400 font-medium;
+  }
+
+  .toc-item a.active::before {
+    content: '';
+    @apply absolute -left-3 top-1/2 transform -translate-y-1/2 w-1 h-4 bg-blue-600 dark:bg-blue-400 rounded-full;
+  }
+
+  .toc-item {
+    @apply relative;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // Intersection Observer for active heading detection
+    const headings = document.querySelectorAll('h2[id], h3[id]');
+    const tocLinks = document.querySelectorAll('[data-heading-id]');
+
+    if (headings.length === 0 || tocLinks.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute('id');
+          const tocLink = document.querySelector(`[data-heading-id="${id}"]`);
+
+          if (entry.isIntersecting) {
+            // Remove active class from all links
+            tocLinks.forEach(link => link.classList.remove('active'));
+            // Add active class to current link
+            tocLink?.classList.add('active');
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0% -35% 0%',
+        threshold: 0
+      }
+    );
+
+    headings.forEach((heading) => {
+      observer.observe(heading);
+    });
+
+    // Smooth scroll for TOC links
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-heading-id');
+
+        if (targetId) {
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+
+            // Update URL without triggering page reload
+            history.pushState(null, '', `#${targetId}`);
+          }
+        }
+      });
+    });
+  });
+</script>

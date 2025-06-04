@@ -3,14 +3,12 @@
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out bg-transparent lg:py-4 lg:px-4 lg:mx-4 lg:mt-4 lg:rounded-xl shadow-none border border-transparent backdrop-blur-none">
-  <!-- Scroll progress indicator -->
-  <div id="scroll-progress" class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300 ease-out" style="width: 0%"></div>
   <nav class="w-full px-4 lg:container lg:mx-auto lg:px-8">
     <div class="flex justify-between items-center h-16 lg:h-14">
       <!-- Logo -->
       <div class="flex items-center space-x-2 lg:space-x-3">
-        <img src="/pipe_logo.svg" alt="HYDRA²¹ Logo" class="h-6 lg:h-7 w-auto" />
-        <span class="font-bold text-white text-base lg:text-lg tracking-tight">
+        <img src="/pipe_logo.svg" alt="HYDRA²¹ Logo" class="h-7 lg:h-9 w-auto" />
+        <span class="font-bold text-white text-lg lg:text-xl tracking-tight">
           <span class="gradient-text-blue-cyan">HYDRA²¹</span>
         </span>
       </div>
@@ -18,10 +16,10 @@
       <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center space-x-6">
         <nav class="flex items-center space-x-6">
-          <a href="#pricing" class="text-gray-300 hover:text-white transition font-medium">Inicio</a>
-          <a href="#features" class="text-gray-300 hover:text-white transition font-medium">Caracteristicas</a>
-          <a href="#enterprise" class="text-gray-300 hover:text-white transition font-medium">Documentacion</a>
-          <a href="#forum" class="text-gray-300 hover:text-white transition font-medium">Contacto</a>
+          <a href="#inicio" class="text-gray-300 hover:text-white transition font-medium">Inicio</a>
+          <a href="#caracteristicas" class="text-gray-300 hover:text-white transition font-medium">Caracteristicas</a>
+          <a href="#documentacion" class="text-gray-300 hover:text-white transition font-medium">Documentacion</a>
+          <a href="#contacto" class="text-gray-300 hover:text-white transition font-medium">Contacto</a>
         </nav>
       </div>
 
@@ -51,16 +49,16 @@
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="lg:hidden hidden bg-black/95 border-t border-gray-800 lg:rounded-b-xl">
       <div class="px-4 pt-4 pb-6 space-y-4">
-        <a href="#pricing" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
+        <a href="#inicio" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
           Inicio
         </a>
-        <a href="#features" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
+        <a href="#caracteristicas" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
           Caracteristicas
         </a>
-        <a href="#enterprise" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
+        <a href="#documentacion" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
           Documentacion
         </a>
-        <a href="#forum" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
+        <a href="#contacto" class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2">
           Contacto
         </a>
         
@@ -81,7 +79,6 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('site-header');
-    const scrollProgress = document.getElementById('scroll-progress');
     let lastScrollY = window.scrollY;
     let ticking = false;
     let isHeaderHidden = false;
@@ -91,13 +88,6 @@
         const currentScrollY = window.scrollY;
         const isDesktop = window.innerWidth >= 1024;
         const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
-        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercentage = Math.min((currentScrollY / documentHeight) * 100, 100);
-
-        // Update scroll progress bar
-        if (scrollProgress) {
-          scrollProgress.style.width = `${scrollPercentage}%`;
-        }
 
         // Enhanced sticky behavior with smooth transitions
         if (currentScrollY > 20) {
@@ -256,18 +246,6 @@
     will-change: transform, background-color, backdrop-filter;
   }
 
-  /* Scroll progress bar styling */
-  #scroll-progress {
-    background: linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6);
-    background-size: 200% 100%;
-    animation: shimmer 3s ease-in-out infinite;
-  }
-
-  @keyframes shimmer {
-    0%, 100% { background-position: 200% 0; }
-    50% { background-position: -200% 0; }
-  }
-
   /* Mobile specific optimizations */
   @media (max-width: 1023px) {
     header {
@@ -291,11 +269,12 @@
   }
 
   .gradient-text-blue-cyan {
-    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 50%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     background-size: 200% 100%;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
     animation: gradientShift 4s ease-in-out infinite;
   }
 
