@@ -2,7 +2,7 @@
 // Footer.astro - Professional Minimalist Design
 ---
 
-<footer id="contacto" class="relative z-10 bg-black/95 backdrop-blur-xl mt-auto border-t border-white/5">
+<footer id="contacto" class="relative z-10 bg-black backdrop-blur-xl mt-auto border-t border-white/5">
   <!-- Subtle top accent line -->
   <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 md:w-40 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"></div>
   
@@ -67,13 +67,13 @@
     <!-- Divider - Enhanced responsive -->
     <div class="h-px bg-gradient-to-r from-transparent via-white/8 sm:via-white/10 to-transparent mb-4 sm:mb-6"></div>
 
-    <!-- Bottom Section: Social Links and Copyright - Enhanced responsive -->
-    <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+    <!-- Bottom Section: Social Links and Copyright - Mejorado responsive -->
+    <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:justify-between md:items-center">
       
-      <!-- Social Media Links - Enhanced responsive -->
-      <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 md:space-x-6">
-        <span class="text-xs text-gray-500 uppercase tracking-wider font-medium order-2 sm:order-1">Síguenos:</span>
-        <div class="flex items-center space-x-3 sm:space-x-4 order-1 sm:order-2">
+      <!-- Social Media Links - Mejorado responsive -->
+      <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-3 sm:space-y-0 sm:space-x-4 lg:space-x-6">
+        <span class="text-xs text-gray-500 uppercase tracking-wider font-medium whitespace-nowrap">Síguenos:</span>
+        <div class="flex items-center space-x-3 sm:space-x-4">
           <a href="#" 
              class="group relative p-2 sm:p-3 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-110" 
              aria-label="GitHub">
@@ -117,17 +117,19 @@
         </div>
       </div>
 
-      <!-- Copyright and Legal - Enhanced responsive -->
-      <div class="flex flex-col items-center space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:space-x-4 md:space-x-6 text-center sm:text-right">
-        <span class="text-xs text-gray-500 order-2 sm:order-1">
+      <!-- Copyright and Legal - Mejorado responsive -->
+      <div class="flex flex-col items-center space-y-3 md:items-end md:space-y-0 text-center md:text-right">
+        <!-- Copyright -->
+        <div class="text-xs text-gray-500">
           © 2025 <span class="gradient-text-blue-cyan font-semibold">HYDRA²¹</span>. Todos los derechos reservados.
-        </span>
-        <div class="flex items-center space-x-3 sm:space-x-4 text-xs text-gray-500 order-1 sm:order-2">
-          <a href="#" class="hover:text-cyan-400 transition-colors duration-300">Privacidad</a>
+        </div>
+        <!-- Legal Links -->
+        <div class="flex items-center space-x-2 sm:space-x-3 text-xs text-gray-500">
+          <a href="/privacidad" class="hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap">Privacidad</a>
           <span class="text-gray-600">•</span>
-          <a href="#" class="hover:text-cyan-400 transition-colors duration-300">Términos</a>
-          <span class="text-gray-600 hidden sm:inline">•</span>
-          <a href="#" class="hover:text-cyan-400 transition-colors duration-300 hidden sm:inline">Cookies</a>
+          <a href="/terminos" class="hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap">Términos</a>
+          <span class="text-gray-600">•</span>
+          <a href="/cookies" class="hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap">Cookies</a>
         </div>
       </div>
     </div>
@@ -155,12 +157,53 @@
     footer .grid {
       gap: 1.5rem;
     }
+
+    /* Optimizar footer bottom en móvil */
+    footer .container > div:last-child {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
   }
-  
+
+  /* Breakpoint para pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    footer h4 {
+      font-size: 0.75rem;
+    }
+    
+    footer p,
+    footer span:not(.gradient-text-blue-cyan),
+    footer a:not(.group) {
+      font-size: 0.7rem;
+    }
+
+    /* Ajustar espaciado en móviles pequeños */
+    footer .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Mejorar el espaciado vertical en la sección bottom */
+    footer .flex.flex-col.space-y-4 {
+      gap: 1.5rem;
+    }
+
+    /* Centrar todo en móviles muy pequeños */
+    footer .flex.flex-col.items-center {
+      text-align: center;
+    }
+  }
+
+  /* Breakpoint para pantallas medianas */  
   @media (min-width: 641px) and (max-width: 768px) {
     /* Tablet optimizations */
     footer .container {
       max-width: 100%;
+    }
+
+    /* Ajustar el espaciado en tablets */
+    footer .flex.flex-col.space-y-4 {
+      gap: 1.5rem;
     }
   }
   
@@ -198,19 +241,6 @@
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
   
-  /* Responsive text scaling */
-  @media (max-width: 480px) {
-    footer h4 {
-      font-size: 0.75rem;
-    }
-    
-    footer p,
-    footer span:not(.gradient-text-blue-cyan),
-    footer a:not(.group) {
-      font-size: 0.7rem;
-    }
-  }
-  
   /* Enhanced bottom gradient */
   footer::after {
     content: '';
@@ -228,5 +258,41 @@
       transparent 100%
     );
     filter: blur(1px);
+  }
+
+  /* Asegurar que whitespace-nowrap funcione correctamente */
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+
+  /* Mejorar la alineación en dispositivos medianos */
+  @media (min-width: 768px) {
+    footer .flex.flex-col.md\\:flex-row {
+      align-items: center;
+    }
+  }
+
+  /* Force solid black background for footer */
+  footer {
+    background-color: #000000 !important;
+    background: #000000 !important;
+  }
+
+  /* Ensure footer is always black regardless of parent styles */
+  #contacto {
+    background-color: #000000 !important;
+    background: #000000 !important;
+  }
+
+  /* Override any potential transparency or backdrop effects */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+    z-index: -1;
   }
 </style>

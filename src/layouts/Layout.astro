@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 export interface Props {
   title: string;
   description?: string;
@@ -16,6 +18,9 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
     <link rel="icon" type="image/svg+xml" href="/pipe_logo.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    
+    <!-- Habilitar transiciones entre páginas -->
+    <ClientRouter />
   </head>
   <body class="h-full font-body antialiased theme-bg theme-text transition-colors duration-300 min-w-[300px]">
     <div class="min-h-screen relative min-w-[300px]">
@@ -33,11 +38,10 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
       </main>
     </div>
 
-    <!-- Theme Toggle Script -->
+    <!-- Theme Toggle Script con soporte para transiciones -->
     <script is:inline>
-      // Theme toggle functionality
-      function initTheme() {
-        // Check for saved theme preference or default to 'dark'
+      // Función para aplicar el tema (requerido para transiciones)
+      function applyTheme() {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const theme = savedTheme || (prefersDark ? 'dark' : 'light');
@@ -45,7 +49,12 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
         document.documentElement.classList.remove('light', 'dark');
         document.documentElement.classList.add(theme);
         
-        // Save the theme preference
+        return theme;
+      }
+
+      // Theme toggle functionality
+      function initTheme() {
+        const theme = applyTheme();
         localStorage.setItem('theme', theme);
       }
 
@@ -68,17 +77,14 @@ const { title, description = "HYDRA²¹ - Software de Ingeniería Hidráulica" }
       }
 
       // Initialize theme immediately to prevent flash
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-        
-        document.documentElement.classList.remove('light', 'dark');
-        document.documentElement.classList.add(theme);
-      })();
+      applyTheme();
 
-      // Initialize on load
+      // Aplicar tema después de cada transición de página
+      document.addEventListener("astro:after-swap", applyTheme);
+      
+      // Initialize on load and after navigation
       document.addEventListener('DOMContentLoaded', initTheme);
+      document.addEventListener("astro:page-load", initTheme);
 
       // Make toggleTheme available globally
       window.toggleTheme = toggleTheme;

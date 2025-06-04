@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Política de Privacidad - HYDRA²¹";
+const description = "Política de privacidad y protección de datos de HYDRA²¹ - Software de ingeniería hidráulica";
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <!-- Privacy Hero Section -->
+  <section class="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-black privacy-background">
+      <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
+    </div>
+    
+    <!-- Top blur transition -->
+    <div class="absolute top-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20"></div>
+    
+    <!-- Bottom blur transition -->
+    <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
+    
+    <!-- Geometric grid pattern -->
+    <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
+      <div class="absolute inset-0 grid-pattern"></div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+      
+      <!-- Hero Content -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
+        
+        <!-- Left side - Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-blue-500/30 rounded-full px-3 xs:px-4 py-2 xs:py-3 text-xs sm:text-sm mb-6 sm:mb-8">
+            <span class="text-blue-400">🔒</span>
+            <span class="text-blue-400 font-medium">#PRIVACIDAD Y PROTECCIÓN</span>
+          </div>
+          
+          <!-- Main Title -->
+          <h1 class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-tight mb-6 sm:mb-8">
+            Política de
+            <span class="block text-blue-400">Privacidad</span>
+          </h1>
+          
+          <!-- Description -->
+          <p class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 leading-relaxed mb-8 sm:mb-10 max-w-3xl mx-auto lg:mx-0">
+            Tu privacidad es nuestra prioridad.<br class="hidden sm:block"/>
+            Conoce cómo protegemos tus datos.
+          </p>
+          
+          <!-- CTA Button -->
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
+            <a href="#contenido" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+              <span class="mr-2">📖</span>
+              Leer Política
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right side - Privacy Image -->
+        <div class="relative flex justify-center lg:justify-end mt-4 xs:mt-6 sm:mt-8 lg:mt-0">
+          <div class="relative">
+            <!-- Main privacy image -->
+            <div class="relative w-64 xs:w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] 2xl:w-[36rem]">
+              <img 
+                src="/assets/images/terminos.png" 
+                alt="Política de Privacidad" 
+                class="w-full h-auto animate-float-gentle filter drop-shadow-2xl"
+              />
+            </div>
+            
+            <!-- Subtle glow effect -->
+            <div class="absolute inset-0 bg-blue-500/10 rounded-2xl blur-3xl scale-110 opacity-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Content Section -->
+  <section id="contenido" class="bg-black min-h-screen py-16 sm:py-20 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+      <!-- Content Header -->
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Política de Privacidad</h2>
+        <p class="text-lg sm:text-xl text-gray-300">Última actualización: Enero 2024</p>
+      </div>
+
+      <!-- Privacy Content -->
+      <div class="prose prose-lg max-w-none">
+
+        <!-- Section 1 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-blue-400 mb-4">1. Información que Recopilamos</h3>
+          <p class="text-gray-300 mb-4">
+            En HYDRA²¹, recopilamos únicamente la información necesaria para proporcionar nuestros servicios de software de ingeniería hidráulica:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Información de contacto (nombre, email, empresa)</li>
+            <li>Datos de uso del software para mejoras técnicas</li>
+            <li>Información de licencia y activación</li>
+            <li>Datos técnicos del sistema para soporte</li>
+          </ul>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-blue-400 mb-4">2. Uso de la Información</h3>
+          <p class="text-gray-300 mb-4">Utilizamos tu información para:</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Proporcionar y mantener nuestros servicios</li>
+            <li>Procesar licencias y activaciones</li>
+            <li>Ofrecer soporte técnico especializado</li>
+            <li>Mejorar la funcionalidad del software</li>
+            <li>Comunicar actualizaciones importantes</li>
+          </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-blue-400 mb-4">3. Protección de Datos</h3>
+          <p class="text-gray-300 mb-4">
+            Implementamos medidas de seguridad robustas para proteger tu información:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Encriptación de datos en tránsito y en reposo</li>
+            <li>Acceso restringido a información personal</li>
+            <li>Auditorías regulares de seguridad</li>
+            <li>Cumplimiento con estándares internacionales</li>
+          </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-blue-400 mb-4">4. Tus Derechos</h3>
+          <p class="text-gray-300 mb-4">Tienes derecho a:</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Acceder a tu información personal</li>
+            <li>Rectificar datos incorrectos</li>
+            <li>Solicitar la eliminación de tus datos</li>
+            <li>Portabilidad de datos</li>
+            <li>Retirar el consentimiento en cualquier momento</li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="bg-blue-900/30 backdrop-blur-sm border border-blue-500/30 rounded-lg shadow-xl p-8 text-center">
+          <h3 class="text-2xl font-semibold text-white mb-4">¿Preguntas sobre Privacidad?</h3>
+          <p class="text-gray-300 mb-6">
+            Si tienes alguna pregunta sobre esta política de privacidad, no dudes en contactarnos.
+          </p>
+          <a href="mailto:privacy@hydra21.com" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 hover:scale-105">
+            <span class="mr-2">📧</span>
+            Contactar Privacidad
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Privacy background image */
+  .privacy-background {
+    background-image: url('/assets/images/fondo_2.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    background-attachment: scroll;
+  }
+  
+  /* Mobile specific background optimizations */
+  @media (max-width: 767px) {
+    .privacy-background {
+      opacity: 0.6;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: scroll;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .privacy-background {
+      background-attachment: fixed;
+      opacity: 0.4;
+    }
+  }
+
+  /* Grid pattern */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Floating animation */
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  /* Force footer black background */
+  footer {
+    background-color: black !important;
+    background: black !important;
+  }
+</style>

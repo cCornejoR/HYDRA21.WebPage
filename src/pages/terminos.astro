@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Términos y Condiciones - HYDRA²¹";
+const description = "Términos y condiciones de uso de HYDRA²¹ - Software de ingeniería hidráulica";
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <!-- Terms Hero Section -->
+  <section class="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-black terms-background">
+      <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
+    </div>
+    
+    <!-- Top blur transition -->
+    <div class="absolute top-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20"></div>
+    
+    <!-- Bottom blur transition -->
+    <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
+    
+    <!-- Geometric grid pattern -->
+    <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
+      <div class="absolute inset-0 grid-pattern"></div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+      
+      <!-- Hero Content -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
+        
+        <!-- Left side - Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-1 xs:gap-2 bg-gray-900/90 backdrop-blur-sm border border-green-500/30 rounded-full px-3 xs:px-4 py-2 xs:py-3 text-xs sm:text-sm mb-6 sm:mb-8">
+            <span class="text-green-400">📋</span>
+            <span class="text-green-400 font-medium">#TÉRMINOS Y CONDICIONES</span>
+          </div>
+          
+          <!-- Main Title -->
+          <h1 class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-tight mb-6 sm:mb-8">
+            Términos y
+            <span class="block text-green-400">Condiciones</span>
+          </h1>
+          
+          <!-- Description -->
+          <p class="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 leading-relaxed mb-8 sm:mb-10 max-w-3xl mx-auto lg:mx-0">
+            Conoce las condiciones de uso<br class="hidden sm:block"/>
+            de nuestro software especializado.
+          </p>
+          
+          <!-- CTA Button -->
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
+            <a href="#contenido" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25">
+              <span class="mr-2">📜</span>
+              Leer Términos
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right side - Terms Image -->
+        <div class="relative flex justify-center lg:justify-end mt-4 xs:mt-6 sm:mt-8 lg:mt-0">
+          <div class="relative">
+            <!-- Main terms image -->
+            <div class="relative w-64 xs:w-72 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] 2xl:w-[36rem]">
+              <img 
+                src="/assets/images/terminos.png" 
+                alt="Términos y Condiciones" 
+                class="w-full h-auto animate-float-gentle filter drop-shadow-2xl"
+              />
+            </div>
+            
+            <!-- Subtle glow effect -->
+            <div class="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl scale-110 opacity-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms Content Section -->
+  <section id="contenido" class="bg-black min-h-screen py-16 sm:py-20 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+      <!-- Content Header -->
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Términos y Condiciones</h2>
+        <p class="text-lg sm:text-xl text-gray-300">Última actualización: Enero 2024</p>
+      </div>
+
+      <!-- Terms Content -->
+      <div class="prose prose-lg max-w-none">
+
+        <!-- Section 1 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">1. Aceptación de Términos</h3>
+          <p class="text-gray-300 mb-4">
+            Al utilizar HYDRA²¹, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguna parte de estos términos, no debes usar nuestro software.
+          </p>
+          <p class="text-gray-300">
+            Estos términos se aplican a todas las versiones del software, incluyendo versiones de prueba, educativas y comerciales.
+          </p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">2. Licencia de Uso</h3>
+          <p class="text-gray-300 mb-4">HYDRA²¹ te otorga una licencia limitada, no exclusiva y no transferible para:</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Usar el software según el tipo de licencia adquirida</li>
+            <li>Realizar análisis hidráulicos para proyectos profesionales</li>
+            <li>Generar reportes y documentación técnica</li>
+            <li>Acceder a actualizaciones durante el período de licencia</li>
+          </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">3. Restricciones de Uso</h3>
+          <p class="text-gray-300 mb-4">Está prohibido:</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Copiar, distribuir o modificar el software</li>
+            <li>Realizar ingeniería inversa o descompilar</li>
+            <li>Usar el software para actividades ilegales</li>
+            <li>Compartir credenciales de licencia</li>
+            <li>Sublicenciar o revender el software</li>
+          </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">4. Responsabilidades del Usuario</h3>
+          <p class="text-gray-300 mb-4">Como usuario de HYDRA²¹, te comprometes a:</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li>Usar el software de manera responsable y profesional</li>
+            <li>Verificar la precisión de los resultados obtenidos</li>
+            <li>Mantener la confidencialidad de tus credenciales</li>
+            <li>Cumplir con las regulaciones locales aplicables</li>
+            <li>Reportar cualquier problema o vulnerabilidad encontrada</li>
+          </ul>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">5. Limitación de Responsabilidad</h3>
+          <p class="text-gray-300 mb-4">
+            HYDRA²¹ se proporciona "tal como está". No garantizamos que el software esté libre de errores o que satisfaga todos tus requisitos específicos.
+          </p>
+          <p class="text-gray-300">
+            En ningún caso seremos responsables por daños indirectos, incidentales o consecuentes derivados del uso del software.
+          </p>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">6. Modificaciones</h3>
+          <p class="text-gray-300">
+            Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación. Es tu responsabilidad revisar periódicamente estos términos.
+          </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="bg-green-900/30 backdrop-blur-sm border border-green-500/30 rounded-lg shadow-xl p-8 text-center">
+          <h3 class="text-2xl font-semibold text-white mb-4">¿Preguntas sobre los Términos?</h3>
+          <p class="text-gray-300 mb-6">
+            Si tienes alguna pregunta sobre estos términos y condiciones, contáctanos.
+          </p>
+          <a href="mailto:legal@hydra21.com" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors duration-300 hover:scale-105">
+            <span class="mr-2">⚖️</span>
+            Contactar Legal
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Terms background image */
+  .terms-background {
+    background-image: url('/assets/images/fondo_2.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    background-attachment: scroll;
+  }
+  
+  /* Mobile specific background optimizations */
+  @media (max-width: 767px) {
+    .terms-background {
+      opacity: 0.6;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: scroll;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .terms-background {
+      background-attachment: fixed;
+      opacity: 0.4;
+    }
+  }
+
+  /* Grid pattern */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Floating animation */
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  /* Force footer black background */
+  footer {
+    background-color: black !important;
+    background: black !important;
+  }
+</style>
