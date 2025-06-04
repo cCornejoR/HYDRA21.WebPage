@@ -1,0 +1,129 @@
+---
+/**
+ * Componente de Imagen Optimizada para HYDRA²¹
+ * Maneja automáticamente lazy loading, responsive images y formatos modernos
+ */
+
+export interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: 'eager' | 'lazy';
+  class?: string;
+  sizes?: string;
+  priority?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  class: className = '',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  priority = false
+} = Astro.props;
+
+// Generar diferentes formatos y tamaños
+const basePath = src.replace(/\.[^/.]+$/, '');
+const extension = src.split('.').pop();
+
+// Para futuras optimizaciones con WebP/AVIF
+const webpSrc = `${basePath}.webp`;
+const avifSrc = `${basePath}.avif`;
+
+// Para responsive images (a implementar cuando se generen)
+const srcSet = `
+  ${basePath}-400.${extension} 400w,
+  ${basePath}-800.${extension} 800w,
+  ${src} 1200w
+`.trim();
+---
+
+<!-- Picture element con fallbacks para formatos modernos -->
+<picture class={className}>
+  <!-- AVIF - Mejor compresión (cuando esté disponible) -->
+  <!-- <source srcset={avifSrc} type="image/avif" sizes={sizes} /> -->
+  
+  <!-- WebP - Buena compresión y soporte amplio (cuando esté disponible) -->
+  <!-- <source srcset={webpSrc} type="image/webp" sizes={sizes} /> -->
+  
+  <!-- Fallback original -->
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={priority ? 'eager' : loading}
+    decoding="async"
+    class={className}
+    sizes={sizes}
+    style="object-fit: cover;"
+  />
+</picture>
+
+<!-- Preload para imágenes críticas -->
+{priority && (
+  <link
+    rel="preload"
+    as="image"
+    href={src}
+    slot="head"
+  />
+)}
+
+<style>
+  img {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  img[loading="lazy"] {
+    opacity: 1;
+  }
+  
+  img.loaded {
+    opacity: 1;
+  }
+  
+  /* Aspect ratio preservation */
+  picture {
+    display: block;
+    position: relative;
+  }
+  
+  /* Prevent layout shift */
+  img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+  }
+</style>
+
+<script>
+  // Intersection Observer para lazy loading avanzado
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          
+          // Fade in effect
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          });
+          
+          imageObserver.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    // Observar todas las imágenes lazy
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+</script> 

@@ -10,7 +10,9 @@
     "deploy": "npm run build && gh-pages -d dist",
     "deploy:gh": "npm run build && gh-pages -d dist",
     "build:gh-pages": "astro build",
-    "clean": "rm -rf dist .astro"
+    "clean": "rm -rf dist .astro",
+    "analyze:images": "node scripts/analyze-images.js",
+    "dev:fast": "astro dev --host"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

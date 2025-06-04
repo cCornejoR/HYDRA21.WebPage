@@ -23,15 +23,30 @@ export default defineConfig({
     assets: "_astro",
   },
 
-  // Vite configuration for proper asset handling
+  // Vite configuration for proper asset handling and performance
   vite: {
     build: {
-      assetsInlineLimit: 0,
+      assetsInlineLimit: 4096, // Inline assets smaller than 4KB
       rollupOptions: {
         output: {
           assetFileNames: "_astro/[name].[hash][extname]",
+          // Code splitting for better performance
+          manualChunks: {
+            vendor: ["react", "react-dom"],
+            utils: ["fuse.js"],
+          },
         },
       },
+    },
+    // Development optimizations
+    server: {
+      fs: {
+        strict: false,
+      },
+    },
+    // Image processing optimizations
+    optimizeDeps: {
+      include: ["react", "react-dom", "fuse.js"],
     },
   },
 });
