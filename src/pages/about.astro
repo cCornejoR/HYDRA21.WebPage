@@ -24,11 +24,6 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     <!-- Bottom blur transition -->
     <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
 
-    <!-- Geometric grid pattern -->
-    <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
-      <div class="absolute inset-0 grid-pattern"></div>
-    </div>
-
     <!-- Main content container following Hero patterns -->
     <div class="container mx-auto px-4 py-6 md:py-12 lg:py-16 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center lg:justify-items-stretch">
@@ -106,10 +101,9 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
       </div>
     </div>
   </section>
-
   <!-- Mission Section -->
   <ViewportAnimator animation="fade-in" delay={100} duration={400}>
-    <section id="mision" class="bg-black py-20 sm:py-24 md:py-28 lg:py-32">
+    <section id="mision" class="content-section-background bg-black py-20 sm:py-24 md:py-28 lg:py-32">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
 
@@ -223,10 +217,9 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     </div>
   </section>
   </ViewportAnimator>
-
   <!-- Values Section -->
   <ViewportAnimator animation="stagger" delay={150} duration={400}>
-  <section class="py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
+  <section class="content-section-background py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -341,10 +334,9 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     </div>
   </section>
   </ViewportAnimator>
-
   <!-- CTA Section -->
   <ViewportAnimator animation="slide-up" delay={200} duration={400}>
-  <section class="cta-section py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
+  <section class="content-section-background cta-section py-20 sm:py-24 md:py-28 lg:py-32 bg-black">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-5xl mx-auto">
 
@@ -418,8 +410,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
   <Footer />
 </Layout>
 
-<style>
-  /* About background image */
+<style>  /* About background image (Hero section) - restored */
   .about-background {
     background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
@@ -427,6 +418,24 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     background-repeat: no-repeat;
     opacity: 0.5;
     background-attachment: scroll;
+  }
+
+  /* Content sections background for sections after hero */
+  .content-section-background {
+    position: relative;
+  }
+
+  .content-section-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/fondo_1_dark.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    opacity: 0.3;
+    z-index: -1;
   }
 
   /* Mobile specific background optimizations */
@@ -446,13 +455,6 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     }
   }
 
-  /* Grid pattern */
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
 
   /* Enhanced gradient text */
   .gradient-text-blue-cyan {
@@ -863,9 +865,7 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
     background-color: #000000 !important;
     background: #000000 !important;
   }
-
   /* Hide or override Layout decorative elements */
-  .absolute.inset-0.diagonal-grid,
   .absolute.top-10.left-10,
   .absolute.bottom-10.right-10,
   .absolute.top-1\\/2.left-1\\/2,

@@ -24,11 +24,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     
     <!-- Bottom blur transition -->
     <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
-    
-    <!-- Geometric grid pattern -->
-    <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
-      <div class="absolute inset-0 grid-pattern"></div>
-    </div>
+  
 
     <!-- Main content container following Hero patterns -->
     <div class="container mx-auto px-4 py-6 md:py-12 lg:py-16 relative z-10">
@@ -151,9 +147,8 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       </div>
     </div>
   </section>
-
   <!-- Software Versions Section -->
-  <section id="download-section" class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section id="download-section" class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         
@@ -544,9 +539,8 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       </div>
     </div>
   </section>
-
   <!-- System Requirements Section -->
-  <section id="system-requirements" class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section id="system-requirements" class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -712,9 +706,8 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       </div>
     </div>
   </section>
-
   <!-- Roadmap Section -->
-  <section class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -954,9 +947,8 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       </div>
     </div>
   </section>
-
   <!-- Documentation & Support Section -->
-  <section class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -1165,8 +1157,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
       justify-content: flex-start !important;
     }
   }
-
-  /* Downloads background image */
+  /* Downloads background image (Hero section) - restored */
   .downloads-background {
     background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
@@ -1174,6 +1165,24 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     background-repeat: no-repeat;
     opacity: 0.5;
     background-attachment: scroll;
+  }
+
+  /* Content sections background for sections after hero */
+  .content-section-background {
+    position: relative;
+  }
+
+  .content-section-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/fondo_1_dark.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    opacity: 0.3;
+    z-index: -1;
   }
 
   /* Mobile specific background optimizations */
@@ -1193,13 +1202,6 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     }
   }
 
-  /* Grid pattern */
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
 
   /* Enhanced gradient text */
   .gradient-text-blue-cyan {
@@ -1728,9 +1730,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     background-color: #000000 !important;
     background: #000000 !important;
   }
-
   /* Hide or override Layout decorative elements */
-  .absolute.inset-0.diagonal-grid,
   .absolute.top-10.left-10,
   .absolute.bottom-10.right-10,
   .absolute.top-1\\/2.left-1\\/2,

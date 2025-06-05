@@ -9,10 +9,6 @@
   <div class="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black via-black/80 to-transparent z-0"></div>
   <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/95 via-black/60 to-transparent z-0"></div>
 
-  <!-- Grid background pattern (opacidad baja) -->
-  <div class="absolute inset-0 opacity-20 z-0">
-    <div class="grid-pattern"></div>
-  </div>
 
   <!-- Elementos decorativos: círculos pulsantes -->
   <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse-slow z-0"></div>
@@ -111,28 +107,6 @@
 
 <style>
 /* ——————————————————————————————————————————————
-   Grid pattern background
-————————————————————————————————————————————— */
-.grid-pattern {
-  background-image: 
-    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: 0 0, 0 0;
-  width: 100%;
-  height: 100%;
-  animation: grid-move 20s linear infinite;
-}
-@keyframes grid-move {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(40px, 40px);
-  }
-}
-
-/* ——————————————————————————————————————————————
    Rotación lenta para el icosaedro
 ————————————————————————————————————————————— */
 @keyframes spin-slow {
@@ -213,13 +187,6 @@ section::after {
 ————————————————————————————————————————————— */
 /* Móviles muy pequeños (<640px) */
 @media (max-width: 640px) {
-  .grid-pattern {
-    background-size: 20px 20px;
-  }
-  @keyframes grid-move {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(20px, 20px); }
-  }
   /* Rotación más lenta en móviles para performance */
   .animate-spin-slow {
     animation: spin-slow 30s linear infinite;

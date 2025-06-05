@@ -23,11 +23,6 @@ const description = "Términos y condiciones de uso de HYDRA²¹ - Software de i
     <!-- Bottom blur transition -->
     <div class="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
 
-    <!-- Geometric grid pattern -->
-    <div class="absolute inset-0 opacity-4 xs:opacity-5 sm:opacity-6 md:opacity-8 lg:opacity-10">
-      <div class="absolute inset-0 grid-pattern"></div>
-    </div>
-
     <!-- Main content container with proper header spacing -->
     <div class="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 relative z-10 pt-20 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 pb-8 xs:pb-10 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24">
       
@@ -82,9 +77,8 @@ const description = "Términos y condiciones de uso de HYDRA²¹ - Software de i
       </div>
     </div>
   </section>
-
   <!-- Terms Content Section -->
-  <section id="contenido" class="bg-black min-h-screen py-16 sm:py-20 md:py-24">
+  <section id="contenido" class="content-section-background bg-black min-h-screen py-16 sm:py-20 md:py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
 
       <!-- Content Header -->
@@ -184,7 +178,7 @@ const description = "Términos y condiciones de uso de HYDRA²¹ - Software de i
 </Layout>
 
 <style>
-  /* Terms background image */
+  /* Terms background image (Hero section) */
   .terms-background {
     background-image: url('/assets/images/fondo_3_dark.png');
     background-size: cover;
@@ -192,6 +186,24 @@ const description = "Términos y condiciones de uso de HYDRA²¹ - Software de i
     background-repeat: no-repeat;
     opacity: 0.5;
     background-attachment: scroll;
+  }
+
+  /* Content sections background for sections after hero */
+  .content-section-background {
+    position: relative;
+  }
+
+  .content-section-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/fondo_1_dark.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    opacity: 0.3;
+    z-index: -1;
   }
 
   /* Mobile specific background optimizations */
@@ -210,15 +222,6 @@ const description = "Términos y condiciones de uso de HYDRA²¹ - Software de i
       opacity: 0.5;
     }
   }
-
-  /* Grid pattern */
-  .grid-pattern {
-    background-image: 
-      linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
   /* Floating animation */
   @keyframes float-gentle {
     0%, 100% { transform: translateY(0px) rotate(0deg); }

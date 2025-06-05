@@ -71,9 +71,7 @@ const uniqueId = `viewport-${Math.random().toString(36).substring(2, 9)}`;
 
       // Set initial state
       this.setInitialState(element, config);
-    }
-
-    private setInitialState(element: Element, config: AnimationConfig) {
+    }    private setInitialState(element: Element, config: AnimationConfig) {
       const htmlElement = element as HTMLElement;
 
       // Respect prefers-reduced-motion
@@ -85,35 +83,38 @@ const uniqueId = `viewport-${Math.random().toString(36).substring(2, 9)}`;
         return;
       }
 
-      // Simple and fast transition
-      htmlElement.style.transition = `opacity 200ms ease, transform 200ms ease`;
-      htmlElement.style.transitionDelay = `${config.delay * 0.3}ms`;
+      // Ultra-fast transition with hardware acceleration
+      htmlElement.style.transition = `opacity 100ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 100ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
+      htmlElement.style.transitionDelay = `${config.delay * 0.1}ms`;
+      htmlElement.style.willChange = 'opacity, transform';
+      htmlElement.style.backfaceVisibility = 'hidden';
+      htmlElement.style.perspective = '1000px';
 
-      // Simple and fast animation states
+      // Ultra-fast animation states
       switch (config.animation) {
         case 'fade-in':
           htmlElement.style.opacity = '0';
           break;
         case 'slide-up':
           htmlElement.style.opacity = '0';
-          htmlElement.style.transform = 'translateY(20px)';
+          htmlElement.style.transform = 'translate3d(0, 10px, 0)';
           break;
         case 'stagger':
           htmlElement.style.opacity = '0';
-          htmlElement.style.transform = 'translateY(15px)';
+          htmlElement.style.transform = 'translate3d(0, 8px, 0)';
           this.setupStaggerAnimation(element);
           break;
       }
-    }
-
-    private setupStaggerAnimation(element: Element) {
+    }    private setupStaggerAnimation(element: Element) {
       const children = element.children;
-      Array.from(children).slice(0, 6).forEach((child, index) => { // Limit to 6 children for performance
+      Array.from(children).slice(0, 8).forEach((child, index) => { // Increased to 8 for better stagger effect
         const htmlChild = child as HTMLElement;
         htmlChild.style.opacity = '0';
-        htmlChild.style.transform = 'translateY(10px)';
-        htmlChild.style.transition = 'opacity 150ms ease, transform 150ms ease';
-        htmlChild.style.transitionDelay = `${index * 50}ms`;
+        htmlChild.style.transform = 'translate3d(0, 5px, 0)';
+        htmlChild.style.transition = 'opacity 80ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 80ms cubic-bezier(0.25, 0.1, 0.25, 1)';
+        htmlChild.style.transitionDelay = `${index * 20}ms`; // Faster stagger timing
+        htmlChild.style.willChange = 'opacity, transform';
+        htmlChild.style.backfaceVisibility = 'hidden';
       });
     }
 
@@ -136,33 +137,43 @@ const uniqueId = `viewport-${Math.random().toString(36).substring(2, 9)}`;
           this.animateOut(entry.target, config);
         }
       });
-    }
-
-    private animateIn(element: Element, config: AnimationConfig) {
+    }    private animateIn(element: Element, config: AnimationConfig) {
       const htmlElement = element as HTMLElement;
 
-      // Fast animation trigger
+      // Ultra-fast animation trigger with RAF
       requestAnimationFrame(() => {
         htmlElement.style.opacity = '1';
-        htmlElement.style.transform = 'none';
+        htmlElement.style.transform = 'translate3d(0, 0, 0)';
 
         if (config.animation === 'stagger') {
           const children = element.children;
           Array.from(children).forEach((child) => {
             const htmlChild = child as HTMLElement;
             htmlChild.style.opacity = '1';
-            htmlChild.style.transform = 'none';
+            htmlChild.style.transform = 'translate3d(0, 0, 0)';
           });
         }
 
-        // Add animated class
+        // Add animated class immediately
         htmlElement.classList.add('viewport-animated');
 
-        // Quick cleanup
+        // Ultra-quick cleanup for performance
         setTimeout(() => {
           htmlElement.style.transition = '';
           htmlElement.style.transitionDelay = '';
-        }, 250);
+          htmlElement.style.willChange = 'auto';
+          
+          // Clean up children for stagger animation
+          if (config.animation === 'stagger') {
+            const children = element.children;
+            Array.from(children).forEach((child) => {
+              const htmlChild = child as HTMLElement;
+              htmlChild.style.transition = '';
+              htmlChild.style.transitionDelay = '';
+              htmlChild.style.willChange = 'auto';
+            });
+          }
+        }, 150); // Reduced cleanup time
       });
     }
 

@@ -123,29 +123,45 @@ class PerformanceOptimizer {
       html.classList.add("gpu-limited");
     }
   }
-
   optimizeForLowPower() {
     console.log(
       "📱 Aplicando optimizaciones para dispositivos de baja potencia..."
     );
 
-    // Deshabilitar efectos costosos
-    document.documentElement.style.setProperty("--animation-duration", "0.05s");
+    // Ultra-fast transitions
+    document.documentElement.style.setProperty("--animation-duration", "0.1s");
+    document.documentElement.style.setProperty("--transition-duration", "0.1s");
 
     // Simplificar transiciones y efectos
     const style = document.createElement("style");
     style.textContent = `
+      /* Ultra-fast low-power optimizations */
       .page-transition-overlay { display: none !important; }
-      .diagonal-grid { display: none !important; }
-      .animate-float, .animate-pulse-slow, .animate-float-gentle { animation: none !important; }
-      .viewport-observer { opacity: 1 !important; transform: none !important; }
-      [class*="blur-"] { filter: none !important; }
-      [class*="backdrop-blur"] { backdrop-filter: none !important; }
+      .animate-float, .animate-pulse-slow, .animate-float-gentle { 
+        animation-duration: 2s !important; 
+        animation-timing-function: linear !important;
+      }
+      .viewport-observer { 
+        opacity: 1 !important; 
+        transform: none !important; 
+        transition: opacity 0.1s ease !important;
+      }
+      [class*="blur-"] { filter: blur(2px) !important; }
+      [class*="backdrop-blur"] { backdrop-filter: blur(4px) !important; }
       * { will-change: auto !important; }
+      ::view-transition-old(*), ::view-transition-new(*) { 
+        animation-duration: 0.1s !important; 
+      }
+      /* Instant background loading */
+      .about-background, .downloads-background, .terms-background, 
+      .privacy-background, .cookies-background {
+        background-attachment: scroll !important;
+        transform: translateZ(0) !important;
+        will-change: transform !important;
+      }
     `;
     document.head.appendChild(style);
   }
-
   optimizeForMobile() {
     console.log("📱 Aplicando optimizaciones para móvil...");
 
@@ -159,25 +175,70 @@ class PerformanceOptimizer {
         "width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no";
     }
 
-    // Reducir efectos de blur en móvil
+    // Ultra-fast mobile optimizations
     const style = document.createElement("style");
     style.textContent = `
+      /* Ultra-fast mobile transitions */
+      * { 
+        transition-duration: 0.15s !important; 
+        animation-duration: 3s !important;
+      }
+      .viewport-observer {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: opacity 0.1s ease !important;
+      }
+      /* Fast blur effects for mobile */
       @media (max-width: 768px) {
-        .glass-effect { backdrop-filter: blur(5px) !important; }
-        .page-transition-overlay { backdrop-filter: blur(8px) !important; }
+        [class*="blur-"] { filter: blur(3px) !important; }
+        .glass-effect { backdrop-filter: blur(3px) !important; }
+        .page-transition-overlay { backdrop-filter: blur(4px) !important; }
+        /* Instant background loading on mobile */
+        .about-background, .downloads-background, .terms-background,
+        .privacy-background, .cookies-background {
+          background-attachment: scroll !important;
+          transform: translateZ(0) !important;
+          will-change: transform !important;
+          opacity: 0.6 !important;
+        }
       }
     `;
     document.head.appendChild(style);
   }
-
   optimizeForHighPerformance() {
     console.log("⚡ Aplicando optimizaciones para alto rendimiento...");
 
-    // Habilitar efectos avanzados
-    document.documentElement.style.setProperty("--animation-duration", "0.4s");
+    // Habilitar efectos avanzados pero optimizados
+    document.documentElement.style.setProperty("--animation-duration", "0.2s");
+    document.documentElement.style.setProperty("--transition-duration", "0.2s");
     document.body.classList.add("high-performance-device");
 
-    // Precargar más recursos
+    // Ultra-smooth high-performance optimizations
+    const style = document.createElement("style");
+    style.textContent = `
+      /* Ultra-smooth high-performance mode */
+      * {
+        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+      }
+      .viewport-observer {
+        transition: opacity 0.2s ease, transform 0.2s ease !important;
+      }
+      /* Smooth background loading for high-performance */
+      .about-background, .downloads-background, .terms-background,
+      .privacy-background, .cookies-background {
+        transition: opacity 0.3s ease, transform 0.3s ease !important;
+        transform: translateZ(0) !important;
+        will-change: transform, opacity !important;
+      }
+      /* Enhanced blur effects for high-performance devices */
+      [class*="backdrop-blur"] {
+        backdrop-filter: blur(12px) saturate(180%) !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Precargar más recursos para experiencia premium
     this.prefetchCriticalResources();
   }
 
