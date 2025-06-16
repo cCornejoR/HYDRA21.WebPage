@@ -204,7 +204,8 @@
 
   @media (min-width: 768px) {
     .features-background {
-      background-attachment: fixed;
+      /* Avoid fixed backgrounds for smoother scrolling */
+      background-attachment: scroll;
       opacity: 0.5;
     }
   }

@@ -209,9 +209,10 @@ import ViewportAnimator from './ViewportAnimator.astro';
   }
 }
 /* Tablet (≥768px) - fondo fijo y un poco más transparente */
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
   .hero-background {
-    background-attachment: fixed;
+    /* Fixed backgrounds cause jank on some browsers */
+    background-attachment: scroll;
     opacity: 0.5;
   }
 }

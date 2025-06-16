@@ -146,7 +146,8 @@ class UltraFastBackgroundLoader {
 
   applyHighPerformanceOptimizations(element) {
     const style = `
-      background-attachment: fixed !important;
+      /* Using scroll improves rendering across devices */
+      background-attachment: scroll !important;
       background-size: cover !important;
       background-position: center center !important;
       opacity: 0.5 !important;

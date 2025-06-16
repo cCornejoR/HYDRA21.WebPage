@@ -450,7 +450,8 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
 
   @media (min-width: 768px) {
     .about-background {
-      background-attachment: fixed;
+      /* Prevent janky fixed scrolling */
+      background-attachment: scroll;
       opacity: 0.5;
     }
   }
@@ -751,7 +752,8 @@ const description = "Conoce más sobre HYDRA²¹ y nuestro compromiso con la ing
   /* Tablet (≥768px) - background fixed and more transparent */
   @media (min-width: 768px) {
     .about-background {
-      background-attachment: fixed;
+      /* Prevent janky fixed scrolling */
+      background-attachment: scroll;
       opacity: 0.4;
     }
   }
