@@ -125,7 +125,8 @@
 
   @media (min-width: 768px) {
     .documentation-background {
-      background-attachment: fixed;
+      /* Use scroll to avoid performance issues */
+      background-attachment: scroll;
       opacity: 0.5;
     }
   }

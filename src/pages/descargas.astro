@@ -1197,7 +1197,8 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 
   @media (min-width: 768px) {
     .downloads-background {
-      background-attachment: fixed;
+      /* Avoid janky fixed backgrounds */
+      background-attachment: scroll;
       opacity: 0.5;
     }
   }
