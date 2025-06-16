@@ -27,7 +27,8 @@ export default function ProtectedDownload({
         sessionStorage.removeItem("hydra_download_timestamp");
         setIsAuthenticated(false);
       } else {
-        setIsAuthenticated(isAuth && token);
+        // Aseguramos valor booleano para evitar estados inconsistentes
+        setIsAuthenticated(isAuth && Boolean(token));
       }
     };
 
@@ -70,6 +71,11 @@ export default function ProtectedDownload({
         detail: { downloadUrl },
       });
       window.dispatchEvent(event);
+
+      // Notificar al callback si fue provisto
+      if (typeof onAuthRequired === "function") {
+        onAuthRequired();
+      }
     }
   };
 
