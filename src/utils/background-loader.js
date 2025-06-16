@@ -106,6 +106,11 @@ class UltraFastBackgroundLoader {
   }
 
   applyInstantOptimizations(element) {
+    const placeholderColor = element.dataset.bgColor;
+    if (placeholderColor) {
+      element.style.backgroundColor = placeholderColor;
+    }
+
     // Aplicar optimizaciones según el tipo de dispositivo
     if (this.isLowPowerDevice) {
       this.applyLowPowerOptimizations(element);
