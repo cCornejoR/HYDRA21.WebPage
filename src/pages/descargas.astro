@@ -15,7 +15,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
   <!-- Downloads Hero Section -->
   <section class="downloads-section relative min-h-screen flex items-center overflow-hidden bg-black" style="min-height: 100vh; min-height: 100svh;">
     <!-- Background Image -->
-    <div class="absolute inset-0 bg-black downloads-background">
+    <div class="absolute inset-0 bg-black downloads-background" style="background-color:#000" data-bg-color="#000">
       <div class="absolute inset-0 bg-black/40 xs:bg-black/30 sm:bg-black/25 md:bg-black/20 lg:bg-black/30"></div>
     </div>
     
@@ -148,7 +148,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     </div>
   </section>
   <!-- Software Versions Section -->
-  <section id="download-section" class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section id="download-section" class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24" style="background-color:#000" data-bg-color="#000">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         
@@ -540,7 +540,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     </div>
   </section>
   <!-- System Requirements Section -->
-  <section id="system-requirements" class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section id="system-requirements" class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24" style="background-color:#000" data-bg-color="#000">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -707,7 +707,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     </div>
   </section>
   <!-- Roadmap Section -->
-  <section class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24" style="background-color:#000" data-bg-color="#000">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -948,7 +948,7 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
     </div>
   </section>
   <!-- Documentation & Support Section -->
-  <section class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+  <section class="content-section-background bg-black py-12 sm:py-16 md:py-20 lg:py-24" style="background-color:#000" data-bg-color="#000">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
 
@@ -1197,7 +1197,8 @@ const description = "Descarga HYDRA²¹ - Software de Ingeniería Hidráulica de
 
   @media (min-width: 768px) {
     .downloads-background {
-      background-attachment: fixed;
+      /* Avoid janky fixed backgrounds */
+      background-attachment: scroll;
       opacity: 0.5;
     }
   }

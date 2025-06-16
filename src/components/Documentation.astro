@@ -4,7 +4,7 @@
 
 <section id="documentacion" class="documentation-hero relative min-h-screen flex items-center overflow-hidden">
   <!-- Background Image -->
-  <div class="absolute inset-0 bg-black documentation-background">
+  <div class="absolute inset-0 bg-black documentation-background" style="background-color:#000" data-bg-color="#000">
     <div class="absolute inset-0 bg-black/50 xs:bg-black/40 sm:bg-black/35 md:bg-black/30 lg:bg-black/40"></div>
   </div>
 
@@ -125,7 +125,8 @@
 
   @media (min-width: 768px) {
     .documentation-background {
-      background-attachment: fixed;
+      /* Use scroll to avoid performance issues */
+      background-attachment: scroll;
       opacity: 0.5;
     }
   }

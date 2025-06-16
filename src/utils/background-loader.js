@@ -106,6 +106,11 @@ class UltraFastBackgroundLoader {
   }
 
   applyInstantOptimizations(element) {
+    const placeholderColor = element.dataset.bgColor;
+    if (placeholderColor) {
+      element.style.backgroundColor = placeholderColor;
+    }
+
     // Aplicar optimizaciones según el tipo de dispositivo
     if (this.isLowPowerDevice) {
       this.applyLowPowerOptimizations(element);
@@ -146,7 +151,8 @@ class UltraFastBackgroundLoader {
 
   applyHighPerformanceOptimizations(element) {
     const style = `
-      background-attachment: fixed !important;
+      /* Using scroll improves rendering across devices */
+      background-attachment: scroll !important;
       background-size: cover !important;
       background-position: center center !important;
       opacity: 0.5 !important;

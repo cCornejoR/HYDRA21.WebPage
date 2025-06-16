@@ -11,7 +11,7 @@ import ViewportAnimator from './ViewportAnimator.astro';
 <section id="inicio" class="hero-section relative min-h-screen flex items-center overflow-hidden">
 
   <!-- 1) FONDO OSCURO + OVERLAY SEMITRANSPARENTE -->
-  <div class="absolute inset-0 bg-black hero-background">
+  <div class="absolute inset-0 bg-black hero-background" style="background-color:#000" data-bg-color="#000">
     <div class="absolute inset-0 bg-black/40"></div>
   </div>
 
@@ -209,9 +209,10 @@ import ViewportAnimator from './ViewportAnimator.astro';
   }
 }
 /* Tablet (≥768px) - fondo fijo y un poco más transparente */
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
   .hero-background {
-    background-attachment: fixed;
+    /* Fixed backgrounds cause jank on some browsers */
+    background-attachment: scroll;
     opacity: 0.5;
   }
 }
